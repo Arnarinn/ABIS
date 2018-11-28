@@ -1,3 +1,0 @@
-volvo red 20000
-honda blue 10000
-subaru yellow 5000
