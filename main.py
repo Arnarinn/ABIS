@@ -1,5 +1,5 @@
 from data import getData
-
+import datetime
 
 class UI:
     data = getData()
@@ -11,9 +11,19 @@ class UI:
           '4. New customer \n'
           '5. View customer \n')
     option = input('Choose')
-    if option == 3:
+    if option == '1':
+        employee = input('Type in employee name:')
+        timeOfPickUp = input('Type in time of pick up:')
+        timeOfReturn = input('Type in time of return:')
+        carNumber = input('Type in car number:')
+        getData.orderInsert(data, employee, str(datetime.datetime.now()),
+                            timeOfPickUp, timeOfReturn, carNumber)
+    if option == '2':
+        orderData = data.orderInit()
+        print(orderData)
+    if option == '3':
         carData = data.carInit()
         for v in carData:
             print('Type: ' + v[0] + '\n'
                   'Color: ' + v[1] + '\n'
-                  'Price: ' + v[2])
+                  'Price: ' + v[2] + '\n')
