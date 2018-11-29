@@ -1,17 +1,15 @@
-import datetime
-
 class GetData:
     def __init__(self):
         # Get the data from the car csv file
-        self.carsWholeR = open('data/cars.csv')
+        self.__carsWholeR = open('data/cars.csv')
         # Gets the data from the customer csv file
-        self.customersWholeR = open('data/customers.csv')
-        self.customersWholeA = open('data/customers.csv', 'a')
+        self.__customersWholeR = open('data/customers.csv')
+        self.__customersWholeA = open('data/customers.csv', 'a')
         # Gets the data from the order csv file
-        self.ordersWholeR = open('data/orders.csv')
-        self.ordersWholeA = open('data/orders.csv', 'a')
+        self.__ordersWholeR = open('data/orders.csv')
+        self.__ordersWholeA = open('data/orders.csv', 'a')
 
-    def __fileInit__(self, file):
+    def __fileData__(self, file):
         # Makes an arrays of the lines taken from the cars.csv file
         with file as l:
             fileWhole = l.readlines()
@@ -22,7 +20,7 @@ class GetData:
         # Makes an empty fileVariable x fileAmount matrix of arrays.
         fileMatrix = [[0] * fileVariables for i in range(fileAmount)]
         # Inserts the values from the file into the array
-        i: int = 0
+        i = 0
         # Further splits each car line into its
         # variables, and inputs it into the empty matrix
         for car in fileWhole:
@@ -32,23 +30,25 @@ class GetData:
         file.close()
         return fileMatrix
 
-    def carInit(self):
-        return self.__fileInit__(self.carsWholeR)
+    def carData(self):
+        return self.__fileData__(self.__carsWholeR)
 
-    def customerInit(self):
-        return self.__fileInit__(self.customersWholeR)
+    def customerData(self):
+        return self.__fileData__(self.__customersWholeR)
 
-    def orderInit(self):
-        return self.__fileInit__(self.ordersWholeR)
+    def orderData(self):
+        return self.__fileData__(self.__ordersWholeR)
 
     def orderInsert(self, employee, timeOfOrder,
                     timeofPickUp, timeOfReturn, carNumber):
-        str = '\n'+employee+',' + timeOfOrder + ','\
-              + timeofPickUp + ',' + timeOfReturn+',' + carNumber
-        self.ordersWholeA.write(str)
-        self.ordersWholeA.close()
+
+        string = '\n ' + employee + ',' + timeOfOrder + ',' \
+              + timeofPickUp + ',' + timeOfReturn + ',' + carNumber
+
+        self.__ordersWholeA.write(string)
+        self.__ordersWholeA.close()
 
     def customerInsert(self, name, age):
-        str = '\n' + name + ',' + age
-        self.customersWholeA.write(str)
-        self.customersWholeA.close()
+        string = '\n' + name + ',' + age
+        self.__customersWholeA.write(string)
+        self.__customersWholeA.close()
