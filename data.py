@@ -29,7 +29,7 @@ class GetData:
             c = car.split(',')
             fileMatrix[i] = c
             i += 1
-        self.carsWholeR.close()
+        file.close()
         return fileMatrix
 
     def carInit(self):
