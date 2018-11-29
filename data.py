@@ -8,6 +8,7 @@ class GetData:
         # Gets the data from the order csv file
         self.__ordersWholeR = open('data/orders.csv')
         self.__ordersWholeA = open('data/orders.csv', 'a')
+        # Gets the data from the employees csv file
 
     def __fileData__(self, file):
         # Makes an arrays of the lines taken from the cars.csv file
@@ -40,10 +41,10 @@ class GetData:
         return self.__fileData__(self.__ordersWholeR)
 
     def orderInsert(self, employee, timeOfOrder,
-                    timeofPickUp, timeOfReturn, carNumber):
+                    timeOfPickUp, timeOfReturn, carNumber):
 
         string = '\n ' + employee + ',' + timeOfOrder + ',' \
-              + timeofPickUp + ',' + timeOfReturn + ',' + carNumber
+              + timeOfPickUp + ',' + timeOfReturn + ',' + carNumber
 
         self.__ordersWholeA.write(string)
         self.__ordersWholeA.close()

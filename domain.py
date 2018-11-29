@@ -3,13 +3,22 @@ from data import GetData
 
 class Domain:
     def __init__(self):
-        self.data = GetData()
+        self.__data = GetData()
 
     def getCustomerData(self):
-        return self.data.customerData()
+        return self.__data.customerData()
 
     def getCarData(self):
-        return self.data.carData()
+        return self.__data.carData()
 
     def getOrderData(self):
-        return self.data.orderData()
+        return self.__data.orderData()
+
+    def insertCustomer(self, name, age):
+        self.__data.customerInsert(name, age)
+
+    def insertOrder(self, employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber):
+        self.__data.orderInsert(employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber)
+
+    def checkLogin(self):
+        return True
