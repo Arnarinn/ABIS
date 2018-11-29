@@ -1,6 +1,6 @@
 import datetime
 
-class getData:
+class GetData:
     def __init__(self):
         # Get the data from the car csv file
         self.carsWholeR = open('data/cars.csv')
@@ -43,12 +43,12 @@ class getData:
 
     def orderInsert(self, employee, timeOfOrder,
                     timeofPickUp, timeOfReturn, carNumber):
-        str = '\n'+employee+','+timeOfOrder+','\
-              +timeofPickUp+','+timeOfReturn+','+carNumber
+        str = '\n'+employee+',' + timeOfOrder + ','\
+              + timeofPickUp + ',' + timeOfReturn+',' + carNumber
         self.ordersWholeA.write(str)
         self.ordersWholeA.close()
 
     def customerInsert(self, name, age):
-        str = '\n'+name+','+age
+        str = '\n' + name + ',' + age
         self.customersWholeA.write(str)
         self.customersWholeA.close()

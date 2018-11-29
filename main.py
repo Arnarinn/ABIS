@@ -1,8 +1,8 @@
-from data import getData
+from data import GetData
 import datetime
 
 class UI:
-    data = getData()
+    data = GetData()
     print('Welcome to the ABIS manager program!')
     print('___________________________________')
     print('1. New order \n'
@@ -16,8 +16,8 @@ class UI:
         timeOfPickUp = input('Type in time of pick up:')
         timeOfReturn = input('Type in time of return:')
         carNumber = input('Type in car number:')
-        getData.orderInsert(data, employee, str(datetime.datetime.now()),
-                            timeOfPickUp, timeOfReturn, carNumber)
+        data.orderInsert(employee, str(datetime.datetime.now())
+                            , timeOfPickUp, timeOfReturn, carNumber)
     if option == '2':
         orderData = data.orderInit()
         print(orderData)
