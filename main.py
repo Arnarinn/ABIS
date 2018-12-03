@@ -1,12 +1,11 @@
-from ui import UI
+import ui
 import os
 
 
 def main():
-    ui = UI()
+    UI = ui.Login()
     os.system('cls')
-    ui.login()
-    ui.home()
+    UI.login()
 
 
 if __name__ == '__main__':

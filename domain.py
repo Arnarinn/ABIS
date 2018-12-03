@@ -1,27 +1,23 @@
-from data import GetData
-
+import data
 
 class Domain:
-    def __init__(self):
-        self.__data = GetData()
-
     def getCustomerData(self):
-        return self.__data.customerData()
+        return data.GetCustomers().customerData()
 
     def getCarData(self):
-        return self.__data.carData()
+        return data.GetCars().carData()
 
     def getOrderData(self):
-        return self.__data.orderData()
+        return data.GetOrders().orderData()
 
     def insertCustomer(self, name, age):
-        self.__data.customerInsert(name, age)
+        data.GetCustomers.customerInsert(name, age)
 
     def insertOrder(self, employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber):
-        self.__data.orderInsert(employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber)
+        data.GetOrders.orderInsert(employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber)
 
     def checkLogin(self, username, password):
-        employeeData = self.__data.emplyeeData()
+        employeeData = data.GetEmployees().emplyeeData()
         for e in employeeData:
             if e[0] == username:
                 if e[1] == password:

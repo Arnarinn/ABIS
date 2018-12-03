@@ -4,9 +4,10 @@ import datetime
 import os
 
 
-class UI:
+class Login:
     def __init__(self):
         self.domain = Domain()
+        self.csui = CSUI()
 
     def login(self):
         while True:
@@ -14,10 +15,16 @@ class UI:
             username = input('Username: ')
             password = input('password: ')
             if self.domain.checkLogin(username, password):
+                self.csui.home()
                 break
             else:
                 os.system('cls')
                 print('Either the username or password was wrong')
+
+
+class CSUI:
+    def __init__(self):
+        self.domain = Domain()
 
     def home(self):
         while True:
@@ -65,4 +72,11 @@ class UI:
                 print('press any key to go back')
                 msvcrt.getch()
             if c == b'q':
+                os.system('cls')
                 break
+#class CMUI:
+
+
+
+
+
