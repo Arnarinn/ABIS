@@ -55,7 +55,8 @@ class CSUI:
             if c == b'2':
                 os.system('cls')
                 orderData = self.domain.getOrderData()
-                print(orderData)
+                for v in orderData:
+                    print(v.__str__())
                 # Waits for any input on the keyboard
                 # to give time for user to read their info
                 print('press any key to go back')
@@ -67,6 +68,15 @@ class CSUI:
                     print('Type: ' + v[0] + '\n'
                           'Color: ' + v[1] + '\n'
                           'Price: ' + v[2] + '\n')
+                # Waits for any input on the keyboard
+                # to give time for user to read their info
+                print('press any key to go back')
+                msvcrt.getch()
+            if c == b'5':
+                os.system('cls')
+                customerData = self.domain.getCustomerData()
+                for v in customerData:
+                    print(v.__str__())
                 # Waits for any input on the keyboard
                 # to give time for user to read their info
                 print('press any key to go back')

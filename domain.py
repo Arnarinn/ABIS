@@ -1,5 +1,6 @@
 import data
 
+
 class Domain:
     def getCustomerData(self):
         return data.GetCustomers().customerData()
@@ -10,11 +11,13 @@ class Domain:
     def getOrderData(self):
         return data.GetOrders().orderData()
 
-    def insertCustomer(self, name, age):
-        data.GetCustomers.customerInsert(name, age)
+    def insertCustomer(self, ssn, name, age):
+        customer = data.Customer(ssn, name, age)
+        data.GetCustomers.customerInsert(customer)
 
-    def insertOrder(self, employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber):
-        data.GetOrders.orderInsert(employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber)
+    def insertOrder(self, employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber):
+        order = data.Order(employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber)
+        data.GetOrders.orderInsert(order)
 
     def checkLogin(self, username, password):
         employeeData = data.GetEmployees().emplyeeData()
