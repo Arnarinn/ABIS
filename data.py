@@ -9,6 +9,7 @@ class GetData:
         self.__ordersWholeR = open('data/orders.csv')
         self.__ordersWholeA = open('data/orders.csv', 'a')
         # Gets the data from the employees csv file
+        self.__employeesWholeR = open('data/employees.csv')
 
     def __fileData__(self, file):
         # Makes an arrays of the lines taken from the cars.csv file
@@ -39,6 +40,9 @@ class GetData:
 
     def orderData(self):
         return self.__fileData__(self.__ordersWholeR)
+
+    def emplyeeData(self):
+        return self.__fileData__(self.__employeesWholeR)
 
     def orderInsert(self, employee, timeOfOrder,
                     timeOfPickUp, timeOfReturn, carNumber):

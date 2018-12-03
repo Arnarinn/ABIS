@@ -20,5 +20,10 @@ class Domain:
     def insertOrder(self, employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber):
         self.__data.orderInsert(employee, timeOfOrder, timeOfPickUp, timeOfReturn, carNumber)
 
-    def checkLogin(self):
-        return True
+    def checkLogin(self, username, password):
+        employeeData = self.__data.emplyeeData()
+        for e in employeeData:
+            if e[0] == username:
+                if e[1] == password:
+                    return True
+        return False

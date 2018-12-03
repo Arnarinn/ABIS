@@ -1,10 +1,10 @@
-from data import GetData
-from domain import Domain
 from ui import UI
+import os
 
 
 def main():
     ui = UI()
+    os.system('cls')
     ui.login()
     ui.home()
 

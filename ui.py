@@ -10,16 +10,18 @@ class UI:
 
     def login(self):
         while True:
-            print('Login')
+            print('          Login')
             username = input('Username: ')
-            login = input('login: ')
-            if self.domain.checkLogin():
+            password = input('password: ')
+            if self.domain.checkLogin(username, password):
                 break
             else:
+                os.system('cls')
                 print('Either the username or password was wrong')
 
     def home(self):
         while True:
+            os.system('cls')
             print('Welcome to the ABIS manager program!')
             print('___________________________________')
             print('1. New order \n'
@@ -31,6 +33,7 @@ class UI:
             # Detects a button press and which button was pressed
             c = msvcrt.getch()
             if c == b'1':
+                os.system('cls')
                 # loads of inputs to insert into the csv file
                 employee = input('Type in employee name:')
                 timeOfPickUp = input('Type in time of pick up:')
@@ -39,19 +42,27 @@ class UI:
                 self.domain.insertOrder(employee, str(datetime.datetime.now())
                                  , timeOfPickUp, timeOfReturn, carNumber)
                 # Waits for any input on the keyboard
+                # to give time for user to read their info
+                print('press any key to go back')
                 msvcrt.getch()
             if c == b'2':
+                os.system('cls')
                 orderData = self.domain.getOrderData()
                 print(orderData)
                 # Waits for any input on the keyboard
+                # to give time for user to read their info
+                print('press any key to go back')
                 msvcrt.getch()
             if c == b'3':
+                os.system('cls')
                 carData = self.domain.getCarData()
                 for v in carData:
                     print('Type: ' + v[0] + '\n'
                           'Color: ' + v[1] + '\n'
                           'Price: ' + v[2] + '\n')
                 # Waits for any input on the keyboard
+                # to give time for user to read their info
+                print('press any key to go back')
                 msvcrt.getch()
             if c == b'q':
                 break
