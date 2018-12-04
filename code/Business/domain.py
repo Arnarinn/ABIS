@@ -1,4 +1,6 @@
-import data
+import sys
+sys.path.append("..")
+
 
 
 class Domain:
