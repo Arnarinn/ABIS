@@ -75,6 +75,9 @@ class Order:
 
 class GetOrders:
     def orderData(self):
+        # Makes a ordersObjectArray which makes an empty array
+        # and then it creates an object of the relevant type and inputs
+        # it into the array and returns it.
         formattedData = formatData(open('data/orders.csv'))
         ordersObjectArray = []
         for line in formattedData:

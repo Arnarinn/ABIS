@@ -12,12 +12,14 @@ class Domain:
         return data.GetOrders().orderData()
 
     def insertCustomer(self, ssn, name, age):
+        getCustomers = data.GetCustomers()
         customer = data.Customer(ssn, name, age)
-        data.GetCustomers.customerInsert(customer)
+        getCustomers.customerInsert(customer)
 
     def insertOrder(self, employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber):
+        getOrders = data.GetOrders()
         order = data.Order(employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber)
-        data.GetOrders.orderInsert(order)
+        getOrders.orderInsert(order)
 
     def checkLogin(self, username, password):
         employeeData = data.GetEmployees().emplyeeData()

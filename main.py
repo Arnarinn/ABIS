@@ -3,9 +3,9 @@ import os
 
 
 def main():
-    UI = ui.Login()
+    Ui = ui.Startup()
     os.system('cls')
-    UI.login()
+    Ui.login()
 
 
 if __name__ == '__main__':
