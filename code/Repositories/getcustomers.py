@@ -11,4 +11,4 @@ class GetCustomers:
 
     def customerInsert(self, customer):
         with open('../data/customers.csv', 'a+') as customerFile:
-            customerFile.write(customer.__repr__() + '\n')
+            customerFile.write(customer.__repr__() +  '\n')
