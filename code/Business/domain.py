@@ -27,7 +27,7 @@ class Domain:
         getOrders.orderInsert(order)
 
     def checkLogin(self, username, password):
-        employeeData = GetEmployees().emplyeeData()
+        employeeData = GetEmployees().employeeData()
         for e in employeeData:
             if e[0] == username:
                 if e[1] == password:
