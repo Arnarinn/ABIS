@@ -82,9 +82,7 @@ class CSUI:
         os.system('cls')
         carData = self.domain.getCarData()
         for v in carData:
-            print('Type: ' + v[0] + '\n'
-                  'Color: ' + v[1] + '\n'
-                  'Price: ' + v[2] + '\n')
+            print(v)
         # Waits for any input on the keyboard
         # to give time for user to read their info
         print('press any key to go back')
