@@ -6,7 +6,7 @@ class GetCustomers:
         formattedData = formatData(open('../data/customers.csv'))
         customerObjectArray = []
         for line in formattedData:
-            customerObjectArray.append(Customer(line[0], line[1], line[2]))
+            customerObjectArray.append(Customer(line[0], line[1], line[2], line[3], line[4], line[5]))
         return customerObjectArray
 
     def customerInsert(self, customer):
