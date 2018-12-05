@@ -36,3 +36,10 @@ class Car:
                                               self.__numberOfSeats, self.__numberOfDoors,
                                               self.__inspected, self.__fuel, self.__wheelDrive,
                                               self.__shiftingOption, self.__status)
+
+    def getStatus(self):
+        return self.__status
+
+    
+    def setStatus(self, newStatus):
+        self.__status = bool(newStatus)
