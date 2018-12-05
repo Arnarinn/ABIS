@@ -1,6 +1,10 @@
 from .formatdata import formatData
-
+from Models.employee import Employee
 
 class GetEmployees:
     def employeeData(self):
-        return formatData(open('../data/employees.csv'))
+        formattedData = formatData(open('../data/employees.csv'))
+        employeeObjectArray = []
+        for line in formattedData:
+            employeeObjectArray.append(Employee(line[0], line[1], line[2]))
+        return employeeObjectArray

@@ -16,6 +16,9 @@ class Domain:
     def getOrderData(self):
         return GetOrders().orderData()
 
+    def getEmployeeData(self):
+        return GetEmployees().employeeData()
+
     def insertCustomer(self, ssn, name, age):
         getCustomers = GetCustomers()
         customer = Customer(ssn, name, age)
@@ -25,11 +28,3 @@ class Domain:
         getOrders = GetOrders()
         order = Order(employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber)
         getOrders.orderInsert(order)
-
-    def checkLogin(self, username, password):
-        employeeData = GetEmployees().employeeData()
-        for e in employeeData:
-            if e[0] == username:
-                if e[1] == password:
-                    return True
-        return False

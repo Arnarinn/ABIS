@@ -1,4 +1,5 @@
 from Business.domain import Domain
+from Business.employeedomain import EmployeeDomain
 import os
 from .csui import CSUI
 from .cmui import CMUI
@@ -7,23 +8,23 @@ from .cmui import CMUI
 class Startup:
     def __init__(self):
         self.domain = Domain()
+        self.employeedomain = EmployeeDomain()
 
     def login(self):
         while True:
             print('          Login')
             username = input('Username: ').upper()
             password = input('password: ')
-            if self.domain.checkLogin(username, password):
+            if self.employeedomain.checkLogin(username, password):
+                # print(self.employeedomain.returnType(self.employeedomain.getEmployee(username,password)))
+                # if self.employeedomain.returnType(self.employeedomain.getEmployee(username,password)) == 'CS':
                 csui = CSUI(self.domain)
                 csui.home()
                 break
+                # else:
+                    # cmui = CMUI(self.domain)
+                    # print('entered CM UI')
+                    # break
             else:
                 os.system('cls')
                 print('Either the username or password was wrong')
-
-
-
-
-
-
-

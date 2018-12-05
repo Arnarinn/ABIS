@@ -5,8 +5,9 @@ class Employee:
         self.__type = type
 
     def __str__(self):
-        return 'username: {}, password: secret, type {}'.format(self.__username,
-                                                                self.__type)
+        return 'username: {}, password: {}, type {}'.format(self.__username,
+                                                            self.__password,
+                                                            self.__type)
 
     def __repr__(self):
         return 'Employee({},{},{})'.format(self.__username,
@@ -18,3 +19,6 @@ class Employee:
 
     def getUsername(self):
         return self.__username
+
+    def getPassword(self):
+        return self.__password
