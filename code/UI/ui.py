@@ -1,6 +1,3 @@
-import sys
-sys.path.append('..')
-sys.path.insert(0, '../Repositories')
 from Business.domain import Domain
 import msvcrt
 import datetime
@@ -14,7 +11,7 @@ class Startup:
     def login(self):
         while True:
             print('          Login')
-            username = input('Username: ')
+            username = input('Username: ').upper()
             password = input('password: ')
             if self.domain.checkLogin(username, password):
                 csui = CSUI()

@@ -1,6 +1,4 @@
 import os
-import sys
-#sys.path.append('..')
 from UI.ui import Startup
 
 
