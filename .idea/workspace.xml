@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fc218c8-3cd3-4104-9083-60374fc369cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/Business/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/Models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/Repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/UI/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Business/domain.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Business/domain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Repositories/getcars.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Repositories/getcars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Repositories/getcustomers.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Repositories/getcustomers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Repositories/getemployees.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Repositories/getemployees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Repositories/getorders.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Repositories/getorders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/UI/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/ui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,19 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/UI/ui.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="51">
+              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -107,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/Business/domain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="187">
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="35" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -157,11 +137,11 @@
         <option value="$PROJECT_DIR$/code/Business/__init__.py" />
         <option value="$PROJECT_DIR$/code/UI/ui.py" />
         <option value="$PROJECT_DIR$/code/main.py" />
-        <option value="$PROJECT_DIR$/code/Business/domain.py" />
         <option value="$PROJECT_DIR$/code/Repositories/getcars.py" />
-        <option value="$PROJECT_DIR$/code/Repositories/getemployees.py" />
         <option value="$PROJECT_DIR$/code/Repositories/getcustomers.py" />
         <option value="$PROJECT_DIR$/code/Repositories/getorders.py" />
+        <option value="$PROJECT_DIR$/code/Business/domain.py" />
+        <option value="$PROJECT_DIR$/code/Repositories/getemployees.py" />
       </list>
     </option>
   </component>
@@ -374,21 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/cars.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" rowLines="3" />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/orders.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" rowLines="3" />
@@ -438,16 +403,6 @@
     <entry file="file://$PROJECT_DIR$/code/Repositories/formatdata.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/Models/order.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -482,10 +437,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/cars.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/Business/domain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="187">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="35" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

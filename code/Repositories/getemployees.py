@@ -2,5 +2,5 @@ from .formatdata import formatData
 
 
 class GetEmployees:
-    def emplyeeData(self):
+    def employeeData(self):
         return formatData(open('../../data/employees.csv'))
