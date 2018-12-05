@@ -1,4 +1,7 @@
-from domain import Domain
+import sys
+sys.path.append('..')
+sys.path.insert(0, '../Repositories')
+from Business.domain import Domain
 import msvcrt
 import datetime
 import os
