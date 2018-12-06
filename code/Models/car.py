@@ -37,9 +37,52 @@ class Car:
                                               self.__inspected, self.__fuel, self.__wheelDrive,
                                               self.__shiftingOption, self.__status)
 
+
+    def getManufacturer(self):
+        return self.__manufacturer
+
+    def getColor(self):
+        return self.__color
+    
+    def getCost(self):
+        return self.__cost
+
+    def getPlate(self):
+        return self.__licensePlate
+
+    def getDistance(self):
+        return self.__distance
+
+    def getYear(self):
+        return self.__year
+
+    def getType(self):
+        return self.__carType
+
+    def getSeats(self):
+        return self.__numberOfSeats
+
+    def getDoors(self):
+        return self.__numberOfDoors
+
+    def getInspected(self):
+        return self.__inspected
+
+    def getFuel(self):
+        return self.__fuel
+
+    def getWheelDrive(self):
+        return self.__wheelDrive
+
+    def getShifting(self):
+        return self.__shiftingOption
+    
     def getStatus(self):
         return self.__status
-
     
     def setStatus(self, newStatus):
-        self.__status = bool(newStatus)
+        if newStatus == '1' or newStatus == '0':
+            self.__status = newStatus
+        else:
+            print('Invalid Input')
+
