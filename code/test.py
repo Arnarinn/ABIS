@@ -1,8 +1,9 @@
 #File for making tests in the code
 
-from Business.cardomain import CarDomain
+from UI.carui import CarUi
 
-cars = CarDomain()
-cars.setAllAsUnavailable()
-#cars.dispAvailableCars()
-cars.dispUnavailableCars()
+test = CarUi()
+print('\n Unavailable:')
+test.dispUnavailableCars()
+print('\n Available:')
+test.dispAvailableCars()

@@ -23,10 +23,10 @@ class CarDomain:
 
 
     # Made for testing
-    def setAllAsUnavailable(self):
+    def setSomeAsUnavailable(self):
         aCars = self.availableCars()
-        for x in aCars:
-            x.setStatus('1')
+        for x in range(10):
+            aCars[x].setStatus('1')
 
 
     # Returns a list of all unavailable cars
@@ -36,30 +36,3 @@ class CarDomain:
             if x.getStatus() == '1':
                 uACars.append(x)
         return uACars
-
-
-    # THE NEXT 3 FUNCTIONS MIGHT BELONG TO THE UI LAYER
-    ##################################################################################
-    # Prints a table with                                                            #
-    def printTable(self, myCarList):                                                 #
-        print('--------------------------------------------------')                  #
-        print('%-15s%-15s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \
-            '|' + 'Plate Nr', '|' + 'Price   ' + '|'))                               #
-        print('==================================================')                  #
-        for x in myCarList:                                                          #
-            print('%-15s%-15s%-10s%-10s' % ('|' + x.getType(),\
-                 '|' + x.getManufacturer(),\
-                 '|' + x.getPlate(), '|' + x.getCost() + '|'))                       #
-            print('--------------------------------------------------')              #
-                                                                                     #
-    # Displays information about available cars relevant to customers                #
-    def dispAvailableCars(self):                                                     #
-        listOfAvailables = self.availableCars()                                      #
-        self.printTable(listOfAvailables)                                            #
-                                                                                     #
-    # Displays information about unavailable cars relevant to customers              #
-    def dispUnavailableCars(self):                                                   #
-        listOfUnavailables = self.unavailableCars()                                  #
-        self.printTable(listOfUnavailables)                                          #
-    ##################################################################################
-
