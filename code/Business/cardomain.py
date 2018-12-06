@@ -43,12 +43,12 @@ class CarDomain:
     # Prints a table with                                                            #
     def printTable(self, myCarList):                                                 #
         print('--------------------------------------------------')                  #
-        print('%-15s%-15s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \        
+        print('%-15s%-15s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \
             '|' + 'Plate Nr', '|' + 'Price   ' + '|'))                               #
         print('==================================================')                  #
         for x in myCarList:                                                          #
-            print('%-15s%-15s%-10s%-10s' % ('|' + x.getType(),\                      
-                 '|' + x.getManufacturer(),\ 
+            print('%-15s%-15s%-10s%-10s' % ('|' + x.getType(),\
+                 '|' + x.getManufacturer(),\
                  '|' + x.getPlate(), '|' + x.getCost() + '|'))                       #
             print('--------------------------------------------------')              #
                                                                                      #
