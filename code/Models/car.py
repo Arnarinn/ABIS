@@ -86,3 +86,20 @@ class Car:
         else:
             print('Invalid Input')
 
+    def dataList(self):
+        dList = []
+        dList.append(self.__manufacturer)
+        dList.append(self.__color)
+        dList.append(self.__cost)
+        dList.append(self.__licensePlate)
+        dList.append(self.__distance)
+        dList.append(self.__year)
+        dList.append(self.__carType)
+        dList.append(self.__numberOfSeats)
+        dList.append(self.__numberOfDoors)
+        dList.append(self.__inspected)
+        dList.append(self.__fuel)
+        dList.append(self.__wheelDrive)
+        dList.append(self.__shiftingOption)
+        dList.append(self.__status)
+        return dList

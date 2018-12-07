@@ -1,8 +1,8 @@
 #File for making tests in the code
 
-from UI.customerui import CustomerUi
+from Business.cardomain import CarDomain
 
 
-test = CustomerUi()
+test = CarDomain()
 
-test.findCustomer()
+test.setAsUnavailable('YR589')
