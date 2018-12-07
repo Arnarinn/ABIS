@@ -19,3 +19,27 @@ class Customer:
     def __repr__(self):
         return 'Customer({},{},{},{},{},{})'.format(self.__fname, self.__lname,\
             self.__age, self.__phone, self.__ssn, self.__other)
+
+
+    def getSsn(self):
+        return self.__ssn
+
+    
+    def getFName(self):
+        return self.__fname
+
+
+    def getLName(self):
+        return self.__lname
+
+
+    def getAge(self):
+        return self.__age
+
+
+    def getPhone(self):
+        return self.__phone
+
+
+    def getOther(self):
+        return self.__other
