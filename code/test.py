@@ -1,9 +1,7 @@
 #File for making tests in the code
 
-from UI.carui import CarUi
+from UI.customerui import CustomerUi
 
-test = CarUi()
-print('\n Unavailable:')
-test.dispUnavailableCars()
-print('\n Available:')
-test.dispAvailableCars()
+test = CustomerUi()
+
+test.newCustomer()

@@ -1,8 +1,11 @@
 from Business.cardomain import CarDomain
 
 class CarUi:
+
+
     def __init__(self):
         self.__dom = CarDomain()
+
 
     #Prints a table with the contents of myCarList
     def printTable(self, myCarList):                                                 
@@ -19,9 +22,11 @@ class CarUi:
                  '|' + x.getPlate(), '|' + x.getCost() + '|'))                       
             print('--------------------------------------------------')
 
+
     #Calls the printTable function on all available cars
     def dispAvailableCars(self):                                                                                        
         self.printTable(self.__dom.availableCars()) 
+        
 
     #Calls the printTable function on all unavailable cars
     def dispUnavailableCars(self):                                                                        
