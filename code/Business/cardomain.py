@@ -49,4 +49,5 @@ class CarDomain:
         for x in available:
             if x.getType() == str(cType):
                 return x
+        print('No cars availabli in this class')
 

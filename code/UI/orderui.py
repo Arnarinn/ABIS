@@ -1,5 +1,6 @@
 from Business.orderdomain import OrderDomain
 from Business.cardomain import CarDomain
+from Models.insurance import Insurance
 from datetime import datetime
 from datetime import timedelta
 
@@ -11,7 +12,7 @@ class OrderUi:
         self.__dom = OrderDomain()
         self.__carDom = CarDomain()
 
-    
+
     def newOrder(self):
         newOrderData = []
         newOrderData.append(input('Customer SSN: '))
@@ -35,20 +36,41 @@ class OrderUi:
 
         typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
+        price = 0
+        if typ == 1:
+            newOrderData.append('sedan')
+            car = self.__carDom.getNextAvailableCar('sedan')
+            self.__carDom.setAsUnavailable(car.getPlate())
+            newOrderData.append(str(car.getPlate()))
+            price += 12000
+        elif typ == 2:
+            newOrderData.append('sport')
+            car = self.__carDom.getNextAvailableCar('sport')
+            self.__carDom.setAsUnavailable(car.getPlate())
+            newOrderData.append(str(car.getPlate()))
+            price += 19000
+        elif typ == 3:
+            newOrderData.append('jeep')
+            car = self.__carDom.getNextAvailableCar('jeep')
+            self.__carDom.setAsUnavailable(car.getPlate())
+            newOrderData.append(str(car.getPlate()))
+            price += 33000
+        else:
+            print('invalid input')
 
+        ins = int(input('Insurance lvl:\n1. Lvl1\n2. Lvl2\n3.Lvl3\n'))
+        insurancelvl = Insurance()
+        if ins == 1:
+            newOrderData.append('lvl1')
+            price += insurancelvl.getLvl1()
+        elif ins == 2:
+            newOrderData.append('lvl2')
+            price += insurancelvl.getLvl2()
+        elif ins == 3:
+            newOrderData.append('lvl3')
+            price += insurancelvl.getLvl3()
+        else:
+            print('invalid input')
         
-
-
-
-
-        newOrderData.append(input('Car License plate: '))
-
-
-
-
-
-
-        newOrderData.append(input('Car type: '))
-        newOrderData.append(input('Insurance lvl: '))
-        newOrderData.append(input('Price: '))
+        newOrderData.append(price)
         self.__dom.createOrder(newOrderData)

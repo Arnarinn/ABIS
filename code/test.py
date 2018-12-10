@@ -1,8 +1,8 @@
 #File for making tests in the code
 
-from Business.cardomain import CarDomain
+from UI.orderui import OrderUi
 
 
-test = CarDomain()
+test = OrderUi()
 
-test.setAsUnavailable('YR589')
+test.newOrder()
