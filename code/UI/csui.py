@@ -1,11 +1,17 @@
 import msvcrt
 import datetime
 import os
+from .customerui import CustomerUi
+from .orderui import OrderUi
+from .carui import CarUi
 
 
 class CSUI:
     def __init__(self, domain):
         self.domain = domain
+        self.carui = CarUi()
+        self.customerui = CustomerUi()
+        self.orderui = OrderUi()
 
     def home(self):
         while True:
@@ -25,7 +31,21 @@ class CSUI:
             if c == b'2':
                 self.viewOrders()
             if c == b'3':
-                self.viewCars()
+                while True:
+                    os.system('cls')
+                    print('1. show available cars')
+                    print('2. show unavailable cars')
+                    print('q. go backwards')
+                    c2 = msvcrt.getch()
+                    if c2 == b'1':
+                        self.carui.dispAvailableCars()
+                        msvcrt.getch()
+                    if c2 == b'2':
+                        self.carui.dispUnavailableCars()
+                        msvcrt.getch()
+                    if c2 == b'q':
+                        break
+
             if c == b'4':
                 self.newCustomer()
             if c == b'5':
@@ -59,20 +79,11 @@ class CSUI:
         print('press any key to go back')
         msvcrt.getch()
 
-    def viewCars(self):
-        os.system('cls')
-        carData = self.domain.getCarData()
-        for v in carData:
-            print(v)
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        msvcrt.getch()
-
     def newCustomer(self):
         print('not yet implemented')
         msvcrt.getch()
         os.system('cls')
+
     def viewCustomer(self):
         os.system('cls')
         customerData = self.domain.getCustomerData()
