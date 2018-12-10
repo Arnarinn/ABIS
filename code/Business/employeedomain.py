@@ -1,6 +1,8 @@
 from .domain import Domain
 
+
 class EmployeeDomain():
+
     def __init__(self):
         self.employees = Domain.getEmployeeData(Domain())
 
@@ -15,7 +17,6 @@ class EmployeeDomain():
         for e in self.employees:
             if username == e.getUsername():
                 if password == e.getPassword():
-
                     return e
 
     def returnType(self, employee):

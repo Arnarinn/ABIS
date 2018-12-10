@@ -16,15 +16,15 @@ class Startup:
             username = input('Username: ').upper()
             password = input('password: ')
             if self.employeedomain.checkLogin(username, password):
-                # print(self.employeedomain.returnType(self.employeedomain.getEmployee(username,password)))
-                # if self.employeedomain.returnType(self.employeedomain.getEmployee(username,password)) == 'CS':
-                csui = CSUI(self.domain)
-                csui.home()
-                break
-                # else:
-                    # cmui = CMUI(self.domain)
-                    # print('entered CM UI')
-                    # break
+                employee = self.employeedomain.getEmployee(username, password)
+                if employee.getType() == 'CS':
+                    csui = CSUI(self.domain)
+                    csui.home()
+                    break
+                else:
+                    cmui = CMUI(self.domain)
+                    cmui.home()
+                    break
             else:
                 os.system('cls')
                 print('Either the username or password was wrong')

@@ -1,23 +1,37 @@
+
+# REMEMBER TO ADD EMPLOYEE
 class Order:
-    def __init__(self, employee, timeOfOrder,
-                 timeOfPickup, timeOfReturn, carNumber):
-        self.__employee = employee
+    def __init__(self, customer, timeOfOrder,
+                 timeOfPickup, timeOfReturn, carNumber, carType,
+                 insurance, price):
+        self.__customer = customer
         self.__timeOfOrder = timeOfOrder
         self.__timeOfPickup = timeOfPickup
         self.__timeOfReturn = timeOfReturn
         self.__carNumber = carNumber
+        self.__carType = carType
+        self.__insurance = insurance
+        self.__price = price
 
     def __str__(self):
-        return 'Employee: {}, Time of order: {}, Time of Pickup: {}, Time of return: ' \
-               '{}, Car number: {}'.format(self.__employee,
-                                           self.__timeOfOrder,
-                                           self.__timeOfPickup,
-                                           self.__timeOfReturn,
-                                           self.__carNumber)
+        return 'Customer: {}, Time of order: {}, Time of Pickup: '\
+                '{}, Time of return: {}, Car number: {}, Car type: {}, Insurance: '\
+                '{}, Price: {}'\
+               .format(self.__customer,
+                       self.__timeOfOrder,
+                       self.__timeOfPickup,
+                       self.__timeOfReturn,
+                       self.__carNumber,
+                       self.__carType,
+                       self.__insurance,
+                       self.__price)
 
     def __repr__(self):
-        return 'Order({},{},{},{},{})'.format(self.__employee,
-                                              self.__timeOfOrder,
-                                              self.__timeOfPickup,
-                                              self.__timeOfReturn,
-                                              self.__carNumber)
+        return 'Order({},{},{},{},{},{},{},{})'.format(self.__customer,
+                                                       self.__timeOfOrder,
+                                                       self.__timeOfPickup,
+                                                       self.__timeOfReturn,
+                                                       self.__carNumber,
+                                                       self.__carType,
+                                                       self.__insurance,
+                                                       self.__price)

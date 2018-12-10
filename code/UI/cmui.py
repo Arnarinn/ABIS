@@ -54,6 +54,7 @@ class CMUI:
     
         #Fara á skjá sem kemur "Car has been returned"
     
+    
     def viewCars(self):
         os.system('cls')
         carData = self.domain.getCarData()
