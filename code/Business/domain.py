@@ -23,8 +23,3 @@ class Domain:
         getCustomers = GetCustomers()
         customer = Customer(ssn, name, age)
         getCustomers.customerInsert(customer)
-
-    def insertOrder(self, employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber):
-        getOrders = GetOrders()
-        order = Order(employee, timeOfOrder, timeOfPickup, timeOfReturn, carNumber)
-        getOrders.orderInsert(order)
