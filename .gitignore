@@ -2,3 +2,4 @@
 .vscode
 __pycache__/
 code/test.py
+*.py[cod]

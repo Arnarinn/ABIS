@@ -28,9 +28,9 @@ class CSUI:
             c = msvcrt.getch()
             if c == b'1':
                 self.newOrders()
-            if c == b'2':
+            elif c == b'2':
                 self.viewOrders()
-            if c == b'3':
+            elif c == b'3':
                 while True:
                     os.system('cls')
                     print('1. show available cars')
@@ -46,12 +46,26 @@ class CSUI:
                     if c2 == b'q':
                         break
 
-            if c == b'4':
+            elif c == b'4':
                 self.newCustomer()
-            if c == b'5':
-                self.customerui.dispCustomers()
-                msvcrt.getch()
-            if c == b'q':
+            elif c == b'5':
+                while True:
+                    os.system('cls')
+                    print('1. See all customers')
+                    print('2. Find specific customer')
+                    print('q. go backwards')
+                    c2 = msvcrt.getch()
+                    if c2 == b'1':
+                        os.system('cls')
+                        self.customerui.dispCustomers()
+                        msvcrt.getch()
+                    elif c2 == b'2':
+                        os.system('cls')
+                        self.customerui.findCustomer()
+                        msvcrt.getch()
+                    elif c2 == b'q':
+                        break
+            elif c == b'q':
                 os.system('cls')
                 break
     def newOrders(self):
