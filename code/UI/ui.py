@@ -23,7 +23,7 @@ class Startup:
                     break
                 else:
                     cmui = CMUI(self.domain)
-                    print('entered CM UI')
+                    cmui.home()
                     break
             else:
                 os.system('cls')
