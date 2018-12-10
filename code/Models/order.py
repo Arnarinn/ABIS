@@ -35,3 +35,19 @@ class Order:
                                                        self.__carType,
                                                        self.__insurance,
                                                        self.__price)
+
+                            
+    def dataList(self):
+        dList = []
+
+        dList.append(self.__customer)
+        dList.append(self.__timeOfOrder)
+        dList.append(self.__timeOfPickup)
+        dList.append(self.__timeOfReturn)
+        dList.append(self.__carNumber)
+        dList.append(self.__carType)
+        dList.append(self.__insurance)
+        dList.append(self.__price)
+
+        return dList
+    
