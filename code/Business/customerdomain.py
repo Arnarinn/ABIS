@@ -39,7 +39,8 @@ class CustomerDomain:
                 listOfCustomers.append(x)
         return listOfCustomers
 
-
+    def returnCustomerData(self):
+        return self.__customerList
     
 
 

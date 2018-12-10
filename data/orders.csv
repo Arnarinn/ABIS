@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 client,date of order,date of pickup,date of return,license plate,car type,insurance,cost
 12345,12-12-12,11-11-11,13-13-13,mpr21,sedan,lvl3,50000
 1231231231,2018-12-10 15:24:33,2018-12-11 00:00:00,2018-12-12 00:00:00,sedan,ZZ667,lvl2,16000
+=======
+client', 'date of order', 'date of pickup', 'date of return', 'license plate', 'car type', 'insurance', 'cost'
+>>>>>>> c96245cfa5e85ee98c4cc28514f359a659614287
