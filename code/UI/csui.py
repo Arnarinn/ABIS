@@ -49,7 +49,8 @@ class CSUI:
             if c == b'4':
                 self.newCustomer()
             if c == b'5':
-                self.viewCustomer()
+                self.customerui.dispCustomers()
+                msvcrt.getch()
             if c == b'q':
                 os.system('cls')
                 break

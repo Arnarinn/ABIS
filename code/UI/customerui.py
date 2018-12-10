@@ -55,3 +55,6 @@ class CustomerUi:
             print('Invalid Input')
 
         self.printTable(listOfCustomers)
+
+    def dispCustomers(self):
+        self.printTable(self.__dom.returnCustomerData())
