@@ -1,6 +1,8 @@
 from .domain import Domain
 
+
 class EmployeeDomain():
+
     def __init__(self):
         self.employees = Domain.getEmployeeData(Domain())
 
