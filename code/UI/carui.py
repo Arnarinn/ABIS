@@ -28,20 +28,20 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left
-        print('%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-10s%-10s%-10s%-15s%-10s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \
-            '|' + 'Color', '|' + 'Distance', '|' + 'Year', '|' + 'Plate Nr', \
-            '|' + 'Number of seats', '|' + 'Number of doors', \
-            '|' + 'Inspected', '|' + 'Fuel', '|' + 'Wheel drive', \
-            '|' + 'Shifting option', '|' + 'Status', '|' + 'Price ' + '|'))
-        print('==================================================')
+        print('%-10s%-13s%-7s%-10s%-5s%-9s%-12s%-12s%-10s%-9s%-18s%-17s%-7s%-9s' % ('|' + 'Type', '|' + 'Manufacturer',\
+            '|'+ 'Color','|'+ 'Distance','|' + 'Year','|' +'Plate Nr',\
+            '|'+ 'Nr of seats', '|' + 'Nr of doors',\
+            '|'+ 'Inspected', '|' + 'Fuel', '|' + 'Wheel drive',\
+            '|'+ 'Shifting option','|'+ 'Status','|' + 'Price   ' +'|'))
+        print(' =================================================================================================================================================== ')
         for x in myCarList:
-            print('%-15s%-15s%-15s%-15s%-15s%-15s%-15s%-10s%-10s%-10s%-15s%-10s%-10s%-10s' % ('|' + x.getType(),\
+            print('%-10s%-13s%-7s%-10s%-5s%-9s%-12s%-12s%-10s%-9s%-18s%-17s%-7s%-11s' % ('|' + x.getType(),\
                 '|' + x.getManufacturer(),\
                 '|' + x.getColor(), '|' + x.getDistance(), '|' + x.getYear(), \
                 '|' + x.getPlate(),  '|' + x.getSeats(), '|' + x.getDoors(), \
                 '|' + x.getInspected(), '|' + x.getFuel(), '|' + x.getWheelDrive(), \
                 '|' + x.getShifting(), '|' + x.getStatus(), '|' + x.getCost() + '|'))
-            print('--------------------------------------------------')
+            print(' --------------------------------------------------------------------------------------------------------------------------------------------------- ')
 
 
     #Calls the printTable function on all available cars

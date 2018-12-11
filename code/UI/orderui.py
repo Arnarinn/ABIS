@@ -2,7 +2,7 @@ from Business.orderdomain import OrderDomain
 from Business.cardomain import CarDomain
 from Models.insurance import Insurance
 from datetime import datetime
-from datetime import timedelta
+import os
 
 
 class OrderUi:
@@ -14,6 +14,7 @@ class OrderUi:
 
 
     def newOrder(self):
+        os.system('cls')
         newOrderData = []
         newOrderData.append(input('Customer SSN: '))
         newOrderData.append(datetime(int(datetime.today().year), \
@@ -22,12 +23,17 @@ class OrderUi:
                                      int(datetime.today().hour), \
                                      int(datetime.today().minute), \
                                      int(datetime.today().second)))
+
+        os.system('cls')
+        
         print('Pickup Date (YYYY/MM/DD): ')    
         yy = int(input('YYYY: '))
         mm = int(input('MM: '))
         dd = int(input('DD: '))
         pDate = datetime(yy, mm, dd)
         newOrderData.append(pDate)
+
+        os.system('cls')
 
         print('Return Date (YYYY/MM/DD: ')
         yy = int(input('YYYY: '))
@@ -36,11 +42,7 @@ class OrderUi:
         rDate = datetime(yy, mm, dd)
         newOrderData.append(rDate)
 
-        diff = timedelta()
-
-        diff = rDate - pDate
-
-        diff = int(diff.days) 
+        os.system('cls')
 
         typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
@@ -50,23 +52,25 @@ class OrderUi:
             car = self.__carDom.getNextAvailableCar('sedan')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 12000 * diff
+            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         elif typ == 2:
             newOrderData.append('sport')
             car = self.__carDom.getNextAvailableCar('sport')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 19000 * diff
+            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         elif typ == 3:
             newOrderData.append('jeep')
             car = self.__carDom.getNextAvailableCar('jeep')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 33000 * diff
+            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         else:
             print('invalid input')
 
-        ins = int(input('Insurance lvl:\n1. Lvl1\n2. Lvl2\n3.Lvl3\n'))
+        os.system('cls')
+
+        ins = int(input('Insurance lvl:\n1. Lvl1\n2. Lvl2\n3. Lvl3\n'))
         insurancelvl = Insurance()
         if ins == 1:
             newOrderData.append('lvl1')

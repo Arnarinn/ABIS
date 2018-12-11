@@ -1,8 +1,7 @@
 #File for making tests in the code
 
-from UI.orderui import OrderUi
+from UI.carui import CarUi
 
 
-test = OrderUi()
-
-test.newOrder()
+test = CarUi()
+test.CMDispAvailableCars()
