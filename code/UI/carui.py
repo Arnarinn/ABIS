@@ -27,7 +27,7 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-15s%-15s%-15s%-15s%-15s-15s%-15s%-10s%-10s%-10s-15s%-10s-10s%' % ('|' + 'Type', '|' + 'Manufacturer', \
+        print('%-15s%-15s%-15s%-15s%-15s-15s%-15s%-10s%-10s%-10s-15s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \
             '|' + 'Color', '|' + 'Distance', '|' + 'Year', '|' + 'Plate Nr', \ 
             '|' + 'Number of seats', '|' + 'Number of doors', \ 
             '|' + 'Inspected', '|' + 'Fuel', '|' + 'Wheel drive', \
