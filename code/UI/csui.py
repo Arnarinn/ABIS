@@ -47,7 +47,7 @@ class CSUI:
                         break
 
             elif c == b'4':
-                self.newCustomer()
+                self.customerui.newCustomer()
             elif c == b'5':
                 while True:
                     os.system('cls')
