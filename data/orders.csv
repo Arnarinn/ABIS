@@ -8,5 +8,5 @@ client,date of order,date of pickup,date of return,license plate,car type,cost,i
 3682349049,2018-02-16,2019-01-05,2019-01-06,HH123,sedan,12.000kr,lvl 2
 2423492344,2018-10-10,2018-11-11,2018-12-12,NM888,sedan,12.000kr,lvl 1 
 =======
-client', 'date of order', 'date of pickup', 'date of return', 'license plate', 'car type', 'insurance', 'cost'
+client','date of order', 'date of pickup', 'date of return', 'license plate', 'car type', 'cost', 'insurance'
 >>>>>>> c96245cfa5e85ee98c4cc28514f359a659614287
