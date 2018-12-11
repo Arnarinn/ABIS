@@ -16,6 +16,17 @@ class Customer:
         return 'Customer({},{},{},{},{},{})'.format(self.__fname, self.__lname,\
             self.__age, self.__phone, self.__ssn, self.__other)
 
+    def dataList(self):
+        cList = []
+
+        cList.append(self.__ssn)
+        cList.append(self.__fname)
+        cList.append(self.__lname)
+        cList.append(self.__age)
+        cList.append(self.__phone)
+        cList.append(self.__other)
+        return cList
+
     def getSsn(self):
         return self.__ssn
 
