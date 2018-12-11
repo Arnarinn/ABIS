@@ -40,8 +40,8 @@ class OrderUi:
 
         diff = rDate - pDate
 
-        print()
-'''
+        diff = int(diff.days) 
+
         typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
         price = 0
@@ -50,19 +50,19 @@ class OrderUi:
             car = self.__carDom.getNextAvailableCar('sedan')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 12000
+            price += 12000 * diff
         elif typ == 2:
             newOrderData.append('sport')
             car = self.__carDom.getNextAvailableCar('sport')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 19000
+            price += 19000 * diff
         elif typ == 3:
             newOrderData.append('jeep')
             car = self.__carDom.getNextAvailableCar('jeep')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
-            price += 33000
+            price += 33000 * diff
         else:
             print('invalid input')
 
@@ -81,4 +81,4 @@ class OrderUi:
             print('invalid input')
         
         newOrderData.append(price)
-        self.__dom.createOrder(newOrderData)'''
+        self.__dom.createOrder(newOrderData)
