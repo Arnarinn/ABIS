@@ -48,7 +48,7 @@ class CMUI:
         # to give time for user to read their info
         print('press any key to go back')
         msvcrt.getch()
-        
+
     def viewCars(self):
         os.system('cls')
         carData = self.domain.getCarData()
@@ -58,4 +58,4 @@ class CMUI:
         # to give time for user to read their info
         print('press any key to go back')
         msvcrt.getch()
- 
+        
