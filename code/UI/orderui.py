@@ -48,22 +48,22 @@ class OrderUi:
         
         price = 0
         if typ == 1:
-            newOrderData.append('sedan')
             car = self.__carDom.getNextAvailableCar('sedan')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
+            newOrderData.append('sedan')
             price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         elif typ == 2:
-            newOrderData.append('sport')
             car = self.__carDom.getNextAvailableCar('sport')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
+            newOrderData.append('sport')
             price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         elif typ == 3:
-            newOrderData.append('jeep')
             car = self.__carDom.getNextAvailableCar('jeep')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
+            newOrderData.append('jeep')
             price += self.__dom.calculateBasePrice(pDate, rDate, typ)
         else:
             print('invalid input')
@@ -86,3 +86,34 @@ class OrderUi:
         
         newOrderData.append(price)
         self.__dom.createOrder(newOrderData)
+
+
+        #Prints a table with the contents of orderList
+    def printTable(self, myOrderList):                                                 
+        print(' --------------------------------------------------------------------------------------------- ')                 
+        print('%-11s%-12s%-9s%-21s%-21s%-21s' % ('|' + 'SSN', '|' + 'Car Plate', \
+            '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '             |'))                               
+        print(' ============================================================================================= ')                  
+        for x in myOrderList:                                                          
+            print('%-11s%-12s%-9s%-21s%-21s%-21s' % ('|' + x.getSsn(),\
+                 '|' + x.getCarPlate(),\
+                 '|' + x.getCarType(), '|' + x.getDateOfOrder(), '|' + x.getPickup(), '|' + x.getReturn() + '|'))                       
+            print(' --------------------------------------------------------------------------------------------- ')
+    
+
+    def findOrder(self):
+        inp = int(input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\n'))
+        os.system('cls')
+        oList = []
+        if inp == 1:
+            oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ')))
+        elif inp == 2:
+             oList = self.__dom.findOrdersByCustomerSSN(str(input('Type in SSN: ')))
+        elif inp == 3:
+             oList = self.__dom.findOrdersByDate(str(input('Type in date of order: ')))
+        else:
+            print('Invalid input')
+
+        self.printTable(oList)
+
+        

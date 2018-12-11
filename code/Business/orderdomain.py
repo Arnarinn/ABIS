@@ -36,3 +36,28 @@ class OrderDomain:
             return self.__carTypes.getJeepPrice() * time
         else:
             print('Invalid input')
+
+
+    def findOrdersByCarPlate(self, plate):
+        oList = []
+        for order in self.__orderList:
+            if str(order.getCarPlate()) == str(plate):
+                oList.append(order)
+        return oList
+
+
+    
+    def findOrdersByCustomerSSN(self, ssn):
+        oList = []
+        for order in self.__orderList:
+            if str(order.getSsn()) == str(ssn):
+                oList.append(order)
+        return oList
+
+    
+    def findOrdersByDate(self, date):
+        oList = []
+        for order in self.__orderList:
+            if str(order.getDateOfOrder()) == str(date):
+                oList.append(order)
+        return oList

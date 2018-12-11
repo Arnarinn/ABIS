@@ -49,3 +49,21 @@ class Order:
         dList.append(self.__price)
 
         return dList
+
+    def getCarPlate(self):
+        return  self.__carNumber
+
+    def getSsn(self):
+        return self.__customer
+
+    def getDateOfOrder(self):
+        return self.__timeOfOrder
+
+    def getCarType(self):
+        return self.__carType
+
+    def getReturn(self):
+        return self.__timeOfReturn
+
+    def getPickup(self):
+        return self.__timeOfPickup
