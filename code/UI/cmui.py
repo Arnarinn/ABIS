@@ -29,11 +29,11 @@ class CMUI:
                     print('q. go backwards')
                     c2 = input()
                     if c2 == '1':
-                        self.carui.dispReturnedCars()
-                        msvcrt.getch()
+                        self.carui.CMDispReturnedCars()
+                        input()
                     elif c2 == '2':
-                        self.carui.dispDeliveredCars()
-                        msvcrt.getch()
+                        self.carui.CMDispDeliveredCars()
+                        input()
                     elif c2 == 'q':
                         break
             elif c == 'q':
