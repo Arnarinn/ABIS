@@ -1,5 +1,4 @@
 import msvcrt
-import datetime
 import os
 
 
@@ -39,9 +38,7 @@ class CMUI:
         # to give time for user to read their info
         print('press any key to go back')
         msvcrt.getch()
-        
-        #Fara á skjá sem kemur "Car has been delivered"
-    
+
     def carReturned(self):
         os.system('cls')
         employee = input('Type in employee name:')
@@ -51,10 +48,7 @@ class CMUI:
         # to give time for user to read their info
         print('press any key to go back')
         msvcrt.getch()
-    
-        #Fara á skjá sem kemur "Car has been returned"
-    
-    
+        
     def viewCars(self):
         os.system('cls')
         carData = self.domain.getCarData()
