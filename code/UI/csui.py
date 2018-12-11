@@ -37,10 +37,10 @@ class CSUI:
                     print('q. go backwards')
                     c2 = input()
                     if c2 == '1':
-                        self.carui.dispAvailableCars()
+                        self.carui.CSDispAvailableCars()
                         input()
                     if c2 == '2':
-                        self.carui.dispUnavailableCars()
+                        self.carui.CSDispUnavailableCars()
                         input()
                     if c2 == 'q':
                         break

@@ -29,10 +29,10 @@ class CMUI:
                     print('q. go backwards')
                     c2 = input()
                     if c2 == '1':
-                        self.carui.CMDispReturnedCars()
+                        self.carui.CMDispAvailableCars()
                         input()
                     elif c2 == '2':
-                        self.carui.CMDispDeliveredCars()
+                        self.carui.CMDispUnavailableCars()
                         input()
                     elif c2 == 'q':
                         break
