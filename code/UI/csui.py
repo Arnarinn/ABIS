@@ -26,9 +26,9 @@ class CSUI:
             # Detects a button press and which button was pressed
             c = input()
             if c == '1':
-                self.newOrders()
+                print('out of order')
             elif c == '2':
-                self.viewOrders()
+                print('out of order')
             elif c == '3':
                 while True:
                     os.system('cls')
@@ -45,9 +45,9 @@ class CSUI:
                     if c2 == 'q':
                         break
 
-            elif c == b'4':
+            elif c == '4':
                 self.customerui.newCustomer()
-            elif c == b'5':
+            elif c == '5':
                 while True:
                     os.system('cls')
                     print('1. See all customers')
@@ -67,43 +67,3 @@ class CSUI:
             elif c == 'q':
                 os.system('cls')
                 break
-    def newOrders(self):
-        os.system('cls')
-        # loads of inputs to insert into the csv file
-        employee = input('Type in employee name:')
-        timeOfPickUp = input('Type in time of pick up:')
-        timeOfReturn = input('Type in time of return:')
-        carNumber = input('Type in car number:')
-        # sends the info to the business layer
-        # which inserts it into the relevant file
-        self.domain.insertOrder(employee, str(datetime.datetime.now())
-                                , timeOfPickUp, timeOfReturn, carNumber)
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
-
-    def viewOrders(self):
-        os.system('cls')
-        orderData = self.domain.getOrderData()
-        for v in orderData:
-            print(v.__str__())
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
-
-    def newCustomer(self):
-        print('not yet implemented')
-        input()
-        os.system('cls')
-
-    def viewCustomer(self):
-        os.system('cls')
-        customerData = self.domain.getCustomerData()
-        for v in customerData:
-            print(v.__str__())
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
