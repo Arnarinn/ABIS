@@ -30,14 +30,15 @@ class CustomerUi:
         #Table has 4 colums with size: 11, 15, 15, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-11s%-15s%-15s%-10s' % ('|' + 'SSN', '|' + 'Last Name', \
-            '|' + 'First Name', '|' + 'Phone   ' + '|'))                               
+        print('%-11s%-15s%-15s%-10s%-10s' % ('|' + 'SSN', '|' + 'Last Name',
+              '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number  ' + '|'))
         print(' ================================================= ')                  
         for x in myCustomerList:                                                          
-            print('%-11s%-15s%-15s%-10s' % ('|' + x.getSsn(),\
-                 '|' + x.getLName(),\
-                 '|' + x.getFName(), '|' + x.getPhone() + ' |'))                       
+            print('%-11s%-15s%-15s%-10s%-10s' % ('|' + x.getSsn(),
+                  '|' + x.getLName(),'|' + x.getFName(),
+                  '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
             print(' ------------------------------------------------- ')
+
 
     def findCustomer(self):
         while True:
@@ -59,6 +60,7 @@ class CustomerUi:
                 break
 
             self.printTable(listOfCustomers)
+
 
     def dispCustomers(self):
         self.printTable(self.__dom.returnCustomerData())

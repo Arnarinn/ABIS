@@ -34,7 +34,7 @@ class CSUI:
                     os.system('cls')
                     print('1. show available cars')
                     print('2. show unavailable cars')
-                    print('q. go backwards')
+                    print('q. back')
                     c2 = input()
                     if c2 == '1':
                         self.carui.CSDispAvailableCars()
@@ -52,7 +52,7 @@ class CSUI:
                     os.system('cls')
                     print('1. See all customers')
                     print('2. Find specific customer')
-                    print('q. go backwards')
+                    print('q. back')
                     c2 = input()
                     if c2 == '1':
                         os.system('cls')
@@ -61,6 +61,12 @@ class CSUI:
                     elif c2 == '2':
                         os.system('cls')
                         self.customerui.findCustomer()
+                        print('1. Edit SSN')
+                        print('2. Edit first name')
+                        print('2. Edit last name')
+                        print('2. Edit phone name')
+                        print('2. Edit first name')
+
                         input()
                     elif c2 == 'q':
                         break
