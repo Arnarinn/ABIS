@@ -5,6 +5,7 @@ from .carui import CarUi
 class CMUI:
     def __init__(self, domain):
         self.domain = domain
+        self.carui = CarUi()
     
     def home(self):
         while True:
@@ -29,10 +30,10 @@ class CMUI:
                     print('q. go backwards')
                     c2 = msvcrt.getch()
                     if c2 == b'1':
-                        #self.carui.dispReturnedCars()
+                        self.carui.dispReturnedCars()
                         msvcrt.getch()
                     elif c2 == b'2':
-                        #self.carui.dispDeliveredCars()
+                        self.carui.dispDeliveredCars()
                         msvcrt.getch()
                     elif c2 == b'q':
                         break

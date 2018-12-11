@@ -1,4 +1,5 @@
 from Repositories.getcustomers import GetCustomers
+from Models.customer import Customer
 
 
 class CustomerDomain:
@@ -8,10 +9,11 @@ class CustomerDomain:
 
     # Calls the customerInsert function from domain
     # Then reloads the customer list
-    def createCustomer(self, customer):
-        self.__customerRep.customerInsert(customer)
-        self.__customerList = []
-        self.__customerList = self.__customerRep.customerData()
+    def createCustomer(self, customerData):
+        self.__customerList.append(Customer(customerData[0], customerData[1],
+                                            customerData[2], customerData[3],
+                                            customerData[4], customerData[5]))
+        self.__customerRep.customerInsert(self.__customerList)
 
     # Returns the customer with matching ssn.
     def findCustomerSSN(self, ssn):
