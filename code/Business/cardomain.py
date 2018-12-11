@@ -51,3 +51,9 @@ class CarDomain:
                 return x
         print('No cars availabli in this class')
 
+    # Mark car as returned
+    #def returnedCars(self):
+
+    # Mark car as delivered
+    #def deliveredCars(self):
+        

@@ -1,6 +1,6 @@
 import msvcrt
 import os
-
+from .carui import CarUi
 
 class CMUI:
     def __init__(self, domain):
@@ -19,11 +19,24 @@ class CMUI:
             c = msvcrt.getch()
             if c == b'1':
                 self.carDelivered()
-            if c == b'2':
+            elif c == b'2':
                 self. carReturned()
-            if c == b'3':
-                self.viewCars()
-            if c == b'q':
+            elif c == b'3':
+                while True:
+                    os.system('cls')
+                    print('1. show returned cars')
+                    print('2. show delivered cars')
+                    print('q. go backwards')
+                    c2 = msvcrt.getch()
+                    if c2 == b'1':
+                        #self.carui.dispReturnedCars()
+                        msvcrt.getch()
+                    elif c2 == b'2':
+                        #self.carui.dispDeliveredCars()
+                        msvcrt.getch()
+                    elif c2 == b'q':
+                        break
+            elif c == b'q':
                 os.system('cls')
                 break
     def carDelivered(self):

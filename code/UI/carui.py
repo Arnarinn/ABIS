@@ -31,3 +31,11 @@ class CarUi:
     #Calls the printTable function on all unavailable cars
     def dispUnavailableCars(self):                                                                        
         self.printTable(self.__dom.unavailableCars())
+    
+    #Calls the printTable function on all returned cars
+    def dispReturnedCars(self):
+        self.printTable(self.__dom.returnedCars())
+    
+    #Calls the printTable function on all delivered cars
+    def dispDeliveredCars(self):
+        self.printTable(self.__dom.deliveredCars())
