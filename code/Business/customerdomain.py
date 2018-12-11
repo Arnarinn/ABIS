@@ -12,7 +12,8 @@ class CustomerDomain:
     def createCustomer(self, customerData):
         self.__customerList.append(Customer(customerData[0], customerData[1],
                                             customerData[2], customerData[3],
-                                            customerData[4], customerData[5]))
+                                            customerData[4], customerData[5],
+                                            customerData[6]))
         self.__customerRep.customerInsert(self.__customerList)
 
     # Returns the customer with matching ssn.
