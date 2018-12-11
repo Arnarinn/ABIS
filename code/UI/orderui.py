@@ -26,14 +26,22 @@ class OrderUi:
         yy = int(input('YYYY: '))
         mm = int(input('MM: '))
         dd = int(input('DD: '))
-        newOrderData.append(datetime(yy, mm, dd))
+        pDate = datetime(yy, mm, dd)
+        newOrderData.append(pDate)
 
         print('Return Date (YYYY/MM/DD: ')
         yy = int(input('YYYY: '))
         mm = int(input('MM: '))
         dd = int(input('DD: '))
-        newOrderData.append(datetime(yy, mm, dd))
+        rDate = datetime(yy, mm, dd)
+        newOrderData.append(rDate)
 
+        diff = timedelta()
+
+        diff = rDate - pDate
+
+        print()
+'''
         typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
         price = 0
@@ -73,4 +81,4 @@ class OrderUi:
             print('invalid input')
         
         newOrderData.append(price)
-        self.__dom.createOrder(newOrderData)
+        self.__dom.createOrder(newOrderData)'''
