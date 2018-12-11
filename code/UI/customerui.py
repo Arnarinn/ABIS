@@ -1,4 +1,3 @@
-import msvcrt
 import os
 from Business.customerdomain import CustomerDomain
 from Models.customer import Customer
@@ -44,19 +43,19 @@ class CustomerUi:
         while True:
             print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go backwards')
             listOfCustomers = []
-            inp = msvcrt.getch()
+            inp = input()
 
-            if inp == b'1':
+            if inp == '1':
                 listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
                 os.system('cls')
-            elif inp == b'2':
+            elif inp == '2':
                 listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
                 os.system('cls')
-            elif inp == b'3':
+            elif inp == '3':
                 listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
                                          str(input('Last Name: '))))
                 os.system('cls')
-            elif inp == b'q':
+            elif inp == 'q':
                 break
 
             self.printTable(listOfCustomers)

@@ -1,4 +1,3 @@
-import msvcrt
 import os
 from .carui import CarUi
 
@@ -17,27 +16,27 @@ class CMUI:
                 '3. View cars \n'
                 'q. Quit the program \n')
             # Detects a button press and which button was pressed
-            c = msvcrt.getch()
-            if c == b'1':
+            c = input()
+            if c == '1':
                 self.carDelivered()
-            elif c == b'2':
+            elif c == '2':
                 self. carReturned()
-            elif c == b'3':
+            elif c == '3':
                 while True:
                     os.system('cls')
                     print('1. show returned cars')
                     print('2. show delivered cars')
                     print('q. go backwards')
-                    c2 = msvcrt.getch()
-                    if c2 == b'1':
-                        self.carui.dispReturnedCars()
-                        msvcrt.getch()
-                    elif c2 == b'2':
-                        self.carui.dispDeliveredCars()
-                        msvcrt.getch()
-                    elif c2 == b'q':
+                    c2 = input()
+                    if c2 == '1':
+                        self.carui.CMDispAvailableCars()
+                        input()
+                    elif c2 == '2':
+                        self.carui.CMDispUnavailableCars()
+                        input()
+                    elif c2 == 'q':
                         break
-            elif c == b'q':
+            elif c == 'q':
                 os.system('cls')
                 break
     def carDelivered(self):
@@ -71,5 +70,5 @@ class CMUI:
         # Waits for any input on the keyboard
         # to give time for user to read their info
         print('press any key to go back')
-        msvcrt.getch()
+        input()
         
