@@ -14,13 +14,13 @@ class CustomerUi:
 
     def newCustomer(self):
         # appends customer info from user, into a list.
-        newCustomerData = []
-        newCustomerData.append(input('SSN: '))
-        newCustomerData.append(input('First Name: '))
-        newCustomerData.append(input('Last Name: '))
-        newCustomerData.append(input('Age: '))
-        newCustomerData.append(input('Phone: '))
-        newCustomerData.append(input('Other: '))
+        ssn = input('SSN: ')
+        fn = input('First Name: ')
+        ln = input('Last Name: ')
+        age = input('Age: ')
+        pho = input('Phone: ')
+        oth = input('Other: ')
+        newCustomerData = Customer(ssn, fn, ln, age, pho, oth)
         # Calls the Business function createCustomer with that data.
         self.__dom.createCustomer(newCustomerData)
 
