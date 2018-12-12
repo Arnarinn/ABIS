@@ -1,21 +1,20 @@
 class Customer:
-    def __init__(self, ssn, fname, lname, age, phone, other, cardnumber):
+    def __init__(self, ssn, fname, lname, age, phone, cardnumber):
         self.__ssn = ssn
         self.__fname = fname
         self.__lname = lname
         self.__age = age
         self.__phone = phone
         self.__cardNumber = cardnumber
-        self.__other = other
 
     def __str__(self):
-        return 'First name: {}, Last name: {}, Age: {}, Phone: {}, SSN: {}, Other: {}'\
+        return 'First name: {}, Last name: {}, Age: {}, Phone: {}, SSN: {}, Card number: {}'\
             .format(self.__fname, self.__lname, self.__age, self.__phone, self.__ssn,\
-             self.__other)
+             self.__cardNumber)
 
     def __repr__(self):
         return 'Customer({},{},{},{},{},{})'.format(self.__fname, self.__lname,\
-            self.__age, self.__phone, self.__ssn, self.__other)
+            self.__age, self.__phone, self.__ssn, self.__cardNumber)
 
     def dataList(self):
         cList = []
@@ -25,7 +24,7 @@ class Customer:
         cList.append(self.__lname)
         cList.append(self.__age)
         cList.append(self.__phone)
-        cList.append(self.__other)
+        cList.append(self.__cardNumber)
         return cList
 
     def getSsn(self):
@@ -46,16 +45,13 @@ class Customer:
     def getCardNumber(self):
         return self.__cardNumber
 
-    def getOther(self):
-        return self.__other
-
     def setSsn(self, ssn):
         self.__ssn = ssn
 
-    def setFName(self, fname):
+    def setfName(self, fname):
         self.__fname = fname
 
-    def setLName(self, lname):
+    def setlName(self, lname):
         self.__lname = lname
 
     def setAge(self, age):
@@ -66,6 +62,3 @@ class Customer:
 
     def setCardNumber(self, cardnumber):
         self.__cardNumber = cardnumber
-
-    def setOther(self, other):
-        self.__other = other

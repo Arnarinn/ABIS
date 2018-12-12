@@ -1,3 +1,4 @@
-ssn,first name,last name,age,phone,other,credit card
-1305962299,Addi,Jonsson,20,1234567,1234543212345436,none
-1234524295,Galdra,Kall,22,1255425,1231321452787968,dancer
+ssn,first name,last name,age,phone,credit card
+1305962299,Urri,Jonsson,20,1234567,1234543212345436
+1234524295,Galdra,Kall,22,1255425,1231321452787968
+123456789,sigurgeir,Herpsson,55,1234567,555666777
