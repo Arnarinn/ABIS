@@ -69,7 +69,6 @@ class CustomerUi:
                 return listOfCustomers
             elif inp == 'q':
                 break
-            return False
 
 
     def retCustomers(self):

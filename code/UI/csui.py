@@ -27,12 +27,103 @@ class CSUI:
             c = input()
             # OPTION 1 SUB 1
             if c == '1':
-                print('out of order')
+                self.orderui.newOrder()
 
             # OPTION 2 SUB 1
             elif c == '2':
-                print('out of order')
+                while True:
+                    os.system('cls')
+                    print('1. View/edit all orders')
+                    print('2. find specific order')
+                    print('q. back')
+                    c2 = input()
+                    # OPTION 1 SUB 2
+                    if c2 == '1':
+                        index = 0
+                        orders = self.orderui.retOrders()
+                        while True:
+                            os.system('cls')
+                            self.orderui.printSelectionTable(orders, index)
+                            print('1. Edit pickup date')
+                            print('2. Edit return date')
+                            print('3. Delete order')
+                            print('q. back')
+                            print('input W or S to move the arrow up and down')
 
+                            c3 = input()
+                            # OPTION 1 SUB 3
+                            if c3 == '1':
+                                pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
+                                self.orderui.editPickup(orders[index], pickDate)
+
+                            # OPTION 2 SUB 3
+                            if c3 == '2':
+                                retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
+                                self.orderui.editReturn(orders[index], retDate)
+
+                            # OPTION 3 SUB 3
+                            if c3 == '3':
+                                self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
+
+                            # OPTION W SUB 3
+                            elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
+                                os.system('cls')
+                                index -= 1
+
+                            # OPTION S SUB 3
+                            elif c3.upper() == 'S' and index < len(orders) - 1:
+                                os.system('cls')
+                                index += 1
+
+                            # OPTION Q SUB 3
+                            elif c3.upper() == 'Q':
+                                break
+
+                    # OPTION 2 SUB 2
+                    if c2 == '2':
+                        index = 0
+                        orders = self.orderui.findOrder()
+                        while orders:
+                            os.system('cls')
+                            self.orderui.printSelectionTable(orders, index)
+                            print('1. Edit pickup date')
+                            print('2. Edit return date')
+                            print('3. Delete order')
+                            print('q. back')
+                            print('input W or S to move the arrow up and down')
+
+                            c3 = input()
+                            # OPTION 1 SUB 3
+                            if c3 == '1':
+                                pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
+                                self.orderui.editPickup(orders[index], pickDate)
+
+                            # OPTION 2 SUB 3
+                            if c3 == '2':
+                                retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
+                                self.orderui.editReturn(orders[index], retDate)
+
+                            # OPTION 3 SUB 3
+                            if c3 == '3':
+                                self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
+
+                            # OPTION W SUB 3
+                            elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
+                                os.system('cls')
+                                index -= 1
+
+                            # OPTION S SUB 3
+                            elif c3.upper() == 'S' and index < len(orders) - 1:
+                                os.system('cls')
+                                index += 1
+
+                            # OPTION Q SUB 3
+                            elif c3.upper() == 'Q':
+                                break
+                    # OPTION Q SUB 2
+                    if c2.upper() == 'Q':
+                        os.system('cls')
+                        break
             # OPTION 3 SUB 1
             elif c == '3':
                 while True:
@@ -60,7 +151,7 @@ class CSUI:
             elif c == '5':
                 while True:
                     os.system('cls')
-                    print('1. See all customers')
+                    print('1. View/edit all customers')
                     print('2. Find specific customer')
                     print('q. back')
                     c2 = input()
@@ -68,9 +159,9 @@ class CSUI:
                     # OPTION 1 SUB 2
                     if c2 == '1':
                         index = 0
+                        customers = self.customerui.retCustomers()
                         while True:
                             os.system('cls')
-                            customers = self.customerui.retCustomers()
                             self.customerui.printSelectionTable(customers, index)
                             print('1. Edit SSN')
                             print('2. Edit first name')
@@ -112,7 +203,7 @@ class CSUI:
                                 self.customerui.deleteCustomer(customers[index])
 
                             # OPTION W SUB 3
-                            elif c3.upper() == 'W' and index > 0:
+                            elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
                                 os.system('cls')
                                 index -= 1
 
@@ -130,7 +221,7 @@ class CSUI:
                         # Make and index for the arrow functionality and going through a list
                         index = 0
                         customers = self.customerui.findCustomer()
-                        while customers:
+                        while customers[0] is not None:
                             os.system('cls')
                             # makes a list of customers that fit specification
                             self.customerui.printSelectionTable(customers, index)
@@ -179,7 +270,7 @@ class CSUI:
                                 index -= 1
 
                             # OPTION S SUB 3
-                            elif c3.upper() == 'W' and index > 0:
+                            elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
                                 os.system('cls')
                                 index -= 1
 
@@ -202,11 +293,6 @@ class CSUI:
                         print(c2 + ' is not a valid command')
 
             # OPTION Q SUB 1
-            elif c == 'q':
+            elif c.upper() == 'Q':
                 os.system('cls')
                 break
-
-            # OPTION REST SUB 1
-            else:
-                os.system('cls')
-                print(c + ' is not a valid command')

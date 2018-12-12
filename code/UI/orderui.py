@@ -1,6 +1,7 @@
 from Business.orderdomain import OrderDomain
 from Business.cardomain import CarDomain
 from Models.insurance import Insurance
+from Repositories.getorders import GetOrders
 from datetime import datetime
 import os
 
@@ -52,19 +53,19 @@ class OrderUi:
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
             newOrderData.append('sedan')
-            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
+            price += self.__dom.calculateBasePrice(pDate, rDate, 'sedan')
         elif typ == 2:
             car = self.__carDom.getNextAvailableCar('sport')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
             newOrderData.append('sport')
-            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
+            price += self.__dom.calculateBasePrice(pDate, rDate, 'sport')
         elif typ == 3:
             car = self.__carDom.getNextAvailableCar('jeep')
             self.__carDom.setAsUnavailable(car.getPlate())
             newOrderData.append(str(car.getPlate()))
             newOrderData.append('jeep')
-            price += self.__dom.calculateBasePrice(pDate, rDate, typ)
+            price += self.__dom.calculateBasePrice(pDate, rDate, 'jeep')
         else:
             print('invalid input')
 
@@ -89,17 +90,36 @@ class OrderUi:
 
 
         #Prints a table with the contents of orderList
-    def printTable(self, myOrderList):                                                 
-        print(' --------------------------------------------------------------------------------------------- ')                 
-        print('%-11s%-12s%-9s%-21s%-21s%-21s' % ('|' + 'SSN', '|' + 'Car Plate', \
-            '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '             |'))                               
-        print(' ============================================================================================= ')                  
-        for x in myOrderList:                                                          
-            print('%-11s%-12s%-9s%-21s%-21s%-21s' % ('|' + x.getSsn(),\
-                 '|' + x.getCarPlate(),\
-                 '|' + x.getCarType(), '|' + x.getDateOfOrder(), '|' + x.getPickup(), '|' + x.getReturn() + '|'))                       
-            print(' --------------------------------------------------------------------------------------------- ')
-    
+    def printSelectionTable(self, myOrderList, index):
+        print(' -------------------------------------------------------------------------------------------------- ')
+        print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
+              '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '              |', 'Price' + '|'))
+        print(' ================================================================================================== ')
+        i = 0
+        for x in myOrderList:
+            if i == index:
+                print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
+                                                         '|' + x.getCarPlate(),
+                                                         '|' + x.getCarType(),
+                                                         '|' + x.getDateOfOrder(),
+                                                         '|' + x.getPickup(),
+                                                         '|' + x.getReturn() + '|',
+                str(self.__dom.calculateBasePrice(datetime.strptime(x.getPickup(),'%Y-%m-%d %H:%M:%S'),
+                                                  datetime.strptime(x.getReturn(),'%Y-%m-%d %H:%M:%S'),
+                                                  x.getCarType())) + '|' )
+                      + '<---')
+                print(' -------------------------------------------------------------------------------------------------- ')
+            else:
+                print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
+                                                         '|' + x.getCarPlate(),
+                                                         '|' + x.getCarType(), '|' + x.getDateOfOrder(),
+                                                         '|' + x.getPickup(), '|' + x.getReturn() + '|',
+                str(self.__dom.calculateBasePrice(datetime.strptime(x.getPickup(), '%Y-%m-%d %H:%M:%S'),
+                                                  datetime.strptime(x.getReturn(), '%Y-%m-%d %H:%M:%S'),
+                                                  x.getCarType())) + '|'))
+                print(' -------------------------------------------------------------------------------------------------- ')
+            i += 1
+
     # Finds order by either Car plate, SSN or date the order was made.
     # Prints out all relevant orders
     def findOrder(self):
@@ -108,19 +128,30 @@ class OrderUi:
         oList = []
         if inp == 1:
             oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ')))
+            return oList
         elif inp == 2:
              oList = self.__dom.findOrdersByCustomerSSN(str(input('Type in SSN: ')))
+             return oList
         elif inp == 3:
              oList = self.__dom.findOrdersByDate(str(input('Type in date of order: ')))
+             return oList
         else:
             print('Invalid input')
 
-        self.printTable(oList)
 
-    
-    def cancelOrder(self):
-        plate = str(input('Please Enter the car plate number: '))
-        pDate = str(input('Please Enter the pickup date: '))
+    def retOrders(self):
+        return self.__dom.returnOrderData()
+
+
+    def editReturn(self, order, returnDate):
+        self.__dom.editReturnDate(order, returnDate)
+
+
+    def editPickup(self, order, pickupDate):
+        self.__dom.editPickupDate(order, pickupDate)
+
+
+    def cancelOrder(self, plate, pDate):
         check = self.__dom.deleteOrder(plate, pDate)
         self.__carDom.setAsAvailable(plate) 
         if check == 1:
