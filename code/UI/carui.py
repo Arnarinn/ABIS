@@ -35,7 +35,7 @@ class CarUi:
             '|'+ 'Shifting option','|'+ 'Status','|' + 'Price   ' +'|'))
         print(' =================================================================================================================================================== ')
         for x in myCarList:
-            print('%-10s%-13s%-7s%-10s%-5s%-9s%-12s%-12s%-10s%-9s%-18s%-17s%-7s%-11s' % ('|' + x.getType(),\
+            print('%-10s%-13s%-7s%-10s%-5s%-9s%-12s%-12s%-10s%-9s%-18s%-17s%-7s%-9s' % ('|' + x.getType(),\
                 '|' + x.getManufacturer(),\
                 '|' + x.getColor(), '|' + x.getDistance(), '|' + x.getYear(), \
                 '|' + x.getPlate(),  '|' + x.getSeats(), '|' + x.getDoors(), \
