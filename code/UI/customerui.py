@@ -32,12 +32,12 @@ class CustomerUi:
         # columns are aligned to the left                  
         print('%-11s%-15s%-11s%-8s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
               '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number' + '|'))
-        print(' =========================================================== ')                  
+        print(' ======================================================== ')                  
         for x in myCustomerList:                                                          
             print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                   '|' + x.getLName(),'|' + x.getFName(),
                   '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
-            print(' -------------------------------------------------------- ')
+            print(' --------------------------------------------------------- ')
 
 
     def findCustomer(self):
