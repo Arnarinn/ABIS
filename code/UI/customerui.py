@@ -30,11 +30,11 @@ class CustomerUi:
         #Table has 4 colums with size: 11, 15, 15, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-11s%-15s%-11s%-8s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
+        print('%-11s%-15s%-11s%-9s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
               '|' + 'First Name', '|' + 'Phone' + '|', 'Card number' + '|'))
         print(' ======================================================== ')                  
         for x in myCustomerList:                                                          
-            print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
+            print('%-11s%-15s%-11s%-9s%-17s' % ('|' + x.getSsn(),
                   '|' + x.getLName(),'|' + x.getFName(),
                   '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
             print(' -------------------------------------------------------- ')
