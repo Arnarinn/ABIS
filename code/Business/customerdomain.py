@@ -86,3 +86,10 @@ class CustomerDomain:
                 self.__customerRep.customerInsert(self.__customerList)
 
 
+    def checkSsn(self, SSN):
+        for x in self.__customerList:
+            if x.getSsn() == SSN:
+                return True
+        return False
+
+

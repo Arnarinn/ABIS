@@ -1,7 +1,9 @@
 from Business.orderdomain import OrderDomain
+from Business.customerdomain import CustomerDomain
 from Business.cardomain import CarDomain
 from Models.insurance import Insurance
 from Repositories.getorders import GetOrders
+from UI.customerui import CustomerUi
 from datetime import datetime
 import os
 
@@ -12,12 +14,21 @@ class OrderUi:
     def __init__(self):
         self.__dom = OrderDomain()
         self.__carDom = CarDomain()
+        self.__customerDom = CustomerDomain()
+        self.__customerUI = CustomerUi()
 
 
     def newOrder(self):
         os.system('cls')
         newOrderData = []
         newOrderData.append(input('Customer SSN: '))
+        # Checks if Customer exists, if not it calls create new customer
+        if not self.__customerDom.checkSsn(newOrderData[0]):
+            while not self.__customerUI.newCustomerWithSsn(newOrderData[0]):
+                newOrderData[0] = input('Customer SSN: ')
+                if self.__customerDom.checkSsn(newOrderData[0]):
+                    break
+
         newOrderData.append(datetime(int(datetime.today().year), \
                                      int(datetime.today().month), \
                                      int(datetime.today().day), \
@@ -86,7 +97,7 @@ class OrderUi:
             print('invalid input')
         
         newOrderData.append(price)
-        self.__dom.createOrder(newOrderData)
+        #self.__dom.createOrder(newOrderData)
 
 
         #Prints a table with the contents of orderList

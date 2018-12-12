@@ -19,6 +19,9 @@ class CustomerUi:
         if (not newCustomerData[0].isdigit()) or (len(newCustomerData[0]) != 10):
             print('SSN not valid')
             return
+        if self.__dom.checkSsn(newCustomerData[0]):
+            print('This SSN has already been recorded')
+            return
 
         newCustomerData.append(input('First Name: '))
         if not newCustomerData[1].isalpha():
@@ -46,6 +49,49 @@ class CustomerUi:
 
         # Calls the Business function createCustomer with that data.
         self.__dom.createCustomer(newCustomerData)
+
+
+        # Creates new customer with ssn already filled out
+    def newCustomerWithSsn(self, SSN):
+        # appends customer info from user, into a list.
+        newCustomerData = []
+
+        newCustomerData.append(SSN)
+        if (not newCustomerData[0].isdigit()) or (len(newCustomerData[0]) != 10):
+            print('SSN not valid')
+            return False
+        if self.__dom.checkSsn(newCustomerData[0]):
+            print('This SSN has already been recorded')
+            return False
+
+        newCustomerData.append(input('First Name: '))
+        if not newCustomerData[1].isalpha():
+            print('First name not valid')
+            return False
+
+        newCustomerData.append(input('Last Name: '))
+        if not newCustomerData[2].isalpha():
+            print('Last name not valid')
+            return False
+
+        newCustomerData.append(input('Age: '))
+        if (not newCustomerData[3].isdigit()) or (int(newCustomerData[3]) < 20):
+            print('Age not valid')
+            return False
+
+        newCustomerData.append(input('Phone: '))
+        if (not newCustomerData[4].isdigit()) or (len(newCustomerData[4]) != 7):
+            print('Phone not valid')
+            return False
+        newCustomerData.append(input('Credit Card: '))
+        if (not newCustomerData[5].isdigit()) or (len(newCustomerData[5]) != 16):
+            print('Credit Card not valid')
+            return False
+
+        # Calls the Business function createCustomer with that data.
+        self.__dom.createCustomer(newCustomerData)
+
+        return True
 
     
     #Prints a table with the contents of myCustomerList
