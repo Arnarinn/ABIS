@@ -1,5 +1,5 @@
-from UI.carui import CarUi
+from UI.orderui import OrderUi
 
-test = CarUi()
+test = OrderUi()
 
-test.returnCar()
+test.cancelOrder()
