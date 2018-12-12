@@ -37,7 +37,7 @@ class CustomerUi:
             print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                   '|' + x.getLName(),'|' + x.getFName(),
                   '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
-            print(' ----------------------------------------------------------- ')
+            print(' -------------------------------------------------------- ')
 
 
     def findCustomer(self):
