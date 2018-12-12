@@ -57,7 +57,8 @@ class OrderDomain:
     
     def findOrdersByDate(self, date):
         oList = []
+        oDate = str(date)
         for order in self.__orderList:
-            if str(order.getDateOfOrder()) == str(date):
+            if str(order.getDateOfOrder())[:10] == str(date):
                 oList.append(order)
         return oList
