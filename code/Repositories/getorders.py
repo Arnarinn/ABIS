@@ -15,8 +15,13 @@ class GetOrders:
                                             line[5], line[6], line[7]))
         return ordersObjectArray
 
-    # APPENDS the DATA for one new order to the customers.csv
-    def orderInsert(self, order):
-        with open('../data/orders.csv', 'a', newline = '') as orderFile:
+    # WRITES the DATA from the orderlist into the csv file
+    def orderInsert(self, orderList):
+        with open('../data/orders.csv', 'w', newline = '') as orderFile:
             orderFileWriter = csv.writer(orderFile)
-            orderFileWriter.writerow(order)
+            # This is the headder
+            orderFileWriter.writerow(['client', 'date of order', 'date of pickup',\
+                                         'date of return', 'license plate', 'car type',\
+                                         'insurance', 'cost'])
+            for obj in orderList:
+                orderFileWriter.writerow(obj.dataList())

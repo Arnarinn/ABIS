@@ -1,4 +1,3 @@
-
 # REMEMBER TO ADD EMPLOYEE
 class Order:
     def __init__(self, customer, timeOfOrder,
@@ -35,3 +34,36 @@ class Order:
                                                        self.__carType,
                                                        self.__insurance,
                                                        self.__price)
+
+                            
+    def dataList(self):
+        dList = []
+
+        dList.append(self.__customer)
+        dList.append(self.__timeOfOrder)
+        dList.append(self.__timeOfPickup)
+        dList.append(self.__timeOfReturn)
+        dList.append(self.__carNumber)
+        dList.append(self.__carType)
+        dList.append(self.__insurance)
+        dList.append(self.__price)
+
+        return dList
+
+    def getCarPlate(self):
+        return  self.__carNumber
+
+    def getSsn(self):
+        return self.__customer
+
+    def getDateOfOrder(self):
+        return self.__timeOfOrder
+
+    def getCarType(self):
+        return self.__carType
+
+    def getReturn(self):
+        return self.__timeOfReturn
+
+    def getPickup(self):
+        return self.__timeOfPickup

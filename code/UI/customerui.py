@@ -1,3 +1,4 @@
+import os
 from Business.customerdomain import CustomerDomain
 from Models.customer import Customer
 
@@ -29,29 +30,37 @@ class CustomerUi:
         #Table has 4 colums with size: 11, 15, 15, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-11s%-15s%-15s%-10s' % ('|' + 'SSN', '|' + 'Last Name', \
-            '|' + 'First Name', '|' + 'Phone   ' + '|'))                               
+        print('%-11s%-15s%-15s%-10s%-10s' % ('|' + 'SSN', '|' + 'Last Name',
+              '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number  ' + '|'))
         print(' ================================================= ')                  
         for x in myCustomerList:                                                          
-            print('%-11s%-15s%-15s%-10s' % ('|' + x.getSsn(),\
-                 '|' + x.getLName(),\
-                 '|' + x.getFName(), '|' + x.getPhone() + ' |'))                       
+            print('%-11s%-15s%-15s%-10s%-10s' % ('|' + x.getSsn(),
+                  '|' + x.getLName(),'|' + x.getFName(),
+                  '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
             print(' ------------------------------------------------- ')
 
-    
+
     def findCustomer(self):
+        while True:
+            print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go backwards')
+            listOfCustomers = []
+            inp = input()
 
-        inp = input('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\n')
-        listOfCustomers = []
+            if inp == '1':
+                listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
+                os.system('cls')
+            elif inp == '2':
+                listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
+                os.system('cls')
+            elif inp == '3':
+                listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
+                                         str(input('Last Name: '))))
+                os.system('cls')
+            elif inp == 'q':
+                break
 
-        if inp == '1':
-            listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
-        elif inp == '2':
-            listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
-        elif inp == '3':
-            listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
-                                     str(input('Last Name: '))))
-        else:
-            print('Invalid Input')
+            self.printTable(listOfCustomers)
 
-        self.printTable(listOfCustomers)
+
+    def dispCustomers(self):
+        self.printTable(self.__dom.returnCustomerData())

@@ -14,12 +14,16 @@ class GetCustomers:
         # The objects are then stored in a list.
         for line in formattedData:
             customerObjectArray.append(Customer(line[0], line[1], line[2],
-                                                line[3], line[4], line[5]))
+                                                line[3], line[4], line[5],
+                                                line[6]))
         return customerObjectArray
 
-
-    # APPENDS the DATA for one new customer to the customers.csv
-    def customerInsert(self, customer):
-        with open('../data/customers.csv', 'a', newline = '') as customerFile:
+    # WRITES the DATA from the customerList into the csv file
+    def customerInsert(self, customerList):
+        with open('../data/customers.csv', 'w', newline = '') as customerFile:
             customerFileWriter = csv.writer(customerFile)
-            customerFileWriter.writerow(customer)
+            # This is the header
+            customerFileWriter.writerow(['ssn', 'first name', 'last name',
+                                         'age', 'phone', 'other'])
+            for obj in customerList:
+                customerFileWriter.writerow(obj.dataList())

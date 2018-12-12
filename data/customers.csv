@@ -1,8 +1,2 @@
-ssn,first name,last name,age,phone,other
-1305962319, Hannah,Montana,22,666 6669,Pop star
-1305002589, Bob,Bobs,18,123 4567,None
-2805402379, Daniel,Dansgame,78,765 4321,None
-2121193912, Victoria,Secret,99,212 1212,Model
-6782765623, Bobs,Burgers,42,223 4897,Restaurant Owner
-3682349049, Archer,Something,84,111 1101,Confidential
-2423492344, Mc,Nugget,69,233 6757,Bla
+ssn,first name,last name,age,phone,card number,other
+1305962299,Addi,J�nsson,20,1234567,555555555555,haha

@@ -24,7 +24,6 @@ class CarDomain:
 
     
     def setAsUnavailable(self, carPlate):
-########################HAD TO CHANGE REPOSITORY METHODS#########################################
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
                 if x.getStatus == '1':
@@ -50,3 +49,21 @@ class CarDomain:
         for x in available:
             if x.getType() == str(cType):
                 return x
+        print('No cars availabli in this class')
+
+    # Mark car as returned
+    def returnedCars(self):
+        aCars = []
+        for x in self.__carList:
+            if x.getStatus() == '0':
+                aCars.append(x)
+        return aCars
+
+    # Mark car as delivered
+    def deliveredCars(self):
+        uACars = []
+        for x in self.__carList:
+            if x.getStatus() == '1':
+                uACars.append(x)
+        return uACars
+     
