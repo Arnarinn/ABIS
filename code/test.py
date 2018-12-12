@@ -1,7 +1,5 @@
-#File for making tests in the code
+from UI.carui import CarUi
 
-from UI.orderui import OrderUi
+test = CarUi()
 
-
-test = OrderUi()
-test.findOrder()
+test.returnCar()

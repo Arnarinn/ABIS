@@ -1,4 +1,5 @@
 from Business.cardomain import CarDomain
+import os
 
 class CarUi:
 
@@ -61,3 +62,16 @@ class CarUi:
     #Calls the printTable function on all unavailable cars
     def CMDispUnavailableCars(self):                                                                        
         self.printCMTable(self.__dom.unavailableCars())
+
+
+    def returnCar(self):
+        os.system('cls')
+        print('Return a car:')
+        carPlate = input('Please enter the car plate number:\n')
+        comp = self.__dom.setAsAvailable(carPlate)
+        if comp == 1:
+            print('Car has been returned')
+        else:
+            print('Something went wrong')
+
+

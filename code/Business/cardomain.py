@@ -34,6 +34,20 @@ class CarDomain:
         self.__cars.carInsert(self.__carList)
 
 
+    def setAsAvailable(self, carPlate):
+        retVal = 0
+        for x in self.__carList:
+            if x.getPlate() == str(carPlate):
+                if x.getStatus == '0':
+                    print('Car alredy unavailable')
+                    return
+                x.setStatus('0')
+                retVal = 1
+        self.__cars.carInsert(self.__carList)
+        return retVal
+
+
+
     # Returns a list of all unavailable cars
     def unavailableCars(self):
         uACars = []
