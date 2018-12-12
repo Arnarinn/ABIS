@@ -31,7 +31,7 @@ class CustomerUi:
         # columns are filled with strings
         # columns are aligned to the left                  
         print('%-11s%-15s%-15s%-8s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
-              '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number  ' + '|'))
+              '|' + 'First Name', '|' + 'Phone' + '|', 'Card number' + '|'))
         print(' ================================================= ')                  
         for x in myCustomerList:                                                          
             print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
