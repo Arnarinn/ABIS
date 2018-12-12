@@ -100,7 +100,8 @@ class OrderUi:
                  '|' + x.getCarType(), '|' + x.getDateOfOrder(), '|' + x.getPickup(), '|' + x.getReturn() + '|'))                       
             print(' --------------------------------------------------------------------------------------------- ')
     
-
+    # Finds order by either Car plate, SSN or date the order was made.
+    # Prints out all relevant orders
     def findOrder(self):
         inp = int(input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\n'))
         os.system('cls')
@@ -116,4 +117,13 @@ class OrderUi:
 
         self.printTable(oList)
 
-        
+    
+    def cancelOrder(self):
+        plate = str(input('Please Enter the car plate number: '))
+        pDate = str(input('Please Enter the pickup date: '))
+        check = self.__dom.deleteOrder(plate, pDate)
+        self.__carDom.setAsAvailable(plate) 
+        if check == 1:
+            print('Order Cancelled')
+        else:
+            print('Something went wrong')     

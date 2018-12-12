@@ -19,6 +19,16 @@ class OrderDomain:
                                 
         self.__orderRep.orderInsert(self.__orderList)
 
+    
+    def deleteOrder(self, carPlate, pDate):
+        for x in self.__orderList:
+            if x.getCarPlate() == carPlate and x.getPickup()[:10] == pDate:
+                self.__orderList.remove(x)
+                self.__orderRep.orderInsert(self.__orderList)
+                return 1
+        return 0
+            
+
 
     def calculateBasePrice(self, date1, date2, carType):
         time = timedelta()
@@ -57,7 +67,6 @@ class OrderDomain:
     
     def findOrdersByDate(self, date):
         oList = []
-        oDate = str(date)
         for order in self.__orderList:
             if str(order.getDateOfOrder())[:10] == str(date):
                 oList.append(order)
