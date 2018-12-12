@@ -50,7 +50,7 @@ class CMUI:
         # Waits for any input on the keyboard
         # to give time for user to read their info
         print('press any key to go back')
-        msvcrt.getch()
+        input()
 
     def carReturned(self):
         os.system('cls')
@@ -60,7 +60,7 @@ class CMUI:
         # Waits for any input on the keyboard
         # to give time for user to read their info
         print('press any key to go back')
-        msvcrt.getch()
+        input()
 
     def viewCars(self):
         os.system('cls')
