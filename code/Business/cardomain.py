@@ -22,7 +22,7 @@ class CarDomain:
         return aCars
 
 
-    
+    # Changes a single carstatus to available (0)
     def setAsUnavailable(self, carPlate):
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
@@ -33,13 +33,13 @@ class CarDomain:
                 break
         self.__cars.carInsert(self.__carList)
 
-
+    # Changes a single carstatus to available (1)
     def setAsAvailable(self, carPlate):
         retVal = 0
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
                 if x.getStatus == '0':
-                    print('Car alredy unavailable')
+                    print('Car alredy available')
                     return
                 x.setStatus('0')
                 retVal = 1
@@ -56,7 +56,7 @@ class CarDomain:
                 uACars.append(x)
         return uACars
 
-
+    # Returns the next available car
     def getNextAvailableCar(self, cType):
         available = self.availableCars()
         
@@ -80,4 +80,5 @@ class CarDomain:
             if x.getStatus() == '1':
                 uACars.append(x)
         return uACars
-     
+
+    

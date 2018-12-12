@@ -1,5 +1,5 @@
-from UI.orderui import OrderUi
+from UI.customerui import CustomerUi
 
-test = OrderUi()
+test = CustomerUi()
 
-test.cancelOrder()
+test.newCustomer()
