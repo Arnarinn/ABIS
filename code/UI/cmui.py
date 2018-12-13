@@ -22,7 +22,7 @@ class CMUI:
 
             # OPTION 1 SUB 1
             if c2 == '1':
-                self.carui.CMDispAvailableCars()
+                self.carui.printCMTable(self.carui.CMDispAvailableCars(), 0, 'n')
                 input()
 
             # OPTION 2 SUB 1

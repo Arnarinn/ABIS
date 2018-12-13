@@ -9,19 +9,29 @@ class CarUi:
 
 
     #Prints a table with the contents of myCarList
-    def printCSTable(self, myCarList):
-        print('--------------------------------------------------')
+    def printCSTable(self, myCarList,index, search):
+        print('-----------------------------------------------------')
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-10s%-13s%-9s%-9s' % ('|' + 'Type', '|' + 'Manufacturer',
-            '|' + 'Plate Nr', '|' + 'Price   ' + '|'))                               
-        print('==================================================')                  
-        for x in myCarList:                                                          
-            print('%-10s%-13s%-9s%-9s' % ('|' + x.getType(),
-                 '|' + x.getManufacturer(),
-                 '|' + x.getPlate(), '|' + x.getCost() + '|'))                       
-            print('--------------------------------------------------')
+        print('%-10s%-13s%-9s%-9s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
+            '|' + 'Plate Nr', '|' + 'Price   ' + '|', 'Status' + '|'))
+        print('=====================================================')
+        i = 0
+        for x in myCarList:
+            if i == index and search == 'y':
+                print('%-10s%-13s%-9s%-9s%-6s' % ('|' + x.getType(),
+                     '|' + x.getManufacturer(),
+                     '|' + x.getPlate(), '|' + x.getCost() + '|',
+                      x.getStatus() + '|') + '<---')
+                print('-----------------------------------------------------')
+            else:
+                print('%-10s%-13s%-9s%-9s%-6s' % ('|' + x.getType(),
+                                                  '|' + x.getManufacturer(),
+                                                  '|' + x.getPlate(), '|' + x.getCost() + '|',
+                                                  x.getStatus() + '|'))
+                print('-----------------------------------------------------')
+            i += 1
 
 
     def printCMTable(self, myCarList, index, search):
@@ -65,22 +75,13 @@ class CarUi:
                 cars.append(c)
         return cars
 
-    #Calls the printTable function on all available cars
-    def CSDispAvailableCars(self):                                                                                        
-        self.printCSTable(self.__dom.availableCars()) 
+
+    def AvailableCars(self):
+        return self.__dom.availableCars()
         
 
     #Calls the printTable function on all unavailable cars
-    def CSDispUnavailableCars(self):                                                                        
-        self.printCSTable(self.__dom.unavailableCars())
-    
-
-    def CMDispAvailableCars(self):
-        self.printCMTable(self.__dom.availableCars(), 0, 'n')
-        
-
-    #Calls the printTable function on all unavailable cars
-    def CMDispUnavailableCars(self):
+    def UnavailableCars(self):
         return self.__dom.unavailableCars()
 
 
@@ -91,4 +92,6 @@ class CarUi:
         else:
             print('Something went wrong')
 
+    def deliverCar(self, car):
+        self.__dom.setAsUnavailable(car.getPlate())
 

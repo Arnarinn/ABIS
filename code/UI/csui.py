@@ -65,7 +65,7 @@ class CSUI:
 
                             # OPTION 3 SUB 3
                             if c3 == '3':
-                                self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
+                                self.orderui.cancelOrder(orders[index].getCarPlate, orders[index].getPickup)
 
                             # OPTION W SUB 3
                             elif c3.upper() == 'W' and index > 0  and len(orders) != 1:
@@ -141,22 +141,15 @@ class CSUI:
 
                     # OPTION 1 SUB 1
                     if c2 == '1':
-                        self.carui.CMDispAvailableCars()
-                        input()
-
-                    # OPTION 2 SUB 1
-                    elif c2 == '2':
+                        cars = self.carui.AvailableCars()
                         index = 0
-                        cars = self.carui.CMDispUnavailableCars()
                         while True:
-                            os.system('cls' if os.name == 'nt' else 'clear')
-                            self.carui.printCMTable(cars, index, 'y')
-                            print('1. Mark selected car as available')
+                            self.carui.printCSTable(cars, index, 'y')
+                            print('1. Mark car as available')
                             c3 = input()
-
                             # OPTION 1 SUB 2
                             if c3 == '1':
-                                self.carui.returnCar(cars[index])
+                                self.carui.deliverCar(cars[index])
 
                             # OPTION W SUB 2
                             if c3.upper() == 'W' and index > 0 and len(cars) != 1:
@@ -172,17 +165,28 @@ class CSUI:
                             elif c3.upper() == 'Q':
                                 break
 
-                            # OPTION 3 SUB 2
-                            elif c2 == '3':
-                                self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
-                                input()
 
-                            # OPTION 4 SUB 2
-                            elif c2 == '4':
-                                while True:
-                                    car = input('Number plate: ')
-                                    self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
-                                    input()
+                    # OPTION 2 SUB 1
+                    elif c2 == '2':
+                        index = 0
+                        cars = self.carui.UnavailableCars()
+                        self.carui.printCSTable(cars, index, 'n')
+                        input()
+
+                    # OPTION 3 SUB 2
+                    elif c2 == '3':
+                        self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
+                        input()
+
+                    # OPTION 4 SUB 2
+                    elif c2 == '4':
+                        car = input('Number plate: ')
+                        self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
+                        input()
+
+                    # OPTION Q SUB 2
+                    elif c2.upper() == 'Q':
+                        break
 
             # OPTION 4 SUB 1
             elif c == '4':

@@ -37,16 +37,14 @@ class CarDomain:
 
     # Changes a single car status to available (1)
     def setAsAvailable(self, carPlate):
-        retVal = 0
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
                 if x.getStatus == '0':
                     print('Car already available')
                     return
                 x.setStatus('0')
-                retVal = 1
+                break
         self.__cars.carInsert(self.__carList)
-        return retVal
 
 
 
