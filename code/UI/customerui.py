@@ -101,6 +101,7 @@ class CustomerUi:
               '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number      ' + '|'))
         print(' ============================================================== ')
         i = 0
+        
         for x in myCustomerList:
             if index == i:
                 print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
@@ -117,7 +118,7 @@ class CustomerUi:
 
     def findCustomer(self):
         while True:
-            print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go backwards')
+            print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go back')
             listOfCustomers = []
             inp = input()
 
@@ -131,8 +132,8 @@ class CustomerUi:
                 return listOfCustomers
 
             elif inp == '3':
-                listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
-                                         str(input('Last Name: '))))
+                listOfCustomers = self.__dom.findCustomerName(str(input('First Name: ')),
+                                         str(input('Last Name: ')))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
 
