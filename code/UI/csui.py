@@ -127,6 +127,8 @@ class CSUI:
                 self.orderui.editReturn(orders[index], retDate)
             if c == '3':
                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
+                if index == len(orders):
+                    index -= 1
             elif c.upper() == 'W' and index > 0 and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
@@ -227,7 +229,7 @@ class CSUI:
         index = 0
         customers = self.customerui.retCustomers()
         while True:
-            os.system('cls' if os.name == 'nt' else 'clear')
+            # os.system('cls' if os.name == 'nt' else 'clear')
             self.customerui.printSelectionTable(customers, index)
             print('1. Edit SSN')
             print('2. Edit first name')
@@ -257,6 +259,8 @@ class CSUI:
                 self.customerui.editCardNumber(customers[index], cardnumber)
             elif c3 == '6':
                 self.customerui.deleteCustomer(customers[index])
+                if index == len(customers):
+                    index -= 1
             elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
@@ -274,7 +278,7 @@ class CSUI:
         index = 0
         customers = self.customerui.findCustomer()
         while customers[0] is not None:
-            os.system('cls' if os.name == 'nt' else 'clear')
+            # os.system('cls' if os.name == 'nt' else 'clear')
             # makes a list of customers that fit specification
             self.customerui.printSelectionTable(customers, index)
             print('1. Edit SSN')
@@ -305,6 +309,8 @@ class CSUI:
                 self.customerui.editCardNumber(customers[index], cardnumber)
             elif c3 == '6':
                 self.customerui.deleteCustomer(customers[index])
+                if index == len(customers):
+                    index -= 1
             elif c3.upper() == 'W':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
