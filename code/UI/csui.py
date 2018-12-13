@@ -13,13 +13,13 @@ class CSUI:
         self.customerui = CustomerUi()
         self.orderui = OrderUi()
 
-    
+    # The main menue for Customer Service employees.
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-
+            # The main menue:
             print('Welcome to ABIS, the Customer Service program!')
-
+            
             print('___________________________________')
             print('1. New order \n'
                   '2. View/edit orders \n'
@@ -30,190 +30,168 @@ class CSUI:
             # Detects a button press and which button was pressed
             c = input()
 
-            # OPTION 1
+            # Checks input from user and calls a function from the menue
             if c == '1':
                 self.orderui.newOrder()
-            
-            # OPTION 2
             elif c == '2':
                 self.orderOptions()                
-            
-            # OPTION 3
             elif c == '3':
                 self.carOptions()
-            
-            # OPTION 4
             elif c == '4':
                 self.customerui.newCustomer()
-            
-            # OPTION 5
             elif c == '5':
                 self.customerOptions()
-            
-            # OPTION 'Q' TO QUIT
             elif c.upper() == 'Q':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 break
 
 
+    # This contains the order options and is called from the home function
     def orderOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
+            # The orders menue:
             print('1. View/edit all orders')
             print('2. find specific order')
             print('q. back')
+            # Gets input from user
             c = input()
-
+            # Checks input from user and calls a function from the orders menue
             if c == '1':
                 self.viewAndEditAllOrders()
-
             if c == '2':
                 self.findOrderAndEdit()
-
             if c.upper() == 'Q':
                 break
     
 
+    # Prints all orders in a table and gives the user options on editing them
+    # This function is called from orderOptions
     def viewAndEditAllOrders(self):
         index = 0
+        # Gets a list of orders from orderui
         orders = self.orderui.retOrders()
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
+            # The edit / navigation menue
             self.orderui.printSelectionTable(orders, index)
             print('1. Edit pickup date')
             print('2. Edit return date')
             print('3. Delete order')
             print('q. back')
             print('input W or S to move the arrow up and down')
-
-            c3 = input()
-            
-            if c3 == '1':
+            # Gets input from user
+            c = input()
+            # Checks input from user and calls a function from the edit / navigation menue
+            if c == '1':
                 pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
                 self.orderui.editPickup(orders[index], pickDate)
-
-            if c3 == '2':
+            if c == '2':
                 retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
                 self.orderui.editReturn(orders[index], retDate)
-
-            
-            if c3 == '3':
+            if c == '3':
                 self.orderui.cancelOrder(orders[index].getCarPlate, orders[index].getPickup)
-
-            
-            elif c3.upper() == 'W' and index > 0  and len(orders) != 1:
+            elif c.upper() == 'W' and index > 0  and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-            
-            elif c3.upper() == 'S' and index < len(orders) - 1:
+            elif c.upper() == 'S' and index < len(orders) - 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
-
-            elif c3.upper() == 'Q':
+            elif c.upper() == 'Q':
                 break
 
-    
+
+    # Prints all apropriate orders and gives the user options on editing them
+    # This function is called from orderOptions
     def findOrderAndEdit(self):
         index = 0
+        # Gets a list of orders from orderui
         orders = self.orderui.findOrder()
         while orders:
             os.system('cls' if os.name == 'nt' else 'clear')
+            # The edit / navigation menue
             self.orderui.printSelectionTable(orders, index)
             print('1. Edit pickup date')
             print('2. Edit return date')
             print('3. Delete order')
             print('q. back')
             print('input W or S to move the arrow up and down')
-
-            c3 = input()
-           
-            if c3 == '1':
+            # Gets input from user
+            c = input()
+            # Checks input from user and calls a function from the edit / navigation menue
+            if c == '1':
                 pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
                 self.orderui.editPickup(orders[index], pickDate)
-
-            
-            if c3 == '2':
+            if c == '2':
                 retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
                 self.orderui.editReturn(orders[index], retDate)
-
-           
-            if c3 == '3':
+            if c == '3':
                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
-
-          
-            elif c3.upper() == 'W' and index > 0 and len(orders) != 1:
+            elif c.upper() == 'W' and index > 0 and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-            
-            elif c3.upper() == 'S' and index < len(orders) - 1:
+            elif c.upper() == 'S' and index < len(orders) - 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
-
-           
-            elif c3.upper() == 'Q':
+            elif c.upper() == 'Q':
                 break
         
     
+    # This contains the car options and is called from the home function
     def carOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-
+            # The car menue:
             print('1. Show available cars')
             print('2. Show unavailable cars')
             print('3. Show all cars')
             print('4. Search car by number plate')
-
             print('q. back')
+            # Gets input from user
             c = input()
-
+            # Checks input and calls a function from the car menue
             if c == '1':
                 self.availableCarsOptions()
-            
             elif c == '2':
                 self.unavailableCarsOptions()
-            
             elif c == '3':
                 self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
                 input()
-
             elif c == '4':
                 car = input('Number plate: ')
                 self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
                 input()
-            
             elif c.upper() == 'Q':
                 break
 
             
-    
+    # This contains the available car options and is called from carOptions
     def availableCarsOptions(self):
+        # Gets a list of all available cars from carui
         cars = self.carui.AvailableCars()
         index = 0
         while True:
+            # prints a table with the cars list
             self.carui.printCSTable(cars, index, 'y')
             print('1. Mark car as available')
+            # Gets input from user
             c3 = input()
           
             if c3 == '1':
+                # Changes a car status to unavailable
                 self.carui.deliverCar(cars[index])
-
-            
             if c3.upper() == 'W' and index > 0 and len(cars) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-            
             elif c3.upper() == 'S' and index < len(cars) - 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                index += 1
-
-            
+                index += 1            
             elif c3.upper() == 'Q':
                 break
 
-    
+
+    # This contains the unavailable car options and is called from carOptions
+    # Prints out a table of unavailable cars.
     def unavailableCarsOptions(self):
         index = 0
         cars = self.carui.UnavailableCars()
@@ -221,6 +199,7 @@ class CSUI:
         input()
 
 
+    # This contains the customer options and is called from the home function
     def customerOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -233,18 +212,17 @@ class CSUI:
 
             if c == '1':
                 self.viewAndEditAllCustomers()
-            
             elif c == '2':
-                self.viewAndEditCustomer()
-            
+                self.viewAndEditCustomer()            
             elif c.upper() == 'Q':
                 break
-
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print(c + ' is not a valid command')
 
     
+    # This prints out all customers in a table and gives the user the option
+    # to edit them
     def viewAndEditAllCustomers(self):
         index = 0
         customers = self.customerui.retCustomers()
@@ -265,46 +243,32 @@ class CSUI:
             if c3 == '1':
                 ssn = input('SSN:')
                 self.customerui.editSsn(customers[index], ssn)
-
-            
             elif c3 == '2':
                 firstname = input('First name:')
                 self.customerui.editfName(customers[index], firstname)
-
-           
             elif c3 == '3':
                 lastname = input('Last name:')
                 self.customerui.editlName(customers[index], lastname)
-
-            
             elif c3 == '4':
                 phone = input('Phone:')
                 self.customerui.editPhone(customers[index], phone)
-
-           
             elif c3 == '5':
                 cardnumber = input('Card number:')
                 self.customerui.editCardNumber(customers[index], cardnumber)
-
-           
             elif c3 == '6':
                 self.customerui.deleteCustomer(customers[index])
-
-          
             elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-           
             elif c3.upper() == 'S' and index < len(customers)-1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
-
-           
             elif c3.upper() == 'Q':
                 break
 
     
+    # This prints out a list of customers that fit the search pattern
+    # Gives the user an option to edit rows
     def viewAndEditCustomer(self):
         # Make and index for the arrow functionality and going through a list
         index = 0
@@ -327,46 +291,28 @@ class CSUI:
             if c3 == '1':
                 ssn = input('SSN:')
                 self.customerui.editSsn(customers[index], ssn)
-
-            
             elif c3 == '2':
                 firstname = input('First name:')
                 self.customerui.editfName(customers[index], firstname)
-
-          
             elif c3 == '3':
                 lastname = input('Last name:')
                 self.customerui.editlName(customers[index], lastname)
-
-            
             elif c3 == '4':
                 phone = input('Phone:')
                 self.customerui.editPhone(customers[index], phone)
-
-           
             elif c3 == '5':
                 cardnumber = input('Card number:')
                 self.customerui.editCardNumber(customers[index], cardnumber)
-
-          
             elif c3 == '6':
                 self.customerui.deleteCustomer(customers[index])
-
-         
             elif c3.upper() == 'W':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-         
             elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
-
-          
             elif c3.upper() == 'S' and index < len(customers)-1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
-
-          
             elif c3.upper() == 'Q':
                 break
