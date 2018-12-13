@@ -65,7 +65,7 @@ class CarUi:
 
 
     def returnCar(self):
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('Return a car:')
         carPlate = input('Please enter the car plate number:\n')
         comp = self.__dom.setAsAvailable(carPlate)

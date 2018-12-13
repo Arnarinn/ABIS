@@ -8,7 +8,7 @@ class CMUI:
     
     def home(self):
         while True:
-            os.system('cls')
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('Welcome to the ABIS manager program!')
             print('___________________________________')
             print('1. Mark car as delivered \n'
@@ -23,7 +23,7 @@ class CMUI:
                 self. carReturned()
             elif c == '3':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show returned cars')
                     print('2. show delivered cars')
                     print('q. go backwards')
@@ -37,10 +37,10 @@ class CMUI:
                     elif c2 == 'q':
                         break
             elif c == 'q':
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break
     def carDelivered(self):
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         # loads of inputs to insert into the csv file
         employee = input('Type in employee name:')
         carNumber = input('Type in car number:')
@@ -53,7 +53,7 @@ class CMUI:
         input()
 
     def carReturned(self):
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         employee = input('Type in employee name:')
         carNumber = input('Type in car number:')
         self.domain.insertOrder(employee, carNumber)
@@ -63,7 +63,7 @@ class CMUI:
         input()
 
     def viewCars(self):
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         carData = self.domain.getCarData()
         for v in carData:
             print(v)

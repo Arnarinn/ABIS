@@ -14,7 +14,7 @@ class CSUI:
 
     def home(self):
         while True:
-            os.system('cls')
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('Welcome to the ABIS manager program!')
             print('___________________________________')
             print('1. New order \n'
@@ -32,7 +32,7 @@ class CSUI:
             # OPTION 2 SUB 1
             elif c == '2':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. View/edit all orders')
                     print('2. find specific order')
                     print('q. back')
@@ -42,7 +42,7 @@ class CSUI:
                         index = 0
                         orders = self.orderui.retOrders()
                         while True:
-                            os.system('cls')
+                            os.system('cls' if os.name == 'nt' else 'clear')
                             self.orderui.printSelectionTable(orders, index)
                             print('1. Edit pickup date')
                             print('2. Edit return date')
@@ -67,12 +67,12 @@ class CSUI:
 
                             # OPTION W SUB 3
                             elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
                             # OPTION S SUB 3
                             elif c3.upper() == 'S' and index < len(orders) - 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index += 1
 
                             # OPTION Q SUB 3
@@ -84,7 +84,7 @@ class CSUI:
                         index = 0
                         orders = self.orderui.findOrder()
                         while orders:
-                            os.system('cls')
+                            os.system('cls' if os.name == 'nt' else 'clear')
                             self.orderui.printSelectionTable(orders, index)
                             print('1. Edit pickup date')
                             print('2. Edit return date')
@@ -109,12 +109,12 @@ class CSUI:
 
                             # OPTION W SUB 3
                             elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
                             # OPTION S SUB 3
                             elif c3.upper() == 'S' and index < len(orders) - 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index += 1
 
                             # OPTION Q SUB 3
@@ -122,12 +122,12 @@ class CSUI:
                                 break
                     # OPTION Q SUB 2
                     if c2.upper() == 'Q':
-                        os.system('cls')
+                        os.system('cls' if os.name == 'nt' else 'clear')
                         break
             # OPTION 3 SUB 1
             elif c == '3':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show available cars')
                     print('2. show unavailable cars')
                     print('q. back')
@@ -150,7 +150,7 @@ class CSUI:
             # OPTION 5 SUB 1
             elif c == '5':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. View/edit all customers')
                     print('2. Find specific customer')
                     print('q. back')
@@ -161,7 +161,7 @@ class CSUI:
                         index = 0
                         customers = self.customerui.retCustomers()
                         while True:
-                            os.system('cls')
+                            os.system('cls' if os.name == 'nt' else 'clear')
                             self.customerui.printSelectionTable(customers, index)
                             print('1. Edit SSN')
                             print('2. Edit first name')
@@ -204,12 +204,12 @@ class CSUI:
 
                             # OPTION W SUB 3
                             elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
                             # OPTION S SUB 3
                             elif c3.upper() == 'S' and index < len(customers)-1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index += 1
 
                             # OPTION Q SUB 3
@@ -222,7 +222,7 @@ class CSUI:
                         index = 0
                         customers = self.customerui.findCustomer()
                         while customers[0] is not None:
-                            os.system('cls')
+                            os.system('cls' if os.name == 'nt' else 'clear')
                             # makes a list of customers that fit specification
                             self.customerui.printSelectionTable(customers, index)
                             print('1. Edit SSN')
@@ -266,17 +266,17 @@ class CSUI:
 
                             # OPTION W SUB 3
                             elif c3.upper() == 'W':
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
                             # OPTION S SUB 3
                             elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
                             # OPTION S SUB 3
                             elif c3.upper() == 'S' and index < len(customers)-1:
-                                os.system('cls')
+                                os.system('cls' if os.name == 'nt' else 'clear')
                                 index += 1
 
                             # OPTION Q SUB 3
@@ -289,10 +289,10 @@ class CSUI:
 
                     # OPTION REST SUB 2
                     else:
-                        os.system('cls')
+                        os.system('cls' if os.name == 'nt' else 'clear')
                         print(c2 + ' is not a valid command')
 
             # OPTION Q SUB 1
             elif c.upper() == 'Q':
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break

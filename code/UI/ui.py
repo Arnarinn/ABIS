@@ -26,5 +26,5 @@ class Startup:
                     cmui.home()
                     break
             else:
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print('Either the username or password was wrong')
