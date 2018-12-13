@@ -18,10 +18,47 @@ class OrderUi:
         self.__customerUI = CustomerUi()
 
 
+    def getDateInput(self):
+        trueVal = True
+
+        while trueVal:
+            yy = str(input('YYYY: '))
+            if yy.isdigit() and len(yy) == 4:
+                yy = int(yy)
+                trueVal = False
+            else:
+                print('Year not valid.\nExample: 2018')
+
+        while not trueVal:
+            mm = str(input('MM: '))
+            if mm.isdigit() and len(mm) == 2:
+                mm = int(mm)
+                trueVal = True
+            else:
+                print('Month not valid.\nFor example: December is 12')
+
+        while trueVal:
+            dd = str(input('DD: '))
+            if dd.isdigit() and len(dd) == 2:
+                dd = int(dd)
+                trueVal = False
+            else:
+                print('Day not valid.')
+
+        return datetime(yy, mm, dd)
+
+
     def newOrder(self):
         os.system('cls' if os.name == 'nt' else 'clear')
+
+        # Truth value used for input error handling
+        trueVal = True
+
+        # List that gathers the info required to create an instance of order
         newOrderData = []
+
         newOrderData.append(input('Customer SSN: '))
+
         # Checks if Customer exists, if not it calls create new customer
         if not self.__customerDom.checkSsn(newOrderData[0]):
             while not self.__customerUI.newCustomerWithSsn(newOrderData[0]):
@@ -29,29 +66,47 @@ class OrderUi:
                 if self.__customerDom.checkSsn(newOrderData[0]):
                     break
 
+        # Gets the date / time today.
         newOrderData.append(datetime(int(datetime.today().year), \
                                      int(datetime.today().month), \
                                      int(datetime.today().day), \
                                      int(datetime.today().hour), \
                                      int(datetime.today().minute), \
                                      int(datetime.today().second)))
-
-        os.system('cls' if os.name == 'nt' else 'clear')
         
-        print('Pickup Date (YYYY/MM/DD): ')    
-        yy = int(input('YYYY: '))
-        mm = int(input('MM: '))
-        dd = int(input('DD: '))
-        pDate = datetime(yy, mm, dd)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        # Asks for a pickup date from the user and validates it
+        while trueVal:    
+            print('Pickup Date (YYYY/MM/DD): ')
+            pDate = self.getDateInput()
+            tDay = datetime(int(datetime.today().year), \
+                            int(datetime.today().month), \
+                            int(datetime.today().day))
+            if pDate >= tDay:
+                trueVal = False
+            else:
+                print('Pickup date not valid')
+                input()
+                os.system('cls' if os.name == 'nt' else 'clear')
+
         newOrderData.append(pDate)
+        trueVal = True
+
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        print('Return Date (YYYY/MM/DD: ')
-        yy = int(input('YYYY: '))
-        mm = int(input('MM: '))
-        dd = int(input('DD: '))
-        rDate = datetime(yy, mm, dd)
+        # Asks for a return date from the user and validates it
+        while trueVal:
+            print('Return Date (YYYY/MM/DD: ')
+            rDate = self.getDateInput()
+            if rDate > pDate:
+                trueVal = False
+            else:
+                print('Return date not valid')
+                input()
+                os.system('cls' if os.name == 'nt' else 'clear')
+
         newOrderData.append(rDate)
 
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -100,7 +155,7 @@ class OrderUi:
         self.__dom.createOrder(newOrderData)
 
 
-        #Prints a table with the contents of orderList
+    #Prints a table with the contents of orderList
     def printSelectionTable(self, myOrderList, index):
         print(' -------------------------------------------------------------------------------------------------- ')
         print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
@@ -112,7 +167,7 @@ class OrderUi:
                 print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
                                                          '|' + x.getCarType(),
-                                                         '|' + x.getDateOfOrder(),
+                                                         '|' + str(x.getDateOfOrder()),
                                                          '|' + x.getPickup(),
                                                          '|' + x.getReturn() + '|',
                 str(self.__dom.calculateBasePrice(datetime.strptime(x.getPickup(),'%Y-%m-%d %H:%M:%S'),
