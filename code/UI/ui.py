@@ -12,7 +12,7 @@ class Startup:
 
     def login(self):
         while True:
-            print('          Login')
+            print('Welcome to ABIS \nLogin')
             username = input('Username: ').upper()
             password = input('password: ')
             if self.employeedomain.checkLogin(username, password):

@@ -15,7 +15,9 @@ class CSUI:
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print('Welcome to the ABIS manager program!')
+            
+            print('Welcome to the ABIS, the Customer Service program!')
+
             print('___________________________________')
             print('1. New order \n'
                   '2. View/edit orders \n'
@@ -129,7 +131,7 @@ class CSUI:
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show available cars')
-                    print('2. show unavailable cars')
+                    print('2. show rented cars')
                     print('q. back')
                     c2 = input()
                     # OPTION 1 SUB 2
@@ -151,13 +153,16 @@ class CSUI:
             elif c == '5':
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
+
                     print('1. View/edit all customers')
                     print('2. Find specific customer')
+
                     print('q. back')
                     c2 = input()
 
                     # OPTION 1 SUB 2
                     if c2 == '1':
+
                         index = 0
                         customers = self.customerui.retCustomers()
                         while True:
@@ -286,6 +291,7 @@ class CSUI:
                     # OPTION Q SUB 2
                     elif c2 == 'q':
                         break
+
 
                     # OPTION REST SUB 2
                     else:

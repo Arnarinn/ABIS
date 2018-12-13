@@ -9,11 +9,14 @@ class CMUI:
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            print('Welcome to the ABIS manager program!')
+
+            print('Welcome to the ABIS, the Car Maintenance program!')
             print('___________________________________')
-            print('1. Mark a car as available \n'
-                  '2. View cars \n'
-                  'q. Quit the program \n')
+            print('1. Mark car as delivered \n'
+                '2. Mark car as returned \n'
+                '3. View all cars \n'
+                'q. Quit the program \n')
+
             # Detects a button press and which button was pressed
             c = input()
             if c == '1':
@@ -21,9 +24,11 @@ class CMUI:
             elif c == '2':
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
+
                     print('1. Show available cars')
                     print('2. Show unavailable cars')
                     print('3. Show all cars')
+
                     print('q. go backwards')
                     c2 = input()
                     if c2 == '1':
