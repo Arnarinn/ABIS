@@ -14,9 +14,9 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-10s%-13s%-9s%-9s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
+        print('%-10s%-13s%-9s%-11s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
             '|' + 'Plate Nr', '|' + 'Price   ' + '|', 'Status' + '|'))
-        print('=====================================================')
+        print('===================================================')
         i = 0
         for x in myCarList:
             if i == index and search == 'y':
@@ -24,13 +24,13 @@ class CarUi:
                      '|' + x.getManufacturer(),
                      '|' + x.getPlate(), '|' + x.getCost() + '|',
                       x.getStatus() + '|') + '<---')
-                print('-----------------------------------------------------')
+                print('---------------------------------------------------')
             else:
-                print('%-10s%-13s%-9s%-9s%-6s' % ('|' + x.getType(),
+                print('%-10s%-13s%-9s%-11s%-6s' % ('|' + x.getType(),
                                                   '|' + x.getManufacturer(),
                                                   '|' + x.getPlate(), '|' + x.getCost() + '|',
                                                   x.getStatus() + '|'))
-                print('-----------------------------------------------------')
+                print('---------------------------------------------------')
             i += 1
 
 
