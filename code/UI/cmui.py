@@ -13,7 +13,7 @@ class CMUI:
             print('___________________________________')
             print('1. Mark car as delivered \n'
                 '2. Mark car as returned \n'
-                '3. View cars \n'
+                '3. View all cars \n'
                 'q. Quit the program \n')
             # Detects a button press and which button was pressed
             c = input()

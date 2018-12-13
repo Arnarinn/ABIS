@@ -33,7 +33,7 @@ class CSUI:
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show available cars')
-                    print('2. show unavailable cars')
+                    print('2. show rented cars')
                     print('q. back')
                     c2 = input()
                     if c2 == '1':
@@ -51,7 +51,7 @@ class CSUI:
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. See all customers')
-                    print('2. Find specific customer')
+                    print('2. Find a specific customer')
                     print('q. back')
                     c2 = input()
                     if c2 == '1':
