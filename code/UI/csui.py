@@ -15,13 +15,13 @@ class CSUI:
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            
-            print('Welcome to the ABIS, the Customer Service program!')
+
+            print('Welcome to ABIS, the Customer Service program!')
 
             print('___________________________________')
             print('1. New order \n'
                   '2. View/edit orders \n'
-                  '3. View cars \n'
+                  '3. View/edit cars \n'
                   '4. New customer \n'
                   '5. View/edit customers \n'
                   'q. Quit the program \n')
@@ -131,7 +131,8 @@ class CSUI:
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show available cars')
-                    print('2. show rented cars')
+                    print('2. show unavailable cars')
+                    print('3. show all cars')
                     print('q. back')
                     c2 = input()
                     # OPTION 1 SUB 2
