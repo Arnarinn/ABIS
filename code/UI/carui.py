@@ -44,6 +44,8 @@ class CarUi:
                 '|' + x.getShifting(), '|' + x.getStatus(), '|' + x.getCost() + '|'))
             print(' --------------------------------------------------------------------------------------------------------------------------------------------------- ')
 
+    def retCarData(self):
+        self.__dom.retCarData()
 
     #Calls the printTable function on all available cars
     def CSDispAvailableCars(self):                                                                                        

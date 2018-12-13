@@ -66,7 +66,7 @@ class CSUI:
                                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
 
                             # OPTION W SUB 3
-                            elif c3.upper() == 'W' and index > 0  and len(customers) != 1:
+                            elif c3.upper() == 'W' and index > 0  and len(orders) != 1:
                                 os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
@@ -108,7 +108,7 @@ class CSUI:
                                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
 
                             # OPTION W SUB 3
-                            elif c3.upper() == 'W' and index > 0 and len(customers) != 1:
+                            elif c3.upper() == 'W' and index > 0 and len(orders) != 1:
                                 os.system('cls' if os.name == 'nt' else 'clear')
                                 index -= 1
 
