@@ -14,11 +14,11 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-15s%-15s%-10s%-10s' % ('|' + 'Type', '|' + 'Manufacturer', \
+        print('%-10s%-13s%-6s%-9s' % ('|' + 'Type', '|' + 'Manufacturer', \
             '|' + 'Plate Nr', '|' + 'Price   ' + '|'))                               
         print('==================================================')                  
         for x in myCarList:                                                          
-            print('%-15s%-15s%-10s%-10s' % ('|' + x.getType(),\
+            print('%-10s%-13s%-6s%-9s' % ('|' + x.getType(),\
                  '|' + x.getManufacturer(),\
                  '|' + x.getPlate(), '|' + x.getCost() + '|'))                       
             print('--------------------------------------------------')
