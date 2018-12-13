@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fc218c8-3cd3-4104-9083-60374fc369cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Business/cardomain.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Business/cardomain.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/UI/carui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/carui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/UI/cmui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/cmui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/UI/csui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/csui.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,20 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/UI/csui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="146" column="69" lean-forward="true" selection-start-line="146" selection-start-column="69" selection-end-line="146" selection-end-column="69" />
+            <state relative-caret-position="306">
+              <caret line="143" column="57" lean-forward="true" selection-start-line="143" selection-start-column="57" selection-end-line="143" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/UI/carui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="95" column="51" lean-forward="true" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
+            <state relative-caret-position="272">
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -128,15 +124,15 @@
         <option value="$PROJECT_DIR$/code/UI/orderui.py" />
         <option value="$PROJECT_DIR$/code/UI/customerui.py" />
         <option value="$PROJECT_DIR$/code/UI/cmui.py" />
-        <option value="$PROJECT_DIR$/code/UI/carui.py" />
         <option value="$PROJECT_DIR$/code/Business/cardomain.py" />
         <option value="$PROJECT_DIR$/code/UI/csui.py" />
+        <option value="$PROJECT_DIR$/code/UI/carui.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="60" />
-    <option name="y" value="75" />
+    <option name="x" value="20" />
+    <option name="y" value="40" />
     <option name="width" value="3720" />
     <option name="height" value="1960" />
   </component>
@@ -302,7 +298,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="113" width="1488" height="784" extended-state="0" />
+    <frame x="8" y="16" width="1488" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23468685" />
@@ -545,16 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/UI/carui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="95" column="51" lean-forward="true" selection-start-line="95" selection-start-column="51" selection-end-line="95" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/UI/cmui.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-493">
@@ -564,8 +550,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/UI/csui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="146" column="69" lean-forward="true" selection-start-line="146" selection-start-column="69" selection-end-line="146" selection-end-column="69" />
+        <state relative-caret-position="306">
+          <caret line="143" column="57" lean-forward="true" selection-start-line="143" selection-start-column="57" selection-end-line="143" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/UI/carui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
