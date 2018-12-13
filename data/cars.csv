@@ -2,7 +2,7 @@ manufacturer,color,cost,license plate,distance,year,car,type,number of seats,num
 volvo,red,12.000kr,YR589,10.000km,2015,sedan,5,5,yes,gasoline,front-wheel drive,manual,1
 honda,blue,33.000kr,OJ758,42.343km,2003,jeep,7,5,yes,diesel,four-wheel drive,automatic,1
 subaru,yellow,19.000kr,UJ488,934km,2005,sportscar,4,5,yes,gasoline,rear-wheel drive,manual,0
-toyota,green,12.000kr,ZZ667,33.332km,2013,sedan,5,5,yes,diesel,front-wheel drive,automatic,1
+toyota,green,12.000kr,ZZ667,33.332km,2013,sedan,5,5,yes,diesel,front-wheel drive,automatic,0
 bmw,white,19.000kr,SD345,49.999km,2017,sportscar,2,3,yes,gasoline,front-wheel drive,manual,0
 renault,black,33.000kr,VV221,33.339km,2018,jeep,7,5,yes,diesel,four-wheel drive,automatic,1
 porsche,red,19.000kr,TE514,3.030km,1998,sportscar,2,3,yes,gasoline,rear-wheel drive,manual,0
@@ -13,7 +13,7 @@ ford,blue,12.000kr,UY551,8.000km,2009,sedan,5,5,yes,diesel,rear-wheel drive,auto
 honda,white,12.000kr,HJ256,22.002km,2012,sedan,5,5,yes,diesel,front-wheel drive,manual,1
 toyota,gold,33.000kr,PEN15,1.000km,2018,jeep,7,5,yes,diesel,four-wheel drive,manual,1
 volkswagen,blue,19.000kr,FFA20,300.000km,1982,sportscar,2,2,yes,gasoline,rear-wheel drive,manual,0
-lexus,orange,12.000kr,HH123,45.000km,2011,sedan,5,5,yes,diesel,front-wheel drive,manual,1
+lexus,orange,12.000kr,HH123,45.000km,2011,sedan,5,5,yes,diesel,front-wheel drive,manual,0
 subaru,green,12.000kr,KL812,0km,2017,sedan,7,5,yes,diesel,four-wheel drive,automatic,1
 suzuki,green,19.000kr,PJG00,9.328km,2011,sportscar,4,3,yes,gasoline,front-wheel drive,manual,0
 ferrari,red,19.000kr,BOS55,8.888km,2016,sportscar,2,3,yes,diesel,rear-wheel drive,manual,0

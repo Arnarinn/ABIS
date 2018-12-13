@@ -9,23 +9,26 @@ class CMUI:
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
+
             print('Welcome to the ABIS, the Car Maintenance program!')
             print('___________________________________')
             print('1. Mark car as delivered \n'
                 '2. Mark car as returned \n'
                 '3. View all cars \n'
                 'q. Quit the program \n')
+
             # Detects a button press and which button was pressed
             c = input()
             if c == '1':
-                self.carDelivered()
+                self.carui.returnCar()
             elif c == '2':
-                self. carReturned()
-            elif c == '3':
                 while True:
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    print('1. show returned cars')
-                    print('2. show delivered cars')
+
+                    print('1. Show available cars')
+                    print('2. Show unavailable cars')
+                    print('3. Show all cars')
+
                     print('q. go backwards')
                     c2 = input()
                     if c2 == '1':
@@ -34,41 +37,10 @@ class CMUI:
                     elif c2 == '2':
                         self.carui.CMDispUnavailableCars()
                         input()
+                    elif c2 == '3':
+                        self.carui.printCMTable(self.carui.retCarData())
                     elif c2 == 'q':
                         break
             elif c == 'q':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 break
-    def carDelivered(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        # loads of inputs to insert into the csv file
-        employee = input('Type in employee name:')
-        carNumber = input('Type in car number:')
-        # sends the info to the business layer
-        # which inserts it into the relevant file
-        self.domain.insertOrder(employee, carNumber)
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
-
-    def carReturned(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        employee = input('Type in employee name:')
-        carNumber = input('Type in car number:')
-        self.domain.insertOrder(employee, carNumber)
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
-
-    def viewCars(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        carData = self.domain.getCarData()
-        for v in carData:
-            print(v)
-        # Waits for any input on the keyboard
-        # to give time for user to read their info
-        print('press any key to go back')
-        input()
-        

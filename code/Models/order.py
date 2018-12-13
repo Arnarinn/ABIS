@@ -67,3 +67,9 @@ class Order:
 
     def getPickup(self):
         return self.__timeOfPickup
+
+    def setReturn(self, returnDate):
+        self.__timeOfReturn = returnDate
+
+    def setPickup(self, pickupDate):
+        self.__timeOfPickup = pickupDate

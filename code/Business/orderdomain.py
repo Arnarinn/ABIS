@@ -19,6 +19,16 @@ class OrderDomain:
                                 
         self.__orderRep.orderInsert(self.__orderList)
 
+    
+    def deleteOrder(self, carPlate, pDate):
+        for x in self.__orderList:
+            if x.getCarPlate() == carPlate and x.getPickup()[:10] == pDate:
+                self.__orderList.remove(x)
+                self.__orderRep.orderInsert(self.__orderList)
+                return 1
+        return 0
+            
+
 
     def calculateBasePrice(self, date1, date2, carType):
         time = timedelta()
@@ -28,11 +38,11 @@ class OrderDomain:
         if time == 0:
             time = 1
         
-        if carType == 1:
+        if carType == 'sedan':
             return self.__carTypes.getSedanPrice() * time
-        elif carType == 2:
+        elif carType == 'sport':
             return self.__carTypes.getSportPrice() * time
-        elif carType == 3:
+        elif carType == 'jeep':
             return self.__carTypes.getJeepPrice() * time
         else:
             print('Invalid input')
@@ -58,6 +68,21 @@ class OrderDomain:
     def findOrdersByDate(self, date):
         oList = []
         for order in self.__orderList:
-            if str(order.getDateOfOrder()) == str(date):
+            if str(order.getDateOfOrder())[:10] == str(date):
                 oList.append(order)
         return oList
+
+    def returnOrderData(self):
+        return self.__orderList
+
+    def editReturnDate(self, order, returnDate):
+        for e in self.__orderList:
+            if order.getCarPlate() == e.getCarPlate() and order.getPickup() == e.getPickup():
+                e.setReturn(returnDate)
+                self.__orderRep.orderInsert(self.__orderList)
+
+    def editPickupDate(self, order, pickupDate):
+        for e in self.__orderList:
+            if order.getCarPlate() == e.getCarPlate() and order.getPickup() == e.getPickup():
+                e.setPickup(pickupDate)
+                self.__orderRep.orderInsert(self.__orderList)
