@@ -18,6 +18,7 @@ class OrderDomain:
                                 orderData[4], orderData[5], orderData[6], orderData[7]))
                                 
         self.__orderRep.orderInsert(self.__orderList)
+        self.__orderList = self.__orderRep.orderData()
 
     
     def deleteOrder(self, carPlate, pDate):
