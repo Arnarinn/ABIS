@@ -21,6 +21,7 @@ class CustomerUi:
             return
         if self.__dom.checkSsn(newCustomerData[0]):
             print('This SSN has already been recorded')
+            input()
             return
 
         newCustomerData.append(input('First Name: '))
@@ -41,6 +42,10 @@ class CustomerUi:
         newCustomerData.append(input('Phone: '))
         if (not newCustomerData[4].isdigit()) or (len(newCustomerData[4]) != 7):
             print('Phone not valid')
+            return
+        if self.__dom.checkPhone(newCustomerData[4]):
+            print('This phone has already been recorded')
+            input()
             return
         newCustomerData.append(input('Credit Card: '))
         if (not newCustomerData[5].isdigit()) or (len(newCustomerData[5]) != 16):
@@ -82,6 +87,9 @@ class CustomerUi:
         newCustomerData.append(input('Phone: '))
         if (not newCustomerData[4].isdigit()) or (len(newCustomerData[4]) != 7):
             print('Phone not valid')
+            return False
+        if self.__dom.checkPhone(newCustomerData[4]):
+            print('This Phone has already been recorded')
             return False
         newCustomerData.append(input('Credit Card: '))
         if (not newCustomerData[5].isdigit()) or (len(newCustomerData[5]) != 16):
@@ -175,7 +183,10 @@ class CustomerUi:
             print('Phone not valid')
             input()
             return
-        # MABY ADD UNIQUE CHECK
+        if self.__dom.checkPhone(phone):
+            print('This phone has already been recorded')
+            input()
+            return
         self.__dom.editPhone(customer, phone)
 
     def editCardNumber(self, customer, cardnumber):

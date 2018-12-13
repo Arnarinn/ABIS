@@ -92,4 +92,11 @@ class CustomerDomain:
                 return True
         return False
 
+    
+    def checkPhone(self, phone):
+        for x in self.__customerList:
+            if x.getPhone() == phone:
+                return True
+        return False
+
 
