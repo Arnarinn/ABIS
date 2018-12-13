@@ -84,10 +84,11 @@ class CSUI:
             c = input()
             # Checks input from user and calls a function from the edit / navigation menue
             if c == '1':
-                pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
+                # Uses the same function as orderui to get date input
+                pickDate = self.orderui.getDateInput()
                 self.orderui.editPickup(orders[index], pickDate)
             if c == '2':
-                retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
+                retDate = self.orderui.getDateInput()
                 self.orderui.editReturn(orders[index], retDate)
             if c == '3':
                 self.orderui.cancelOrder(orders[index].getCarPlate(), orders[index].getPickup())

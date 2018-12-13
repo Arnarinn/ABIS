@@ -146,18 +146,43 @@ class CustomerUi:
 
 
     def editSsn(self, customer, ssn):
+        if (not ssn.isdigit()) or (len(ssn) != 10):
+            print('SSN not valid')
+            input()
+            return
+        if self.__dom.checkSsn(ssn):
+            print('This SSN has already been recorded')
+            input()
+            return
         self.__dom.editSsn(customer, ssn)
 
     def editlName(self, customer, lname):
+        if not lname.isalpha():
+            print('First name not valid')
+            input()
+            return
         self.__dom.editlName(customer, lname)
 
     def editfName(self, customer, fname):
+        if not fname.isalpha():
+            print('First name not valid')
+            input()
+            return
         self.__dom.editfName(customer, fname)
 
     def editPhone(self, customer, phone):
+        if (not phone.isdigit()) or (len(phone) != 7):
+            print('Phone not valid')
+            input()
+            return
+        # MABY ADD UNIQUE CHECK
         self.__dom.editPhone(customer, phone)
 
     def editCardNumber(self, customer, cardnumber):
+        if (not cardnumber.isdigit()) or (len(cardnumber) != 16):
+            print('Credit Card not valid')
+            input()
+            return
         self.__dom.editCardNumber(customer, cardnumber)
 
     def deleteCustomer(self, customer):
