@@ -51,7 +51,7 @@ class OrderDomain:
     def findOrdersByCarPlate(self, plate):
         oList = []
         for order in self.__orderList:
-            if str(order.getCarPlate()) == str(plate):
+            if str(plate) in str(order.getCarPlate()):
                 oList.append(order)
         return oList
 
@@ -60,7 +60,7 @@ class OrderDomain:
     def findOrdersByCustomerSSN(self, ssn):
         oList = []
         for order in self.__orderList:
-            if str(order.getSsn()) == str(ssn):
+            if str(ssn) in str(order.getSsn()):
                 oList.append(order)
         return oList
 

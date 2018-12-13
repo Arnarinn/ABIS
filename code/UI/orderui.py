@@ -97,7 +97,7 @@ class OrderUi:
             print('invalid input')
         
         newOrderData.append(price)
-        #self.__dom.createOrder(newOrderData)
+        self.__dom.createOrder(newOrderData)
 
 
         #Prints a table with the contents of orderList
@@ -123,7 +123,7 @@ class OrderUi:
             else:
                 print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
-                                                         '|' + x.getCarType(), '|' + x.getDateOfOrder(),
+                                                         '|' + x.getCarType(), '|' + str(x.getDateOfOrder()),
                                                          '|' + x.getPickup(), '|' + x.getReturn() + '|',
                 str(self.__dom.calculateBasePrice(datetime.strptime(x.getPickup(), '%Y-%m-%d %H:%M:%S'),
                                                   datetime.strptime(x.getReturn(), '%Y-%m-%d %H:%M:%S'),
