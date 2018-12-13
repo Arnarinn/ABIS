@@ -14,7 +14,7 @@ class OrderUi:
 
 
     def newOrder(self):
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         newOrderData = []
         newOrderData.append(input('Customer SSN: '))
         newOrderData.append(datetime(int(datetime.today().year), \
@@ -24,7 +24,7 @@ class OrderUi:
                                      int(datetime.today().minute), \
                                      int(datetime.today().second)))
 
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         
         print('Pickup Date (YYYY/MM/DD): ')    
         yy = int(input('YYYY: '))
@@ -33,7 +33,7 @@ class OrderUi:
         pDate = datetime(yy, mm, dd)
         newOrderData.append(pDate)
 
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         print('Return Date (YYYY/MM/DD: ')
         yy = int(input('YYYY: '))
@@ -42,7 +42,7 @@ class OrderUi:
         rDate = datetime(yy, mm, dd)
         newOrderData.append(rDate)
 
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
@@ -68,7 +68,7 @@ class OrderUi:
         else:
             print('invalid input')
 
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
 
         ins = int(input('Insurance lvl:\n1. Lvl1\n2. Lvl2\n3. Lvl3\n'))
         insurancelvl = Insurance()
@@ -103,7 +103,7 @@ class OrderUi:
 
     def findOrder(self):
         inp = int(input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\n'))
-        os.system('cls')
+        os.system('cls' if os.name == 'nt' else 'clear')
         oList = []
         if inp == 1:
             oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ')))

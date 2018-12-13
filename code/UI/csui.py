@@ -14,8 +14,8 @@ class CSUI:
 
     def home(self):
         while True:
-            os.system('cls')
-            print('Welcome to the ABIS manager program!')
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print('Welcome to the ABIS, the Customer Service program!')
             print('___________________________________')
             print('1. New order \n'
                   '2. View orders \n'
@@ -31,7 +31,7 @@ class CSUI:
                 print('out of order')
             elif c == '3':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. show available cars')
                     print('2. show unavailable cars')
                     print('q. back')
@@ -49,17 +49,17 @@ class CSUI:
                 self.customerui.newCustomer()
             elif c == '5':
                 while True:
-                    os.system('cls')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print('1. See all customers')
                     print('2. Find specific customer')
                     print('q. back')
                     c2 = input()
                     if c2 == '1':
-                        os.system('cls')
+                        os.system('cls' if os.name == 'nt' else 'clear')
                         self.customerui.dispCustomers()
                         input()
                     elif c2 == '2':
-                        os.system('cls')
+                        os.system('cls' if os.name == 'nt' else 'clear')
                         self.customerui.findCustomer()
                         print('1. Edit SSN')
                         print('2. Edit first name')
@@ -71,5 +71,5 @@ class CSUI:
                     elif c2 == 'q':
                         break
             elif c == 'q':
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 break

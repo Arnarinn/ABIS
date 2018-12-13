@@ -48,14 +48,14 @@ class CustomerUi:
 
             if inp == '1':
                 listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
             elif inp == '2':
                 listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
             elif inp == '3':
                 listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
                                          str(input('Last Name: '))))
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
             elif inp == 'q':
                 break
 

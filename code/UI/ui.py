@@ -12,7 +12,7 @@ class Startup:
 
     def login(self):
         while True:
-            print('          Login')
+            print('Welcome to ABIS \nLogin')
             username = input('Username: ').upper()
             password = input('password: ')
             if self.employeedomain.checkLogin(username, password):
@@ -26,5 +26,5 @@ class Startup:
                     cmui.home()
                     break
             else:
-                os.system('cls')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 print('Either the username or password was wrong')
