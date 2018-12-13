@@ -235,7 +235,7 @@ class CSUI:
             print('1. Edit SSN')
             print('2. Edit first name')
             print('3. Edit last name')
-            print('4. Edit phone name')
+            print('4. Edit phone')
             print('5. Edit card number')
             print('6. Delete customer')
             print('q. back')
