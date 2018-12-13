@@ -103,13 +103,13 @@ class OrderUi:
         #Prints a table with the contents of orderList
     def printSelectionTable(self, myOrderList, index):
         print(' -------------------------------------------------------------------------------------------------- ')
-        print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
+        print('%-11s%-6s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
               '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '              |', 'Price' + '|'))
         print(' ================================================================================================== ')
         i = 0
         for x in myOrderList:
             if i == index:
-                print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
+                print('%-11s%-6%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
                                                          '|' + x.getCarType(),
                                                          '|' + x.getDateOfOrder(),
@@ -121,7 +121,7 @@ class OrderUi:
                       + '<---')
                 print(' -------------------------------------------------------------------------------------------------- ')
             else:
-                print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
+                print('%-11s%-6s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
                                                          '|' + x.getCarType(), '|' + x.getDateOfOrder(),
                                                          '|' + x.getPickup(), '|' + x.getReturn() + '|',
