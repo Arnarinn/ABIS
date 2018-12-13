@@ -29,7 +29,7 @@ class CarDomain:
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
                 if x.getStatus == '1':
-                    print('Car alredy unavailable')
+                    print('Car already unavailable')
                     return
                 x.setStatus('1')
                 break
@@ -41,7 +41,7 @@ class CarDomain:
         for x in self.__carList:
             if x.getPlate() == str(carPlate):
                 if x.getStatus == '0':
-                    print('Car alredy available')
+                    print('Car already available')
                     return
                 x.setStatus('0')
                 retVal = 1
@@ -65,4 +65,4 @@ class CarDomain:
         for x in available:
             if x.getType() == str(cType):
                 return x
-        print('No cars availabli in this class')
+        print('No cars available in this class')
