@@ -90,7 +90,7 @@ class CSUI:
                 retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
                 self.orderui.editReturn(orders[index], retDate)
             if c == '3':
-                self.orderui.cancelOrder(orders[index].getCarPlate, orders[index].getPickup)
+                self.orderui.cancelOrder(orders[index].getCarPlate(), orders[index].getPickup())
             elif c.upper() == 'W' and index > 0  and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1

@@ -27,7 +27,7 @@ audi,brown,33.000kr,HP420,2.123km,2016,jeep,7,5,yes,diesel,four-wheel drive,auto
 suzuki,yellow,19.000kr,GG420,299.998km,2001,sportscar,2,3,yes,gasoline,front-wheel drive,manual,0
 audi,yellow,19.000kr,BVC11,12.000km,2010,sportscar,2,2,yes,diesel,rear-wheel drive,manual,0
 landrover,silver,33.000kr,BLE55,10.777km,2015,jeep,7,5,yes,diesel,four-wheel drive,automatic,0
-volkswagen,blue,12.000kr,ASD12,20.000km,2013,sedan,5,5,yes,gasoline,front-wheel drive,manual,1
+volkswagen,blue,12.000kr,ASD12,20.000km,2013,sedan,5,5,yes,gasoline,front-wheel drive,manual,0
 toyota,black,33.000kr,ADS98,11.004km,2015,jeep,5,5,yes,gasoline,four-wheel drive,automatic,0
 mazda,pink,12.000kr,OPG23,103.980km,2010,sedan,5,3,yes,gasoline,rear-wheel drive,manual,0
 volvo,blue,12.000kr,LPO22,84.032km,2011,sedan,5,5,yes,diesel,front-wheel drive,manual,0

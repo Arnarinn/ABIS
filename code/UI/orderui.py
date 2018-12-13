@@ -218,7 +218,7 @@ class OrderUi:
 
 
     def cancelOrder(self, plate, pDate):
-        check = self.__dom.deleteOrder(plate, pDate)
+        check = self.__dom.deleteOrder(str(plate), str(pDate))
         self.__carDom.setAsAvailable(plate) 
         if check == 1:
             print('Order Cancelled')
