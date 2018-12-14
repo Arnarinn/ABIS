@@ -120,6 +120,8 @@ class OrderUi:
             typ = input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\nQ. Cancel Order\n')
             if typ == '1':
                 car = self.__carDom.getNextAvailableCar('sedan')
+                if car == False:
+                    continue
                 self.__carDom.setAsUnavailable(car.getPlate())
                 newOrderData.append(str(car.getPlate()))
                 newOrderData.append('sedan')
@@ -127,6 +129,8 @@ class OrderUi:
                 trueVal = False
             elif typ == '2':
                 car = self.__carDom.getNextAvailableCar('sport')
+                if car == False:
+                    continue
                 self.__carDom.setAsUnavailable(car.getPlate())
                 newOrderData.append(str(car.getPlate()))
                 newOrderData.append('sport')
@@ -134,6 +138,8 @@ class OrderUi:
                 trueVal = False
             elif typ == '3':
                 car = self.__carDom.getNextAvailableCar('jeep')
+                if car == False:
+                    continue
                 self.__carDom.setAsUnavailable(car.getPlate())
                 newOrderData.append(str(car.getPlate()))
                 newOrderData.append('jeep')
@@ -263,7 +269,7 @@ class OrderUi:
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             customer = self.__customerDom.findCustomerSSN(ssn)
-            print('Name: ' + customer.getFName() + ' ' + customer.getLName())
+            print('Name: ' + customer[0].getFName() + ' ' + customer[0].getLName())
             print('Car: ' + carType + ' ' + carPlate)
             print('Insurance: ' + insurance)
             print('\nRental time:')
