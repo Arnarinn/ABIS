@@ -21,6 +21,7 @@ class CustomerUi:
             return
         if self.__dom.checkSsn(newCustomerData[0]):
             print('This SSN has already been recorded')
+            input()
             return
 
         newCustomerData.append(input('First Name: '))
@@ -41,6 +42,10 @@ class CustomerUi:
         newCustomerData.append(input('Phone: '))
         if (not newCustomerData[4].isdigit()) or (len(newCustomerData[4]) != 7):
             print('Phone not valid')
+            return
+        if self.__dom.checkPhone(newCustomerData[4]):
+            print('This phone has already been recorded')
+            input()
             return
         newCustomerData.append(input('Credit Card: '))
         if (not newCustomerData[5].isdigit()) or (len(newCustomerData[5]) != 16):
@@ -83,6 +88,9 @@ class CustomerUi:
         if (not newCustomerData[4].isdigit()) or (len(newCustomerData[4]) != 7):
             print('Phone not valid')
             return False
+        if self.__dom.checkPhone(newCustomerData[4]):
+            print('This Phone has already been recorded')
+            return False
         newCustomerData.append(input('Credit Card: '))
         if (not newCustomerData[5].isdigit()) or (len(newCustomerData[5]) != 16):
             print('Credit Card not valid')
@@ -101,6 +109,7 @@ class CustomerUi:
               '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number      ' + '|'))
         print(' ============================================================== ')
         i = 0
+        
         for x in myCustomerList:
             if index == i:
                 print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
@@ -117,7 +126,7 @@ class CustomerUi:
 
     def findCustomer(self):
         while True:
-            print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go backwards')
+            print('1. Search by SSN\n2. Search by Phone\n3. Search by Full Name\nq. Go back')
             listOfCustomers = []
             inp = input()
 
@@ -131,8 +140,8 @@ class CustomerUi:
                 return listOfCustomers
 
             elif inp == '3':
-                listOfCustomers.append(self.__dom.findCustomerName(str(input('First Name: ')),
-                                         str(input('Last Name: '))))
+                listOfCustomers = self.__dom.findCustomerName(str(input('First Name: ')),
+                                         str(input('Last Name: ')))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
 
@@ -145,18 +154,46 @@ class CustomerUi:
 
 
     def editSsn(self, customer, ssn):
+        if (not ssn.isdigit()) or (len(ssn) != 10):
+            print('SSN not valid')
+            input()
+            return
+        if self.__dom.checkSsn(ssn):
+            print('This SSN has already been recorded')
+            input()
+            return
         self.__dom.editSsn(customer, ssn)
 
     def editlName(self, customer, lname):
+        if not lname.isalpha():
+            print('First name not valid')
+            input()
+            return
         self.__dom.editlName(customer, lname)
 
     def editfName(self, customer, fname):
+        if not fname.isalpha():
+            print('First name not valid')
+            input()
+            return
         self.__dom.editfName(customer, fname)
 
     def editPhone(self, customer, phone):
+        if (not phone.isdigit()) or (len(phone) != 7):
+            print('Phone not valid')
+            input()
+            return
+        if self.__dom.checkPhone(phone):
+            print('This phone has already been recorded')
+            input()
+            return
         self.__dom.editPhone(customer, phone)
 
     def editCardNumber(self, customer, cardnumber):
+        if (not cardnumber.isdigit()) or (len(cardnumber) != 16):
+            print('Credit Card not valid')
+            input()
+            return
         self.__dom.editCardNumber(customer, cardnumber)
 
     def deleteCustomer(self, customer):

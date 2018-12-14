@@ -1,5 +1,5 @@
-from UI.orderui import OrderUi
+from UI.csui import CSUI
 
-test = OrderUi()
+test = CSUI()
 
-test.newOrder()
+test.home()

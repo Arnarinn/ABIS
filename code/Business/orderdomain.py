@@ -18,11 +18,12 @@ class OrderDomain:
                                 orderData[4], orderData[5], orderData[6], orderData[7]))
                                 
         self.__orderRep.orderInsert(self.__orderList)
+        self.__orderList = self.__orderRep.orderData()
 
     
     def deleteOrder(self, carPlate, pDate):
         for x in self.__orderList:
-            if x.getCarPlate() == carPlate and x.getPickup()[:10] == pDate:
+            if x.getCarPlate() == carPlate and x.getPickup()[:10] == pDate[:10]:
                 self.__orderList.remove(x)
                 self.__orderRep.orderInsert(self.__orderList)
                 return 1
@@ -51,7 +52,7 @@ class OrderDomain:
     def findOrdersByCarPlate(self, plate):
         oList = []
         for order in self.__orderList:
-            if str(order.getCarPlate()) == str(plate):
+            if str(plate) in str(order.getCarPlate()):
                 oList.append(order)
         return oList
 
@@ -60,7 +61,7 @@ class OrderDomain:
     def findOrdersByCustomerSSN(self, ssn):
         oList = []
         for order in self.__orderList:
-            if str(order.getSsn()) == str(ssn):
+            if str(ssn) in str(order.getSsn()):
                 oList.append(order)
         return oList
 
