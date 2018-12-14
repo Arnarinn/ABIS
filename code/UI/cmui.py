@@ -22,33 +22,43 @@ class CMUI:
             c2 = input()
             
             # Checks input from user and calls a function from the menu
-
             if c2 == '1':
                 self.availableCarsOptions()
             elif c2 == '2':
                 self.unavailableCarsOptions()
             elif c2 == '3':
-                self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
+                self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
                 input()
             elif c2 == '4':
-                car = input('Number plate: ')
-                self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
-                input()
+                self.searchCarOptions()
             elif c2.upper() == 'Q':
                 break
 
     # This contains the available car options and is called from carOptions
     def availableCarsOptions(self):
         # Gets a list of all available cars from carui
-        cars = self.carui.AvailableCars()
         index = 0
         while True:
+            cars = self.carui.AvailableCars()
             # prints a table with the cars list
-            self.carui.printCSTable(cars, index, 'y')
-            print('q. back \n')
+            self.carui.printCMTable(cars, index, 'y')
+            print('1. Change the car status to unavailable - delivered\n'
+                  'w. Up \n'
+                  's. Down \n'
+                  'q. back \n')
             # Gets input from user
-            c3 = input()        
-            if c3.upper() == 'Q':
+            c3 = input() 
+            if c3 == '1':
+                # Changes a car status to unavailable
+                self.carui.deliverCar(cars[index])
+                # Lets the arrow move up / down
+            elif c3.upper() == 'W' and index > 0 and len(cars) != 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index -= 1
+            elif c3.upper() == 'S' and index < len(cars) - 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index += 1                   
+            elif c3.upper() == 'Q':
                 break
     # This contains the unavailable car options and is called from carOptions
     # Prints out a table of unavailable cars.
@@ -56,59 +66,33 @@ class CMUI:
         index = 0
         while True:
             cars = self.carui.UnavailableCars()
-            self.carui.printCSTable(cars, index, 'n')
-            print('q. back \n')
+            self.carui.printCMTable(cars, index, 'y')
+            print('0. Change the car status to available - returned \n'
+                  'w. Up \n'
+                  's. Down \n'
+                  'q. back \n')
             # Gets input from user
             c4 = input()
-            if c4.upper() == 'Q':
+            if c4 == '0':
+                # Changes a car status to available
+                self.carui.returnCar(cars[index])
+                # Lets the arrow move up / down
+            elif c4.upper() == 'W' and index > 0 and len(cars) != 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index -= 1
+            elif c4.upper() == 'S' and index < len(cars) - 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index += 1        
+            elif c4.upper() == 'Q':
                 break
-'''
-            # OPTION 1 SUB 1
-            if c2 == '1':
-                self.carui.printCMTable(self.carui.CMDispAvailableCars(), 0, 'n')
-                input()
-
-            # OPTION 2 SUB 1
-            elif c2 == '2':
-                index = 0
-                cars = self.carui.CMDispUnavailableCars()
-                while True:
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    self.carui.printCMTable(cars, index, 'y')
-                    print('1. Mark selected car as available')
-                    c3 = input()
-
-                    # OPTION 1 SUB 2
-                    if c3 == '1':
-                        self.carui.returnCar(cars[index])
-
-                    # OPTION W SUB 2
-                    if c3.upper() == 'W' and index > 0 and len(cars) != 1:
-                        os.system('cls' if os.name == 'nt' else 'clear')
-                        index -= 1
-
-                    # OPTION S SUB 2
-                    elif c3.upper() == 'S' and index < len(cars) - 1:
-                        os.system('cls' if os.name == 'nt' else 'clear')
-                        index += 1
-
-                    # OPTION Q SUB 2
-                    elif c3.upper() == 'Q':
-                        break
-
-            # OPTION 3 SUB 1
-            elif c2 == '3':
-                self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
-                input()
-
-            # OPTION 4 SUB 1
-            elif c2 == '4':
-                while True:
-                    car = input('Number plate: ')
-                    self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
-                    input()
-
-            # OPTION Q SUB 1
-            elif c2.upper() == 'Q':
+    def searchCarOptions(self):
+        while True:
+            # Gets input from user that contains car number plate number
+            car = input('Number plate: ')
+            self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
+            print('q.back \n'
+                  'press enter to search again \n')
+            # Gets input from user
+            c5 = input()
+            if c5.upper() == 'Q':
                 break
-'''

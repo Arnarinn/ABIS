@@ -14,19 +14,19 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-10s%-13s%-9s%-11s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
+        print('%-10s%-13s%-9s%-9s%-7s' % ('|' + 'Type', '|' + 'Manufacturer',
             '|' + 'Plate Nr', '|' + 'Price   ' + '|', 'Status' + '|'))
         print(' ================================================')
         i = 0
         for x in myCarList:
             if i == index and search == 'y':
-                print('%-10s%-13s%-9s%-9s%-6s' % ('|' + x.getType(),
+                print('%-10s%-13s%-9s%-9s%-7s' % ('|' + x.getType(),
                      '|' + x.getManufacturer(),
                      '|' + x.getPlate(), '|' + x.getCost() + '|',
                       x.getStatus() + '      |') + '<---')
                 print(' ------------------------------------------------')
             else:
-                print('%-10s%-13s%-9s%-11s%-6s' % ('|' + x.getType(),
+                print('%-10s%-13s%-9s%-9s%-7s' % ('|' + x.getType(),
                                                   '|' + x.getManufacturer(),
                                                   '|' + x.getPlate(), '|' + x.getCost() + '|',
                                                   x.getStatus() + '     |'))
@@ -75,7 +75,7 @@ class CarUi:
                 cars.append(c)
         return cars
 
-
+    #Calls the printTable function on all available cars
     def AvailableCars(self):
         return self.__dom.availableCars()
         
@@ -86,6 +86,8 @@ class CarUi:
 
 
     def returnCar(self, car):
+        self.__dom.setAsAvailable(car.getPlate())
+
         comp = self.__dom.setAsAvailable(car.getPlate())
         if comp == 1:
             print('Car has been returned')
@@ -94,4 +96,5 @@ class CarUi:
 
     def deliverCar(self, car):
         self.__dom.setAsUnavailable(car.getPlate())
+
 
