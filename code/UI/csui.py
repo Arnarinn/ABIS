@@ -18,8 +18,9 @@ class CSUI:
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The main menu:
-            print('Welcome to ABIS, the Customer Service program!')
-            print('___________________________________')
+            print('Welcome to ABIS, the Customer Service program!\n'
+                  '___________________________________\n'
+                  'Press the according number or letter to navigate between pages \n')
             print('1. New order \n'
                   '2. View/edit orders \n'
                   '3. View/edit cars \n'
@@ -43,7 +44,6 @@ class CSUI:
             elif c.upper() == 'Q':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 break
-
 
     # This contains the order options and is called from the home function
     def orderOptions(self):
@@ -249,7 +249,7 @@ class CSUI:
             c3 = input()
             
             if c3 == '1':
-                ssn = input('SSN:')
+                ssn = input('SSN (10 numbers):')
                 self.customerui.editSsn(customers[index], ssn)
             elif c3 == '2':
                 firstname = input('First name:')
@@ -258,7 +258,7 @@ class CSUI:
                 lastname = input('Last name:')
                 self.customerui.editlName(customers[index], lastname)
             elif c3 == '4':
-                phone = input('Phone:')
+                phone = input('Phone(7 numbers):')
                 self.customerui.editPhone(customers[index], phone)
             elif c3 == '5':
                 cardnumber = input('Card number:')
@@ -283,7 +283,7 @@ class CSUI:
         # Make and index for the arrow functionality and going through a list
         index = 0
         customers = self.customerui.findCustomer()
-        while customers[0] is not None:
+        while customers:
             # os.system('cls' if os.name == 'nt' else 'clear')
             # makes a list of customers that fit specification
             self.customerui.printSelectionTable(customers, index)
@@ -299,7 +299,7 @@ class CSUI:
             c3 = input()
             
             if c3 == '1':
-                ssn = input('SSN:')
+                ssn = input('SSN (10 numbers):')
                 self.customerui.editSsn(customers[index], ssn)
             elif c3 == '2':
                 firstname = input('First name:')
@@ -308,7 +308,7 @@ class CSUI:
                 lastname = input('Last name:')
                 self.customerui.editlName(customers[index], lastname)
             elif c3 == '4':
-                phone = input('Phone:')
+                phone = input('Phone (7 numbers):')
                 self.customerui.editPhone(customers[index], phone)
             elif c3 == '5':
                 cardnumber = input('Card number:')
