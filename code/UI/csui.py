@@ -69,10 +69,10 @@ class CSUI:
     def viewAndEditAllOrders(self):
         index = 0
         # Gets a list of orders from orderui
-        orders = self.orderui.retOrders()
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The edit / navigation menu
+            orders = self.orderui.retOrders()
             self.orderui.printSelectionTable(orders, index)
             print('1. Edit pickup date')
             print('2. Edit return date')
@@ -86,19 +86,24 @@ class CSUI:
                 # Uses the same function as orderui to get date input
                 pickDate = self.orderui.getDateInput()
                 self.orderui.editPickup(orders[index], pickDate)
-            if c == '2':
+
+            elif c == '2':
                 retDate = self.orderui.getDateInput()
                 self.orderui.editReturn(orders[index], retDate)
-            if c == '3':
+
+            elif c == '3':
                 self.orderui.cancelOrder(orders[index].getCarPlate(), orders[index].getPickup())
                 if index == len(orders):
                     index -= 1
+
             elif c.upper() == 'W' and index > 0  and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
+
             elif c.upper() == 'S' and index < len(orders) - 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
+
             elif c.upper() == 'Q':
                 break
 
@@ -112,7 +117,7 @@ class CSUI:
         if orders == []:
             print('Quit d:')
             return
-        while orders:
+        while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The edit / navigation menu
             self.orderui.printSelectionTable(orders, index)

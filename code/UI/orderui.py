@@ -173,7 +173,7 @@ class OrderUi:
         
         newOrderData.append(price)
         self.__dom.createOrder(newOrderData)
-
+        self.__dom = OrderDomain()
 
     #Prints a table with the contents of orderList
     def printSelectionTable(self, myOrderList, index):
@@ -236,16 +236,17 @@ class OrderUi:
 
 
     def editReturn(self, order, returnDate):
-        pDate = datetime.strptime(order.getPickup(), '%Y-%m-%d %H:%M:%S')
+        pDate = datetime.strptime(str(order.getPickup()), '%Y-%m-%d %H:%M:%S')
         if pDate >= returnDate:
             print('Invalid return date')
             input()
             return
-        self.__dom.editReturnDate(order, returnDate)
+        self.__dom.editReturnDate(order, str(returnDate))
+        self.__dom = OrderDomain()
 
 
     def editPickup(self, order, pickupDate):
-        rDate = datetime.strptime(order.getReturn(), '%Y-%m-%d %H:%M:%S')
+        rDate = datetime.strptime(str(order.getReturn()), '%Y-%m-%d %H:%M:%S')
         tDay = datetime(int(datetime.today().year), \
                             int(datetime.today().month), \
                             int(datetime.today().day))
@@ -253,16 +254,13 @@ class OrderUi:
             print('Invalid pickup date')
             input()
             return
-        self.__dom.editPickupDate(order, pickupDate)
+        self.__dom.editPickupDate(order, str(pickupDate))
+        self.__dom = OrderDomain()
 
 
     def cancelOrder(self, plate, pDate):
         check = self.__dom.deleteOrder(str(plate), str(pDate))
-        self.__carDom.setAsAvailable(plate) 
-        if check == 1:
-            print('Order Cancelled')
-        else:
-            print('Something went wrong')     
+        self.__carDom.setAsAvailable(plate)
 
 
     def pay(self, ssn, carType, carPlate, pDate, rDate, insurance, price):
