@@ -26,7 +26,7 @@ class CarUi:
                       x.getStatus() + '      |') + '<---')
                 print(' ------------------------------------------------')
             else:
-                print('%-10s%-13s%-9s%-11s%-6s' % ('|' + x.getType(),
+                print('%-10s%-13s%-9s%-9s%-7s' % ('|' + x.getType(),
                                                   '|' + x.getManufacturer(),
                                                   '|' + x.getPlate(), '|' + x.getCost() + '|',
                                                   x.getStatus() + '     |'))
