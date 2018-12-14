@@ -16,6 +16,8 @@ class CustomerDomain:
                                             customerData[4], customerData[5]))
         self.__customerRep.customerInsert(self.__customerList)
 
+    def reReadList(self):
+        self.__customerList = self.__customerRep.customerData()
 
     # Returns the customer with matching ssn.
     def findCustomerSSN(self, ssn):

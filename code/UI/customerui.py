@@ -101,7 +101,9 @@ class CustomerUi:
 
         return True
 
-    
+    def reReadList(self):
+        self.__dom.reReadList()
+
     #Prints a table with the contents of myCustomerList
     def printSelectionTable(self, myCustomerList, index):
         print(' --------------------------------------------------------------- ')               

@@ -28,7 +28,7 @@ class CMUI:
                 self.unavailableCarsOptions()
             elif c2 == '3':
                 self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
-                input()
+                input('Press any key to Continue')
             elif c2 == '4':
                 self.searchCarOptions()
             elif c2.upper() == 'Q':
@@ -40,6 +40,7 @@ class CMUI:
         index = 0
         while True:
             cars = self.carui.AvailableCars()
+            os.system('cls' if os.name == 'nt' else 'clear')
             # prints a table with the cars list
             self.carui.printCMTable(cars, index, 'y')
             print('1. Change the car status to unavailable - delivered\n'
@@ -66,6 +67,7 @@ class CMUI:
         index = 0
         while True:
             cars = self.carui.UnavailableCars()
+            os.system('cls' if os.name == 'nt' else 'clear')
             self.carui.printCMTable(cars, index, 'y')
             print('0. Change the car status to available - returned \n'
                   'w. Move the arrow up \n'
@@ -88,6 +90,7 @@ class CMUI:
     def searchCarOptions(self):
         while True:
             # Gets input from user that contains car number plate number
+            os.system('cls' if os.name == 'nt' else 'clear')
             car = input('Number plate (5 characters): ')
             self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
             print('q. Back \n'

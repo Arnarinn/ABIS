@@ -166,7 +166,7 @@ class OrderUi:
             print('invalid input')
 
         os.system('cls' if os.name == 'nt' else 'clear')
-
+        self.__customerDom.reReadList()
         if not self.pay(newOrderData[0], newOrderData[4], newOrderData[5], newOrderData[2], newOrderData[3], newOrderData[6], price):
             self.__carDom.setAsAvailable(car.getPlate())
             return

@@ -183,7 +183,7 @@ class CSUI:
         while True:
             # prints a table with the cars list
             self.carui.printCSTable(cars, index, 'y')
-            print('1. Mark car as available')
+            print('1. Mark car as unavailable')
             print('input W or S to move the arrow up and down')
             # Gets input from user
             c3 = input()
@@ -214,7 +214,7 @@ class CSUI:
     def customerOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-
+            self.customerui.reReadList()
             print('1. View/edit all customers')
             print('2. Find specific customer')
 
@@ -236,8 +236,9 @@ class CSUI:
     # to edit them
     def viewAndEditAllCustomers(self):
         index = 0
-        customers = self.customerui.retCustomers()
         while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            customers = self.customerui.retCustomers()
             # os.system('cls' if os.name == 'nt' else 'clear')
             self.customerui.printSelectionTable(customers, index)
             print('1. Edit SSN(10 digits)')
