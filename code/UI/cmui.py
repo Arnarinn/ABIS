@@ -6,20 +6,63 @@ class CMUI:
         self.domain = domain
         self.carui = CarUi()
     
+    # The main menu for Car Maintenance employees.
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-
+            # The main menu
             print('Welcome to the ABIS, the Car Maintenance program!')
             print('___________________________________')
-            print('1. Show available cars')
-            print('2. Show unavailable cars')
-            print('3. Show all cars')
-            print('4. Search car by number plate')
-
-            print('q. quit')
+            print('1. Show available cars \n'
+                  '2. Show unavailable cars\n'
+                  '3. Show all cars \n'
+                  '4. Search car by number plate \n'
+                  'q. quit \n')
+            # Detects a button press and which button was pressed
             c2 = input()
+            
+            # Checks input from user and calls a function from the menu
 
+            if c2 == '1':
+                self.availableCarsOptions()
+            elif c2 == '2':
+                self.unavailableCarsOptions()
+            elif c2 == '3':
+                self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
+                input()
+            elif c2 == '4':
+                car = input('Number plate: ')
+                self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
+                input()
+            elif c.upper() == 'Q':
+                break
+
+    # This contains the available car options and is called from carOptions
+    def availableCarsOptions(self):
+        # Gets a list of all available cars from carui
+        cars = self.carui.AvailableCars()
+        index = 0
+        while True:
+            # prints a table with the cars list
+            self.carui.printCSTable(cars, index, 'y')
+            print('q. back \n')
+            # Gets input from user
+            c3 = input()        
+            if c3.upper() == 'Q':
+                break
+    # This contains the unavailable car options and is called from carOptions
+    # Prints out a table of unavailable cars.
+    def unavailableCarsOptions(self):
+        index = 0
+        while True:
+            cars = self.carui.UnavailableCars()
+            self.carui.printCSTable(cars, index, 'n')
+            print('q. back \n')
+            # Gets input from user
+            c4 = input()
+            if c4.upper() == 'Q':
+                break
+'''
             # OPTION 1 SUB 1
             if c2 == '1':
                 self.carui.printCMTable(self.carui.CMDispAvailableCars(), 0, 'n')
@@ -68,3 +111,4 @@ class CMUI:
             # OPTION Q SUB 1
             elif c2.upper() == 'Q':
                 break
+'''

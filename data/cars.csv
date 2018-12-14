@@ -1,9 +1,9 @@
 manufacturer,color,cost,license plate,distance,year,car,type,number of seats,number of doors,inspected,fuel,wheel drive,shifting option,status
 volvo,red,12.000kr,YR589,10.000km,2015,sedan,5,5,yes,gasoline,front-wheel drive,manual,1
 honda,blue,33.000kr,OJ758,42.343km,2003,jeep,7,5,yes,diesel,four-wheel drive,automatic,1
-subaru,yellow,19.000kr,UJ488,934km,2005,sportscar,4,5,yes,gasoline,rear-wheel drive,manual,0
+subaru,yellow,19.000kr,UJ488,934km,2005,sportscar,4,5,yes,gasoline,rear-wheel drive,manual,1
 toyota,green,12.000kr,ZZ667,33.332km,2013,sedan,5,5,yes,diesel,front-wheel drive,automatic,1
-bmw,white,19.000kr,SD345,49.999km,2017,sportscar,2,3,yes,gasoline,front-wheel drive,manual,0
+bmw,white,19.000kr,SD345,49.999km,2017,sportscar,2,3,yes,gasoline,front-wheel drive,manual,1
 renault,black,33.000kr,VV221,33.339km,2018,jeep,7,5,yes,diesel,four-wheel drive,automatic,1
 porsche,red,19.000kr,TE514,3.030km,1998,sportscar,2,3,yes,gasoline,rear-wheel drive,manual,0
 porsche,black,33.000kr,TY999,13.009km,2008,jeep,5,5,yes,diesel,four-wheel drive,manual,1
@@ -28,7 +28,7 @@ suzuki,yellow,19.000kr,GG420,299.998km,2001,sportscar,2,3,yes,gasoline,front-whe
 audi,yellow,19.000kr,BVC11,12.000km,2010,sportscar,2,2,yes,diesel,rear-wheel drive,manual,0
 landrover,silver,33.000kr,BLE55,10.777km,2015,jeep,7,5,yes,diesel,four-wheel drive,automatic,1
 volkswagen,blue,12.000kr,ASD12,20.000km,2013,sedan,5,5,yes,gasoline,front-wheel drive,manual,0
-toyota,black,33.000kr,ADS98,11.004km,2015,jeep,5,5,yes,gasoline,four-wheel drive,automatic,0
+toyota,black,33.000kr,ADS98,11.004km,2015,jeep,5,5,yes,gasoline,four-wheel drive,automatic,1
 mazda,pink,12.000kr,OPG23,103.980km,2010,sedan,5,3,yes,gasoline,rear-wheel drive,manual,0
 volvo,blue,12.000kr,LPO22,84.032km,2011,sedan,5,5,yes,diesel,front-wheel drive,manual,0
 ferrari,black,19.000kr,EER11,23.834km,2012,sportscar,3,2,yes,diesel,rear-wheel drive,manual,0
