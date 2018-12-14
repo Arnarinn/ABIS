@@ -91,6 +91,8 @@ class CSUI:
                 self.orderui.editReturn(orders[index], retDate)
             if c == '3':
                 self.orderui.cancelOrder(orders[index].getCarPlate(), orders[index].getPickup())
+                if index == len(orders):
+                    index -= 1
             elif c.upper() == 'W' and index > 0  and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1

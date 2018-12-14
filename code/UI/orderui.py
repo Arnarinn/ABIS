@@ -113,29 +113,35 @@ class OrderUi:
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
+        trueVal = True
         price = 0
-        if typ == 1:
-            car = self.__carDom.getNextAvailableCar('sedan')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('sedan')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'sedan')
-        elif typ == 2:
-            car = self.__carDom.getNextAvailableCar('sport')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('sport')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'sport')
-        elif typ == 3:
-            car = self.__carDom.getNextAvailableCar('jeep')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('jeep')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'jeep')
-        else:
-            print('invalid input')
+        while trueVal:
+            typ = input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\nQ. Cancel Order\n')
+            if typ == '1':
+                car = self.__carDom.getNextAvailableCar('sedan')
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('sedan')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'sedan')
+                trueVal = False
+            elif typ == '2':
+                car = self.__carDom.getNextAvailableCar('sport')
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('sport')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'sport')
+                trueVal = False
+            elif typ == '3':
+                car = self.__carDom.getNextAvailableCar('jeep')
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('jeep')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'jeep')
+                trueVal = False
+            elif typ.upper() == 'Q':
+                input('Order Cancelled.\nPress any key to Continue')
+                return
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -155,7 +161,9 @@ class OrderUi:
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        input('Payment method: ')
+        if not self.pay(newOrderData[0], newOrderData[4], newOrderData[5], newOrderData[2], newOrderData[3], newOrderData[6], price):
+            self.__carDom.setAsAvailable(car.getPlate())
+            return
         
         newOrderData.append(price)
         self.__dom.createOrder(newOrderData)
@@ -245,3 +253,48 @@ class OrderUi:
             print('Order Cancelled')
         else:
             print('Something went wrong')     
+
+
+    def pay(self, ssn, carType, carPlate, pDate, rDate, insurance, price):
+        while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            customer = self.__customerDom.findCustomerSSN(ssn)
+            print('Name: ' + customer.getFName() + ' ' + customer.getLName())
+            print('Car: ' + carType + ' ' + carPlate)
+            print('Insurance: ' + insurance)
+            print('\nRental time:')
+            print('From: ' + str(pDate)[:10])
+            print('To: ' + str(rDate)[:10])
+            vsk = price * 0.24
+            print('\nVSK: ' + str(vsk))
+            print('Cost: ' + str(price))
+            total = price + vsk
+            print('Total: ' + str(total))
+
+            inp = input('\n\nPayment method:\n1. Cash\n2. Credit Card\n3. Debit Card\nQ. Cancel\n')
+            if inp == '1':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+                
+            elif inp == '2':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                input('Verifying')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+            
+            elif inp == '3':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                input('Verifying')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+
+            elif inp.upper() == 'Q':
+                print('Order cancelled')
+                input('Press any key to Continue')
+                return False
+        return True
+
