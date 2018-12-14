@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fc218c8-3cd3-4104-9083-60374fc369cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/UI/cmui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/cmui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/UI/orderui.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/UI/orderui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cars.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/cars.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/orders.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/orders.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +24,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/UI/cmui.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/orders.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="93" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
             </state>
           </provider>
         </entry>
@@ -156,7 +165,6 @@
         <option value="$PROJECT_DIR$/data/customers.csv" />
         <option value="$PROJECT_DIR$/code/Models/customer.py" />
         <option value="$PROJECT_DIR$/code/Business/customerdomain.py" />
-        <option value="$PROJECT_DIR$/data/orders.csv" />
         <option value="$PROJECT_DIR$/code/Models/order.py" />
         <option value="$PROJECT_DIR$/code/Business/orderdomain.py" />
         <option value="$PROJECT_DIR$/code/UI/customerui.py" />
@@ -166,6 +174,7 @@
         <option value="$PROJECT_DIR$/code/UI/orderui.py" />
         <option value="$PROJECT_DIR$/data/cars.csv" />
         <option value="$PROJECT_DIR$/code/UI/cmui.py" />
+        <option value="$PROJECT_DIR$/data/orders.csv" />
       </list>
     </option>
   </component>
@@ -518,16 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/orders.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret column="64" selection-start-column="59" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/Repositories/getorders.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -601,6 +600,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/orders.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="93" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
         </state>
       </provider>
     </entry>
