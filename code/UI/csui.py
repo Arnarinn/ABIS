@@ -7,20 +7,19 @@ from .carui import CarUi
 class CSUI:
 
 
-    def __init__(self, domain):
-        self.domain = domain
+    def __init__(self):
         self.carui = CarUi()
         self.customerui = CustomerUi()
         self.orderui = OrderUi()
 
-    # The main menue for Customer Service employees.
+    # The main menu for Customer Service employees.
     def home(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            # The main menue:
-            print('Welcome to ABIS, the Customer Service program!')
-            
-            print('___________________________________')
+            # The main menu:
+            print('Welcome to ABIS, the Customer Service program!\n'
+                  '___________________________________\n'
+                  'Press the according number or letter to navigate between pages \n')
             print('1. New order \n'
                   '2. View/edit orders \n'
                   '3. View/edit cars \n'
@@ -30,7 +29,7 @@ class CSUI:
             # Detects a button press and which button was pressed
             c = input()
 
-            # Checks input from user and calls a function from the menue
+            # Checks input from user and calls a function from the menu
             if c == '1':
                 self.orderui.newOrder()
             elif c == '2':
@@ -50,13 +49,13 @@ class CSUI:
     def orderOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            # The orders menue:
+            # The orders menu:
             print('1. View/edit all orders')
             print('2. find specific order')
             print('q. back')
             # Gets input from user
             c = input()
-            # Checks input from user and calls a function from the orders menue
+            # Checks input from user and calls a function from the orders menu
             if c == '1':
                 self.viewAndEditAllOrders()
             if c == '2':
@@ -70,10 +69,10 @@ class CSUI:
     def viewAndEditAllOrders(self):
         index = 0
         # Gets a list of orders from orderui
-        orders = self.orderui.retOrders()
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            # The edit / navigation menue
+            # The edit / navigation menu
+            orders = self.orderui.retOrders()
             self.orderui.printSelectionTable(orders, index)
             print('1. Edit pickup date')
             print('2. Edit return date')
@@ -82,22 +81,29 @@ class CSUI:
             print('input W or S to move the arrow up and down')
             # Gets input from user
             c = input()
-            # Checks input from user and calls a function from the edit / navigation menue
+            # Checks input from user and calls a function from the edit / navigation menu
             if c == '1':
                 # Uses the same function as orderui to get date input
                 pickDate = self.orderui.getDateInput()
                 self.orderui.editPickup(orders[index], pickDate)
-            if c == '2':
+
+            elif c == '2':
                 retDate = self.orderui.getDateInput()
                 self.orderui.editReturn(orders[index], retDate)
-            if c == '3':
+
+            elif c == '3':
                 self.orderui.cancelOrder(orders[index].getCarPlate(), orders[index].getPickup())
+                if index == len(orders):
+                    index -= 1
+
             elif c.upper() == 'W' and index > 0  and len(orders) != 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index -= 1
+
             elif c.upper() == 'S' and index < len(orders) - 1:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 index += 1
+
             elif c.upper() == 'Q':
                 break
 
@@ -108,9 +114,12 @@ class CSUI:
         index = 0
         # Gets a list of orders from orderui
         orders = self.orderui.findOrder()
-        while orders:
+        if orders == []:
+            print('Quit d:')
+            return
+        while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            # The edit / navigation menue
+            # The edit / navigation menu
             self.orderui.printSelectionTable(orders, index)
             print('1. Edit pickup date')
             print('2. Edit return date')
@@ -119,13 +128,11 @@ class CSUI:
             print('input W or S to move the arrow up and down')
             # Gets input from user
             c = input()
-            # Checks input from user and calls a function from the edit / navigation menue
+            # Checks input from user and calls a function from the edit / navigation menu
             if c == '1':
-                pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
-                self.orderui.editPickup(orders[index], pickDate)
+                self.orderui.editPickup(orders[index], self.orderui.getDateInput())
             if c == '2':
-                retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
-                self.orderui.editReturn(orders[index], retDate)
+                self.orderui.editReturn(orders[index], self.orderui.getDateInput())
             if c == '3':
                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
                 if index == len(orders):
@@ -144,7 +151,7 @@ class CSUI:
     def carOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-            # The car menue:
+            # The car menu:
             print('1. Show available cars')
             print('2. Show unavailable cars')
             print('3. Show all cars')
@@ -152,7 +159,7 @@ class CSUI:
             print('q. back')
             # Gets input from user
             c = input()
-            # Checks input and calls a function from the car menue
+            # Checks input and calls a function from the car menu
             if c == '1':
                 self.availableCarsOptions()
             elif c == '2':
@@ -161,7 +168,7 @@ class CSUI:
                 self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
                 input()
             elif c == '4':
-                car = input('Number plate: ')
+                car = input('Number plate(5 characters): ')
                 self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
                 input()
             elif c.upper() == 'Q':
@@ -176,7 +183,8 @@ class CSUI:
         while True:
             # prints a table with the cars list
             self.carui.printCSTable(cars, index, 'y')
-            print('1. Mark car as available')
+            print('1. Mark car as unavailable')
+            print('input W or S to move the arrow up and down')
             # Gets input from user
             c3 = input()
           
@@ -206,7 +214,7 @@ class CSUI:
     def customerOptions(self):
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
-
+            self.customerui.reReadList()
             print('1. View/edit all customers')
             print('2. Find specific customer')
 
@@ -228,15 +236,16 @@ class CSUI:
     # to edit them
     def viewAndEditAllCustomers(self):
         index = 0
-        customers = self.customerui.retCustomers()
         while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            customers = self.customerui.retCustomers()
             # os.system('cls' if os.name == 'nt' else 'clear')
             self.customerui.printSelectionTable(customers, index)
-            print('1. Edit SSN')
+            print('1. Edit SSN(10 digits)')
             print('2. Edit first name')
             print('3. Edit last name')
-            print('4. Edit phone')
-            print('5. Edit card number')
+            print('4. Edit phone(7 digits)')
+            print('5. Edit card number(16 digits)')
             print('6. Delete customer')
             print('q. back')
             print('input W or S to move the arrow up and down')
@@ -278,15 +287,15 @@ class CSUI:
         # Make and index for the arrow functionality and going through a list
         index = 0
         customers = self.customerui.findCustomer()
-        while customers[0] is not None:
-            # os.system('cls' if os.name == 'nt' else 'clear')
+        while customers:
+            os.system('cls' if os.name == 'nt' else 'clear')
             # makes a list of customers that fit specification
             self.customerui.printSelectionTable(customers, index)
-            print('1. Edit SSN')
+            print('1. Edit SSN(10 digits)')
             print('2. Edit first name')
             print('3. Edit last name')
-            print('4. Edit phone name')
-            print('5. Edit card number')
+            print('4. Edit phone(7 digits')
+            print('5. Edit card number(16 digits)')
             print('6. Delete customer')
             print('q. back')
             print('input W or S to move the arrow up and down')

@@ -23,7 +23,7 @@ class OrderDomain:
     
     def deleteOrder(self, carPlate, pDate):
         for x in self.__orderList:
-            if x.getCarPlate() == carPlate and x.getPickup()[:10] == pDate[:10]:
+            if x.getCarPlate() == carPlate and str(x.getPickup())[:10] == str(pDate)[:10]:
                 self.__orderList.remove(x)
                 self.__orderRep.orderInsert(self.__orderList)
                 return 1
@@ -78,7 +78,7 @@ class OrderDomain:
 
     def editReturnDate(self, order, returnDate):
         for e in self.__orderList:
-            if order.getCarPlate() == e.getCarPlate() and order.getPickup() == e.getPickup():
+            if order.getCarPlate() == e.getCarPlate() and order.getReturn() == e.getReturn():
                 e.setReturn(returnDate)
                 self.__orderRep.orderInsert(self.__orderList)
 

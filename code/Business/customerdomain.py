@@ -16,26 +16,33 @@ class CustomerDomain:
                                             customerData[4], customerData[5]))
         self.__customerRep.customerInsert(self.__customerList)
 
+    def reReadList(self):
+        self.__customerList = self.__customerRep.customerData()
 
     # Returns the customer with matching ssn.
     def findCustomerSSN(self, ssn):
+        listOfCustomers = []
         for x in self.__customerList:
-            if x.getSsn() == ssn:
-                return x
+            if ssn in x.getSsn():
+                listOfCustomers.append(x)
+        return listOfCustomers
 
 
     # Returns the customer with matching phone.
     def findCustomerPhone(self, phone):
+        listOfCustomers = []
         for x in self.__customerList:
-            if x.getPhone() == phone:
-                return x
+            if phone in x.getPhone():
+                listOfCustomers.append(x)
+        return listOfCustomers
 
 
     # Returns a list of customers with matching names.
     def findCustomerName(self, fname, lname):
         listOfCustomers = []
         for x in self.__customerList:
-            if x.getFName() == fname and x.getLName() == lname:
+            if fname.upper() in x.getFName().upper() \
+                    and lname.upper() in x.getLName().upper():
                 listOfCustomers.append(x)
         return listOfCustomers
 

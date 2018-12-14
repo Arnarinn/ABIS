@@ -101,26 +101,28 @@ class CustomerUi:
 
         return True
 
-    
+    def reReadList(self):
+        self.__dom.reReadList()
+
     #Prints a table with the contents of myCustomerList
     def printSelectionTable(self, myCustomerList, index):
-        print(' -------------------------------------------------------------- ')               
-        print('%-11s%-15s%-11s%-8s%-20s' % ('|' + 'SSN', '|' + 'Last Name',
+        print(' --------------------------------------------------------------- ')               
+        print('%-11s%-15s%-11s%-8s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
               '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number      ' + '|'))
-        print(' ============================================================== ')
+        print(' =============================================================== ')
         i = 0
         
         for x in myCustomerList:
             if index == i:
-                print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
+                print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                       '|' + x.getLName(),'|' + x.getFName(),
                       '|' + x.getPhone() + ' |', x.getCardNumber() + ' |') + '<---')
-                print(' -------------------------------------------------------------- ')
+                print(' --------------------------------------------------------------- ')
             else:
-                print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
+                print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                       '|' + x.getLName(), '|' + x.getFName(),
                       '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
-                print(' -------------------------------------------------------------- ')
+                print(' --------------------------------------------------------------- ')
             i += 1
 
 
@@ -131,11 +133,11 @@ class CustomerUi:
             inp = input()
 
             if inp == '1':
-                listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
+                listOfCustomers = (self.__dom.findCustomerSSN(str(input('SSN: '))))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
             elif inp == '2':
-                listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
+                listOfCustomers = (self.__dom.findCustomerPhone(str(input('Phone: '))))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
 

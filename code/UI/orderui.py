@@ -77,6 +77,7 @@ class OrderUi:
         os.system('cls' if os.name == 'nt' else 'clear')
 
         # Asks for a pickup date from the user and validates it
+        pDate = datetime.today()
         while trueVal:    
             print('Pickup Date (YYYY/MM/DD): ')
             pDate = self.getDateInput()
@@ -97,6 +98,7 @@ class OrderUi:
         os.system('cls' if os.name == 'nt' else 'clear')
 
         # Asks for a return date from the user and validates it
+        rDate = datetime.today()
         while trueVal:
             print('Return Date (YYYY/MM/DD: ')
             rDate = self.getDateInput()
@@ -111,29 +113,41 @@ class OrderUi:
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        typ = int(input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\n'))
         
+        trueVal = True
         price = 0
-        if typ == 1:
-            car = self.__carDom.getNextAvailableCar('sedan')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('sedan')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'sedan')
-        elif typ == 2:
-            car = self.__carDom.getNextAvailableCar('sport')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('sport')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'sport')
-        elif typ == 3:
-            car = self.__carDom.getNextAvailableCar('jeep')
-            self.__carDom.setAsUnavailable(car.getPlate())
-            newOrderData.append(str(car.getPlate()))
-            newOrderData.append('jeep')
-            price += self.__dom.calculateBasePrice(pDate, rDate, 'jeep')
-        else:
-            print('invalid input')
+        while trueVal:
+            typ = input('Car type:\n1. Sedan\n2. Sport\n3. Jeep\nQ. Cancel Order\n')
+            if typ == '1':
+                car = self.__carDom.getNextAvailableCar('sedan')
+                if car == False:
+                    continue
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('sedan')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'sedan')
+                trueVal = False
+            elif typ == '2':
+                car = self.__carDom.getNextAvailableCar('sport')
+                if car == False:
+                    continue
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('sport')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'sport')
+                trueVal = False
+            elif typ == '3':
+                car = self.__carDom.getNextAvailableCar('jeep')
+                if car == False:
+                    continue
+                self.__carDom.setAsUnavailable(car.getPlate())
+                newOrderData.append(str(car.getPlate()))
+                newOrderData.append('jeep')
+                price += self.__dom.calculateBasePrice(pDate, rDate, 'jeep')
+                trueVal = False
+            elif typ.upper() == 'Q':
+                input('Order Cancelled.\nPress any key to Continue')
+                return
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -150,17 +164,25 @@ class OrderUi:
             price += insurancelvl.getLvl3()
         else:
             print('invalid input')
+
+        os.system('cls' if os.name == 'nt' else 'clear')
+        self.__customerDom.reReadList()
+        if not self.pay(newOrderData[0], newOrderData[4], newOrderData[5], newOrderData[2], newOrderData[3], newOrderData[6], price):
+            self.__carDom.setAsAvailable(car.getPlate())
+            return
         
         newOrderData.append(price)
         self.__dom.createOrder(newOrderData)
-
+        self.__dom = OrderDomain()
 
     #Prints a table with the contents of orderList
     def printSelectionTable(self, myOrderList, index):
-        print(' -------------------------------------------------------------------------------------------------- ')
+        print(' -------------------------------------------------'
+              '-------------------------------------------------- ')
         print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
-              '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '              |', 'Price' + '|'))
-        print(' ================================================================================================== ')
+              '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '             |', 'Price' + '|'))
+        print(' ================================================='
+              '================================================== ')
         i = 0
         for x in myOrderList:
             if i == index:
@@ -174,7 +196,8 @@ class OrderUi:
                                                   datetime.strptime(str(x.getReturn()),'%Y-%m-%d %H:%M:%S'),
                                                   x.getCarType())) + '|' )
                       + '<---')
-                print(' -------------------------------------------------------------------------------------------------- ')
+                print(' -------------------------------------------------'
+                      '-------------------------------------------------- ')
             else:
                 print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
@@ -183,26 +206,29 @@ class OrderUi:
                 str(self.__dom.calculateBasePrice(datetime.strptime(str(x.getPickup()), '%Y-%m-%d %H:%M:%S'),
                                                   datetime.strptime(str(x.getReturn()), '%Y-%m-%d %H:%M:%S'),
                                                   x.getCarType())) + '|'))
-                print(' -------------------------------------------------------------------------------------------------- ')
+                print(' -------------------------------------------------'
+                      '-------------------------------------------------- ')
             i += 1
 
     # Finds order by either Car plate, SSN or date the order was made.
     # Prints out all relevant orders
     def findOrder(self):
-        inp = int(input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\n'))
-        os.system('cls' if os.name == 'nt' else 'clear')
-        oList = []
-        if inp == 1:
-            oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ')))
-            return oList
-        elif inp == 2:
-             oList = self.__dom.findOrdersByCustomerSSN(str(input('Type in SSN: ')))
-             return oList
-        elif inp == 3:
-             oList = self.__dom.findOrdersByDate(str(input('Type in date of order: ')))
-             return oList
-        else:
-            print('Invalid input')
+        while True:
+            inp = input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\nQ. Back\n')
+            os.system('cls' if os.name == 'nt' else 'clear')
+            oList = []
+            if inp == '1':
+                oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ').upper()))
+                break
+            elif inp == '2':
+                oList = self.__dom.findOrdersByCustomerSSN(str(input('Type in SSN: ')))
+                break
+            elif inp == '3':
+                oList = self.__dom.findOrdersByDate(str(input('Type in date of order: ')))
+                break
+            elif inp.upper() == 'Q':
+                break
+        return oList
 
 
     def retOrders(self):
@@ -210,16 +236,17 @@ class OrderUi:
 
 
     def editReturn(self, order, returnDate):
-        pDate = datetime.strptime(order.getPickup(), '%Y-%m-%d %H:%M:%S')
+        pDate = datetime.strptime(str(order.getPickup()), '%Y-%m-%d %H:%M:%S')
         if pDate >= returnDate:
             print('Invalid return date')
             input()
             return
-        self.__dom.editReturnDate(order, returnDate)
+        self.__dom.editReturnDate(order, str(returnDate))
+        self.__dom = OrderDomain()
 
 
     def editPickup(self, order, pickupDate):
-        rDate = datetime.strptime(order.getReturn(), '%Y-%m-%d %H:%M:%S')
+        rDate = datetime.strptime(str(order.getReturn()), '%Y-%m-%d %H:%M:%S')
         tDay = datetime(int(datetime.today().year), \
                             int(datetime.today().month), \
                             int(datetime.today().day))
@@ -227,13 +254,55 @@ class OrderUi:
             print('Invalid pickup date')
             input()
             return
-        self.__dom.editPickupDate(order, pickupDate)
+        self.__dom.editPickupDate(order, str(pickupDate))
+        self.__dom = OrderDomain()
 
 
     def cancelOrder(self, plate, pDate):
         check = self.__dom.deleteOrder(str(plate), str(pDate))
-        self.__carDom.setAsAvailable(plate) 
-        if check == 1:
-            print('Order Cancelled')
-        else:
-            print('Something went wrong')     
+        self.__carDom.setAsAvailable(plate)
+
+
+    def pay(self, ssn, carType, carPlate, pDate, rDate, insurance, price):
+        while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            customer = self.__customerDom.findCustomerSSN(ssn)
+            print('Name: ' + customer[0].getFName() + ' ' + customer[0].getLName())
+            print('Car: ' + carType + ' ' + carPlate)
+            print('Insurance: ' + insurance)
+            print('\nRental time:')
+            print('From: ' + str(pDate)[:10])
+            print('To: ' + str(rDate)[:10])
+            vsk = price * 0.24
+            print('\nVSK: ' + str(vsk))
+            print('Cost: ' + str(price))
+            total = price + vsk
+            print('Total: ' + str(total))
+
+            inp = input('\n\nPayment method:\n1. Cash\n2. Credit Card\n3. Debit Card\nQ. Cancel\n')
+            if inp == '1':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+                
+            elif inp == '2':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                input('Verifying')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+            
+            elif inp == '3':
+                os.system('cls' if os.name == 'nt' else 'clear')
+                input('Verifying')
+                print('Order Confirmed')
+                input('Press any key to Continue')
+                break
+
+            elif inp.upper() == 'Q':
+                print('Order cancelled')
+                input('Press any key to Continue')
+                return False
+        return True
+
