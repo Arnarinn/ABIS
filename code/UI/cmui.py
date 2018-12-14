@@ -28,11 +28,11 @@ class CMUI:
             elif c2 == '2':
                 self.unavailableCarsOptions()
             elif c2 == '3':
-                self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
+                self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
                 input()
             elif c2 == '4':
                 car = input('Number plate: ')
-                self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
+                self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
                 input()
             elif c2.upper() == 'Q':
                 break
@@ -44,11 +44,25 @@ class CMUI:
         index = 0
         while True:
             # prints a table with the cars list
-            self.carui.printCSTable(cars, index, 'y')
-            print('q. back \n')
+            self.carui.printCMTable(cars, index, 'y')
+            print('1. Change the car status to unavailable - delivered\n'
+                  '0. Change the car status to available - returned \n'
+                  'w. Up \n'
+                  's. Down \n'
+                  'q. back \n')
             # Gets input from user
-            c3 = input()        
-            if c3.upper() == 'Q':
+            c3 = input() 
+            if c3 == '1':
+                # Changes a car status to unavailable
+                self.carui.deliverCar(cars[index])
+                # Lets the arrow move up / down
+            elif c3.upper() == 'W' and index > 0 and len(cars) != 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index -= 1
+            elif c3.upper() == 'S' and index < len(cars) - 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index += 1                   
+            elif c3.upper() == 'Q':
                 break
     # This contains the unavailable car options and is called from carOptions
     # Prints out a table of unavailable cars.
@@ -56,7 +70,7 @@ class CMUI:
         index = 0
         while True:
             cars = self.carui.UnavailableCars()
-            self.carui.printCSTable(cars, index, 'n')
+            self.carui.printCMTable(cars, index, 'n')
             print('q. back \n')
             # Gets input from user
             c4 = input()

@@ -86,11 +86,13 @@ class CarUi:
 
 
     def returnCar(self, car):
-        comp = self.__dom.setAsAvailable(car.getPlate())
+        self.__dom.setAsAvailable(car.getPlate())
+
+        '''comp = self.__dom.setAsAvailable(car.getPlate())
         if comp == 1:
             print('Car has been returned')
         else:
-            print('Something went wrong')
+            print('Something went wrong')'''
 
     def deliverCar(self, car):
         self.__dom.setAsUnavailable(car.getPlate())
