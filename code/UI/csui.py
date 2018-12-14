@@ -18,8 +18,9 @@ class CSUI:
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The main menu:
-            print('Welcome to ABIS, the Customer Service program!')
-            print('___________________________________')
+            print('Welcome to ABIS, the Customer Service program!\n'
+                  '___________________________________\n'
+                  'Press the according number or letter to navigate between pages \n')
             print('1. New order \n'
                   '2. View/edit orders \n'
                   '3. View/edit cars \n'
@@ -237,7 +238,7 @@ class CSUI:
         while True:
             # os.system('cls' if os.name == 'nt' else 'clear')
             self.customerui.printSelectionTable(customers, index)
-            print('1. Edit SSN')
+            print('1. Edit SSN(10 numbers)')
             print('2. Edit first name')
             print('3. Edit last name')
             print('4. Edit phone')
