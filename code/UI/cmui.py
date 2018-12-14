@@ -40,9 +40,9 @@ class CMUI:
     # This contains the available car options and is called from carOptions
     def availableCarsOptions(self):
         # Gets a list of all available cars from carui
-        cars = self.carui.AvailableCars()
         index = 0
         while True:
+            cars = self.carui.AvailableCars()
             # prints a table with the cars list
             self.carui.printCMTable(cars, index, 'y')
             print('1. Change the car status to unavailable - delivered\n'

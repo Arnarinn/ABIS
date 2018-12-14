@@ -75,7 +75,7 @@ class CarUi:
                 cars.append(c)
         return cars
 
-
+    #Calls the printTable function on all available cars
     def AvailableCars(self):
         return self.__dom.availableCars()
         
