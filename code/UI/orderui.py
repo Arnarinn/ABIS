@@ -195,21 +195,22 @@ class OrderUi:
     # Finds order by either Car plate, SSN or date the order was made.
     # Prints out all relevant orders
     def findOrder(self):
-        inp = input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\n')
-        os.system('cls' if os.name == 'nt' else 'clear')
-        oList = []
         while True:
+            inp = input('Search by\n1. Car plate\n2. Customer SSN\n3. Date of order\nQ. Back\n')
+            os.system('cls' if os.name == 'nt' else 'clear')
+            oList = []
             if inp == '1':
-                oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ')))
-                return oList
+                oList = self.__dom.findOrdersByCarPlate(str(input('Type in car plate number: ').upper()))
+                break
             elif inp == '2':
                 oList = self.__dom.findOrdersByCustomerSSN(str(input('Type in SSN: ')))
-                return oList
+                break
             elif inp == '3':
                 oList = self.__dom.findOrdersByDate(str(input('Type in date of order: ')))
-                return oList
+                break
             elif inp.upper() == 'Q':
                 break
+        return oList
 
 
     def retOrders(self):

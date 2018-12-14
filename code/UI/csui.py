@@ -107,6 +107,9 @@ class CSUI:
         index = 0
         # Gets a list of orders from orderui
         orders = self.orderui.findOrder()
+        if orders == []:
+            print('Quit d:')
+            return
         while orders:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The edit / navigation menu
