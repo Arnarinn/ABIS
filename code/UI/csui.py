@@ -7,8 +7,7 @@ from .carui import CarUi
 class CSUI:
 
 
-    def __init__(self, domain):
-        self.domain = domain
+    def __init__(self):
         self.carui = CarUi()
         self.customerui = CustomerUi()
         self.orderui = OrderUi()
@@ -126,11 +125,9 @@ class CSUI:
             c = input()
             # Checks input from user and calls a function from the edit / navigation menu
             if c == '1':
-                pickDate = input('Pickup date(YYYY-MM-DD HH:MM:SS):')
-                self.orderui.editPickup(orders[index], pickDate)
+                self.orderui.editPickup(orders[index], self.orderui.getDateInput())
             if c == '2':
-                retDate = input('Return date(YYYY-MM-DD HH:MM:SS):')
-                self.orderui.editReturn(orders[index], retDate)
+                self.orderui.editReturn(orders[index], self.orderui.getDateInput())
             if c == '3':
                 self.orderui.cancelOrder(orders[index].getPlate, orders[index].getPickup)
                 if index == len(orders):
@@ -166,7 +163,7 @@ class CSUI:
                 self.carui.printCSTable(self.carui.retCarData(), 0, 'n')
                 input()
             elif c == '4':
-                car = input('Number plate: ')
+                car = input('Number plate(5 characters): ')
                 self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
                 input()
             elif c.upper() == 'Q':
@@ -238,11 +235,11 @@ class CSUI:
         while True:
             # os.system('cls' if os.name == 'nt' else 'clear')
             self.customerui.printSelectionTable(customers, index)
-            print('1. Edit SSN(10 numbers)')
+            print('1. Edit SSN(10 digits)')
             print('2. Edit first name')
             print('3. Edit last name')
-            print('4. Edit phone')
-            print('5. Edit card number')
+            print('4. Edit phone(7 digits)')
+            print('5. Edit card number(16 digits)')
             print('6. Delete customer')
             print('q. back')
             print('input W or S to move the arrow up and down')
@@ -284,15 +281,15 @@ class CSUI:
         # Make and index for the arrow functionality and going through a list
         index = 0
         customers = self.customerui.findCustomer()
-        while customers[0] is not None:
-            # os.system('cls' if os.name == 'nt' else 'clear')
+        while customers:
+            os.system('cls' if os.name == 'nt' else 'clear')
             # makes a list of customers that fit specification
             self.customerui.printSelectionTable(customers, index)
-            print('1. Edit SSN')
+            print('1. Edit SSN(10 digits)')
             print('2. Edit first name')
             print('3. Edit last name')
-            print('4. Edit phone name')
-            print('5. Edit card number')
+            print('4. Edit phone(7 digits')
+            print('5. Edit card number(16 digits)')
             print('6. Delete customer')
             print('q. back')
             print('input W or S to move the arrow up and down')

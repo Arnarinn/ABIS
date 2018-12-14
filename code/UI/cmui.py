@@ -2,8 +2,7 @@ import os
 from .carui import CarUi
 
 class CMUI:
-    def __init__(self, domain):
-        self.domain = domain
+    def __init__(self):
         self.carui = CarUi()
     
     # The main menu for Car Maintenance employees.

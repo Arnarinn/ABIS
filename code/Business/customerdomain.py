@@ -39,7 +39,8 @@ class CustomerDomain:
     def findCustomerName(self, fname, lname):
         listOfCustomers = []
         for x in self.__customerList:
-            if fname.upper() in x.getFName().upper() and lname.upper() in x.getLName().upper():
+            if fname.upper() in x.getFName().upper() \
+                    and lname.upper() in x.getLName().upper():
                 listOfCustomers.append(x)
         return listOfCustomers
 

@@ -1,4 +1,3 @@
-from Business.domain import Domain
 from Business.employeedomain import EmployeeDomain
 import os
 from .csui import CSUI
@@ -7,7 +6,6 @@ from .cmui import CMUI
 
 class Startup:
     def __init__(self):
-        self.domain = Domain()
         self.employeedomain = EmployeeDomain()
 
     def login(self):
@@ -20,11 +18,11 @@ class Startup:
             if self.employeedomain.checkLogin(username, password):
                 employee = self.employeedomain.getEmployee(username, password)
                 if employee.getType() == 'CS':
-                    csui = CSUI(self.domain)
+                    csui = CSUI()
                     csui.home()
                     break
                 else:
-                    cmui = CMUI(self.domain)
+                    cmui = CMUI()
                     cmui.home()
                     break
             else:
