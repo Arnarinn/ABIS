@@ -105,19 +105,19 @@ class CustomerUi:
     #Prints a table with the contents of myCustomerList
     def printSelectionTable(self, myCustomerList, index):
         print(' -------------------------------------------------------------- ')               
-        print('%-11s%-15s%-11s%-8s%-20s' % ('|' + 'SSN', '|' + 'Last Name',
+        print('%-11s%-15s%-11s%-8s%-17s' % ('|' + 'SSN', '|' + 'Last Name',
               '|' + 'First Name', '|' + 'Phone   ' + '|', 'Card number      ' + '|'))
         print(' ============================================================== ')
         i = 0
         
         for x in myCustomerList:
             if index == i:
-                print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
+                print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                       '|' + x.getLName(),'|' + x.getFName(),
                       '|' + x.getPhone() + ' |', x.getCardNumber() + ' |') + '<---')
                 print(' -------------------------------------------------------------- ')
             else:
-                print('%-11s%-15s%-11s%-8s%-20s' % ('|' + x.getSsn(),
+                print('%-11s%-15s%-11s%-8s%-17s' % ('|' + x.getSsn(),
                       '|' + x.getLName(), '|' + x.getFName(),
                       '|' + x.getPhone() + ' |', x.getCardNumber() + ' |'))
                 print(' -------------------------------------------------------------- ')
