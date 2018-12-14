@@ -131,11 +131,11 @@ class CustomerUi:
             inp = input()
 
             if inp == '1':
-                listOfCustomers.append(self.__dom.findCustomerSSN(str(input('SSN: '))))
+                listOfCustomers = (self.__dom.findCustomerSSN(str(input('SSN: '))))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
             elif inp == '2':
-                listOfCustomers.append(self.__dom.findCustomerPhone(str(input('Phone: '))))
+                listOfCustomers = (self.__dom.findCustomerPhone(str(input('Phone: '))))
                 os.system('cls' if os.name == 'nt' else 'clear')
                 return listOfCustomers
 
