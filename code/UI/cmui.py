@@ -31,9 +31,7 @@ class CMUI:
                 self.carui.printCMTable(self.carui.retCarData(), 0, 'n')
                 input()
             elif c2 == '4':
-                car = input('Number plate: ')
-                self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
-                input()
+                self.searchCarOptions()
             elif c2.upper() == 'Q':
                 break
 
@@ -88,6 +86,17 @@ class CMUI:
                 index += 1        
             elif c4.upper() == 'Q':
                 break
+    def searchCarOptions(self):
+        while True:
+            car = input('Number plate: ')
+            self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
+            print('q.back \n'
+                  'press enter to search again \n')
+            # Gets input from user
+            c5 = input()
+            if c5.upper() == 'Q':
+                break
+
 '''
             # OPTION 1 SUB 1
             if c2 == '1':
