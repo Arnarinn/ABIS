@@ -23,6 +23,7 @@ class CMUI:
             # OPTION 1 SUB 1
             if c2 == '1':
                 self.carui.printCMTable(self.carui.CMDispAvailableCars(), 0, 'n')
+                print('Press any key to Continue')
                 input()
 
             # OPTION 2 SUB 1
