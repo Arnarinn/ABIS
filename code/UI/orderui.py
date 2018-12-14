@@ -57,12 +57,12 @@ class OrderUi:
         # List that gathers the info required to create an instance of order
         newOrderData = []
 
-        newOrderData.append(input('Customer SSN (10 numbers): '))
+        newOrderData.append(input('Customer SSN: '))
 
         # Checks if Customer exists, if not it calls create new customer
         if not self.__customerDom.checkSsn(newOrderData[0]):
             while not self.__customerUI.newCustomerWithSsn(newOrderData[0]):
-                newOrderData[0] = input('Customer SSN (10 numbers): ')
+                newOrderData[0] = input('Customer SSN: ')
                 if self.__customerDom.checkSsn(newOrderData[0]):
                     break
 
