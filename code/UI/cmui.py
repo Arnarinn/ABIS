@@ -11,13 +11,14 @@ class CMUI:
         while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             # The main menu
-            print('Welcome to the ABIS, the Car Maintenance program!')
-            print('___________________________________')
+            print('Welcome to the ABIS, the Car Maintenance program!\n'
+                  '___________________________________ \n'
+                  'Press the according number or letter to navigate between pages \n')
             print('1. Show available cars \n'
                   '2. Show unavailable cars\n'
                   '3. Show all cars \n'
                   '4. Search car by number plate \n'
-                  'q. quit \n')
+                  'q. Quit \n')
             # Detects a button press and which button was pressed
             c2 = input()
             
@@ -43,9 +44,9 @@ class CMUI:
             # prints a table with the cars list
             self.carui.printCMTable(cars, index, 'y')
             print('1. Change the car status to unavailable - delivered\n'
-                  'w. Up \n'
-                  's. Down \n'
-                  'q. back \n')
+                  'w. Move the arrow up \n'
+                  's. Move the arrow down \n'
+                  'q. Back \n')
             # Gets input from user
             c3 = input() 
             if c3 == '1':
@@ -68,9 +69,9 @@ class CMUI:
             cars = self.carui.UnavailableCars()
             self.carui.printCMTable(cars, index, 'y')
             print('0. Change the car status to available - returned \n'
-                  'w. Up \n'
-                  's. Down \n'
-                  'q. back \n')
+                  'w. Move the arrow up \n'
+                  's. Move the arrow down \n'
+                  'q. Back \n')
             # Gets input from user
             c4 = input()
             if c4 == '0':
@@ -88,10 +89,10 @@ class CMUI:
     def searchCarOptions(self):
         while True:
             # Gets input from user that contains car number plate number
-            car = input('Number plate: ')
+            car = input('Number plate (5 characters): ')
             self.carui.printCMTable(self.carui.findCars(car.upper()), 0, 'n')
-            print('q.back \n'
-                  'press enter to search again \n')
+            print('q. Back \n'
+                  'Or press enter to search again \n')
             # Gets input from user
             c5 = input()
             if c5.upper() == 'Q':
