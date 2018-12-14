@@ -77,6 +77,7 @@ class OrderUi:
         os.system('cls' if os.name == 'nt' else 'clear')
 
         # Asks for a pickup date from the user and validates it
+        pDate = datetime.today()
         while trueVal:    
             print('Pickup Date (YYYY/MM/DD): ')
             pDate = self.getDateInput()
@@ -97,6 +98,7 @@ class OrderUi:
         os.system('cls' if os.name == 'nt' else 'clear')
 
         # Asks for a return date from the user and validates it
+        rDate = datetime.today()
         while trueVal:
             print('Return Date (YYYY/MM/DD: ')
             rDate = self.getDateInput()
@@ -150,6 +152,10 @@ class OrderUi:
             price += insurancelvl.getLvl3()
         else:
             print('invalid input')
+
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        input('Payment method: ')
         
         newOrderData.append(price)
         self.__dom.createOrder(newOrderData)

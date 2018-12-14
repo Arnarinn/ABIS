@@ -34,7 +34,7 @@ class CMUI:
                 car = input('Number plate: ')
                 self.carui.printCSTable(self.carui.findCars(car.upper()), 0, 'n')
                 input()
-            elif c.upper() == 'Q':
+            elif c2.upper() == 'Q':
                 break
 
     # This contains the available car options and is called from carOptions
