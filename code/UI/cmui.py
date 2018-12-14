@@ -46,7 +46,6 @@ class CMUI:
             # prints a table with the cars list
             self.carui.printCMTable(cars, index, 'y')
             print('1. Change the car status to unavailable - delivered\n'
-                  '0. Change the car status to available - returned \n'
                   'w. Up \n'
                   's. Down \n'
                   'q. back \n')
@@ -70,11 +69,24 @@ class CMUI:
         index = 0
         while True:
             cars = self.carui.UnavailableCars()
-            self.carui.printCMTable(cars, index, 'n')
-            print('q. back \n')
+            self.carui.printCMTable(cars, index, 'y')
+            print('0. Change the car status to available - returned \n'
+                  'w. Up \n'
+                  's. Down \n'
+                  'q. back \n')
             # Gets input from user
             c4 = input()
-            if c4.upper() == 'Q':
+            if c4 == '0':
+                # Changes a car status to available
+                self.carui.returnCar(cars[index])
+                # Lets the arrow move up / down
+            elif c4.upper() == 'W' and index > 0 and len(cars) != 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index -= 1
+            elif c4.upper() == 'S' and index < len(cars) - 1:
+                os.system('cls' if os.name == 'nt' else 'clear')
+                index += 1        
+            elif c4.upper() == 'Q':
                 break
 '''
             # OPTION 1 SUB 1
