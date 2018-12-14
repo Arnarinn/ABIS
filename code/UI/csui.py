@@ -177,6 +177,7 @@ class CSUI:
             # prints a table with the cars list
             self.carui.printCSTable(cars, index, 'y')
             print('1. Mark car as available')
+            print('input W or S to move the arrow up and down')
             # Gets input from user
             c3 = input()
           
