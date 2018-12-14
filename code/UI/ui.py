@@ -1,6 +1,7 @@
 from Business.domain import Domain
 from Business.employeedomain import EmployeeDomain
 import os
+import getpass
 from .csui import CSUI
 from .cmui import CMUI
 
@@ -16,7 +17,7 @@ class Startup:
             print('___________________________________\n')
             print('Login\n')
             username = input('Username: ').upper()
-            password = input('password: ')
+            password = getpass.getpass('password: ')
             if self.employeedomain.checkLogin(username, password):
                 employee = self.employeedomain.getEmployee(username, password)
                 if employee.getType() == 'CS':
