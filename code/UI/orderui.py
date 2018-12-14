@@ -157,10 +157,10 @@ class OrderUi:
 
     #Prints a table with the contents of orderList
     def printSelectionTable(self, myOrderList, index):
-        print(' -------------------------------------------------------------------------------------------------- ')
+        print(' --------------------------------------------------------------------------------------------------- ')
         print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + 'SSN', '|' + 'Car Plate',
-              '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '              |', 'Price' + '|'))
-        print(' ================================================================================================== ')
+              '|' + 'Car Type', '|' + 'Date of Order', '|' + 'Pickup', '|' + 'Return' + '             |', 'Price' + '|'))
+        print(' =================================================================================================== ')
         i = 0
         for x in myOrderList:
             if i == index:
@@ -174,7 +174,7 @@ class OrderUi:
                                                   datetime.strptime(str(x.getReturn()),'%Y-%m-%d %H:%M:%S'),
                                                   x.getCarType())) + '|' )
                       + '<---')
-                print(' -------------------------------------------------------------------------------------------------- ')
+                print(' --------------------------------------------------------------------------------------------------- ')
             else:
                 print('%-11s%-12s%-9s%-21s%-21s%-21s%-12s' % ('|' + x.getSsn(),
                                                          '|' + x.getCarPlate(),
@@ -183,7 +183,7 @@ class OrderUi:
                 str(self.__dom.calculateBasePrice(datetime.strptime(str(x.getPickup()), '%Y-%m-%d %H:%M:%S'),
                                                   datetime.strptime(str(x.getReturn()), '%Y-%m-%d %H:%M:%S'),
                                                   x.getCarType())) + '|'))
-                print(' -------------------------------------------------------------------------------------------------- ')
+                print(' --------------------------------------------------------------------------------------------------- ')
             i += 1
 
     # Finds order by either Car plate, SSN or date the order was made.
