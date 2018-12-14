@@ -14,7 +14,7 @@ class CarUi:
         #Table has 4 colums with size: 15, 15, 10, 10 respectively
         # columns are filled with strings
         # columns are aligned to the left                  
-        print('%-10s%-13s%-9s%-11s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
+        print('%-10s%-13s%-9s%-9s%-6s' % ('|' + 'Type', '|' + 'Manufacturer',
             '|' + 'Plate Nr', '|' + 'Price   ' + '|', 'Status' + '|'))
         print(' ================================================')
         i = 0
